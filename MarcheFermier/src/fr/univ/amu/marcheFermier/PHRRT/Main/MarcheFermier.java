@@ -24,4 +24,9 @@ public class MarcheFermier {
             System.out.println("Desc : " + label.getDescription());
         }
     }
+
+
+    public void loadMarketListing() {
+
+    }
 }
