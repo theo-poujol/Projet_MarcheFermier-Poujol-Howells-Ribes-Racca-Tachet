@@ -1,15 +1,14 @@
 package fr.univ.amu.marcheFermier.PHRRT.Main;
 
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Label;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Apiculteur;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.ProducteurDeViande;
 
-import java.time.LocalDate;
 
 public class MarcheFermier {
 
     public static void main (String[] args){
-        ProduitFermier produitFermier = new Miel(LocalDate.now(),200);
+        /*ProduitFermier produitFermier = new Miel(LocalDate.now(),200);
 
         System.out.println(produitFermier.getPeremptionDate());
 
@@ -23,6 +22,13 @@ public class MarcheFermier {
             System.out.println("Title " + label.getTitle());
             System.out.println("Desc : " + label.getDescription());
         }
+        */
+
+        Producteur producteur = new Apiculteur(new ProducteurDeViande(new Producteur()));
+        producteur.produire();
+
+
+
     }
 
 
