@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/MarcheFermier">
+      <sourceFolder url="file://$MODULE_DIR$/MarcheFermier/src" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/untitled">
+      <sourceFolder url="file://$MODULE_DIR$/untitled/src" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/Images" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
