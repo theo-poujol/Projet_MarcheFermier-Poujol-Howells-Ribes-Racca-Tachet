@@ -8,15 +8,9 @@ import java.util.List;
 
 public class Producteur extends Acheteur {
 
-    private List<ProduitFermier> stock = new ArrayList<>();
-
-
-    public  List<ProduitFermier> getStock() {
-        return stock;
-    }
-
+    private boolean bio = false;
 
     public void produire() {
-        System.out.println("Je produis..");
+
     }
 }

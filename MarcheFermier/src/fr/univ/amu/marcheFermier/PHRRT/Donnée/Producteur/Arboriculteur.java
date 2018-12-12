@@ -1,4 +1,15 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur;
 
-public class Arboriculteur extends Producteur{
+public class Arboriculteur extends Producteur {
+    private Producteur producteurADecorer; // à modifier
+
+    public Arboriculteur(Producteur producteurADecorer) {
+        this.producteurADecorer = producteurADecorer;
+    }
+
+    @Override
+    public void produire() {
+        producteurADecorer.produire();
+        System.out.println("je produis des arbres");
+    }
 }
