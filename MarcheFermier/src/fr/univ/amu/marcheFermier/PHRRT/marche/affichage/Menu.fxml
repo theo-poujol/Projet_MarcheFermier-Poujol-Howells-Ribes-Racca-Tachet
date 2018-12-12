@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univ.amu.marcheFermier.PHRRT.marche.affichage.Menu">
+   <children>
+      <Pane layoutX="6.0" prefHeight="400.0" prefWidth="593.0">
+         <children>
+            <Button layoutX="109.0" layoutY="13.0" mnemonicParsing="false" onAction="#test" text="go to test" />
+            <Button layoutX="235.0" layoutY="14.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="373.0" layoutY="14.0" mnemonicParsing="false" text="Button" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
