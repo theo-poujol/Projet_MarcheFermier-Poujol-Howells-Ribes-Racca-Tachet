@@ -10,6 +10,10 @@ public class Producteur extends Acheteur {
 
     private List<ProduitFermier> stock = new ArrayList<>();
 
+    public Producteur(double money, String pseudo) {
+        super(money, pseudo);
+    }
+
 
     public  List<ProduitFermier> getStock() {
         return stock;
