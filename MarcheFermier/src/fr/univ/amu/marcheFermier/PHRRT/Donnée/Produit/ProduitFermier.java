@@ -1,5 +1,7 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit;
 
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +9,15 @@ import java.util.List;
 public abstract class ProduitFermier {
 
     private LocalDate peremptionDate;
-    private double prix;
+    private double prix = 0;
     private List<Label> labels = new ArrayList<>();
+    private boolean bio = false;
+    private Acheteur proprietaire;
+    private boolean isValider = false;
 
 
-    public ProduitFermier(LocalDate peremptionDate, double prix) {
+    public ProduitFermier(LocalDate peremptionDate) {
         this.peremptionDate = peremptionDate;
-        this.prix = prix;
     }
 
     public void addLabel(Label label) {
@@ -24,13 +28,20 @@ public abstract class ProduitFermier {
         return peremptionDate;
     }
 
-    public double getPrix() {
-        return prix;
-    }
 
     public List<Label> getLabels() {
         return labels;
     }
 
-    public abstract void valider();
+    public void setBio(boolean bio) {
+        this.bio = bio;
+    }
+
+    public Acheteur getProprietaire() {
+        return proprietaire;
+    }
+
+    public void valider() {
+        this.isValider = true;
+    }
 }

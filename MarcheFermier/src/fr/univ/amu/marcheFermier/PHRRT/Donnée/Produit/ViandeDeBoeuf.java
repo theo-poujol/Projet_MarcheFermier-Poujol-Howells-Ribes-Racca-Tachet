@@ -4,12 +4,7 @@ import java.time.LocalDate;
 
 public class ViandeDeBoeuf extends Viande {
 
-    public ViandeDeBoeuf(LocalDate peremptionDate, double prix) {
-        super(peremptionDate, prix);
-    }
-
-    @Override
-    public void valider() {
-
+    public ViandeDeBoeuf(LocalDate peremptionDate) {
+        super(peremptionDate);
     }
 }

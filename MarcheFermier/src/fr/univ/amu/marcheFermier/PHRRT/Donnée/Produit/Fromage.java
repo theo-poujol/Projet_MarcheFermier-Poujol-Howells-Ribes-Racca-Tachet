@@ -1,4 +1,9 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit;
 
-public class Fromage {
+import java.time.LocalDate;
+
+public abstract class Fromage extends ProduitFermier {
+    public Fromage(LocalDate peremptionDate) {
+        super(peremptionDate);
+    }
 }
