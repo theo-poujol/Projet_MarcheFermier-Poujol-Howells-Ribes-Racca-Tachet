@@ -16,6 +16,11 @@ public class Trader {
         this.nom = nom;
     }
 
+    public Double getArgentTrader() {
+        return argentTrader;
+    }
+
+
     public void nouveauClient(Acheteur acheteur, Double budget){
         try {
             acheteur.retirerArgent(budget);
@@ -38,7 +43,16 @@ avec indication du budget dont il dispose
         } );
     }
 
-    public Double getArgentTrader() {
-        return argentTrader;
+    /*
+    soit prends un client en parametre et est a l'affut
+    pour un seul a la fois
+    sois est à l'affut pour le client a la position 1 de la liste
+    et après avoir vérifier le budget et acheté qqch mets ce client a la fin
+    de la liste et décale tous les autres a gauche
+    */
+    public void etreALaffut(){
+
     }
+
+
 }

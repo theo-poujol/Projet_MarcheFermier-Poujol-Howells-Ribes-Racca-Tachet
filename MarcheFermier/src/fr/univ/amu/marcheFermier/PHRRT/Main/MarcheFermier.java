@@ -33,10 +33,10 @@ public class MarcheFermier {
         System.out.println(ahcteurururuu.getMoney());
         System.out.println(ahcteurururuu.getPseudo());
         Trader traderssss = new Trader("LoupDeWallStreet");
-        System.out.println(traderssss.getArgentTrader());
         traderssss.nouveauClient(ahcteurururuu,4000.0);
         traderssss.mesClients();
-        System.out.println(traderssss.getArgentTrader());
+
+
 
 
     }
