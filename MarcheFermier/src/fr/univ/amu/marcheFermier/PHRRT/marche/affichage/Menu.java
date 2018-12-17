@@ -1,6 +1,7 @@
 package fr.univ.amu.marcheFermier.PHRRT.marche.affichage;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,7 +17,7 @@ public class Menu extends Application {
     private VBox vbox = new VBox();
     private Scene scene = new Scene(root);
     private HBox hbox = new HBox();
-    private Button test1 = new Button();
+    private Button test1 = new Button("salut");
     private Button test2 = new Button();
     private Button test3 = new Button();
     private Button test4 = new Button("Informations");
@@ -54,9 +55,9 @@ public class Menu extends Application {
 
 
     public void setButtons() {
-        hbox.getChildren().addAll();
+        hbox.getChildren().addAll(test2, test3);
         vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().addAll();
+        vbox.getChildren().addAll(test4);
         root.setStyle("-fx-background-color: white");
         root.setTop(vbox);
         root.setCenter(hbox);
@@ -64,7 +65,14 @@ public class Menu extends Application {
     }
 
     public void setOnAction() {
-
+        test1.setOnAction(event -> {
+            Menu menu = new Menu();
+            try {
+                menu.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }
