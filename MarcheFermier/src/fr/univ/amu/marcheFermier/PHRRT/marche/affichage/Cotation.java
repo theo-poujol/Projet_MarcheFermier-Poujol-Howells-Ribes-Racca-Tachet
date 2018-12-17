@@ -1,6 +1,5 @@
 package fr.univ.amu.marcheFermier.PHRRT.marche.affichage;
 
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,10 +10,10 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Test extends Application implements Initializable {
+public class Cotation extends Application implements Initializable {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/test.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/cotation.fxml"));
 
         VBox root = loader.load();
         Scene scene = new Scene(root);
