@@ -6,10 +6,12 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
 
     private Producteur producteurADecorer; // à modifier
 
-    public Apiculteur(Producteur producteurADecorer) {
-
+    public Apiculteur(double money, String pseudo, Producteur producteurADecorer) {
+        super(money, pseudo);
         this.producteurADecorer = producteurADecorer;
     }
+
+
 
     @Override
     public void produire() {

@@ -28,12 +28,15 @@ public class MarcheFermier {
 
        // Producteur producteur = new Apiculteur(new ProducteurDeViande(new Producteur()));
         //producteur.produire();
+
         Acheteur ahcteurururuu = new Acheteur(4500.0,"Texal");
         System.out.println(ahcteurururuu.getMoney());
         System.out.println(ahcteurururuu.getPseudo());
         Trader traderssss = new Trader("LoupDeWallStreet");
+        System.out.println(traderssss.getArgentTrader());
         traderssss.nouveauClient(ahcteurururuu,4000.0);
-
+        traderssss.mesClients();
+        System.out.println(traderssss.getArgentTrader());
 
 
     }
