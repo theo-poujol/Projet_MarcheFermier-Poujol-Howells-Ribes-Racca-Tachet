@@ -8,6 +8,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 
 
 public class MarcheFermier {
+    
 
 
     public static void main (String[] args){

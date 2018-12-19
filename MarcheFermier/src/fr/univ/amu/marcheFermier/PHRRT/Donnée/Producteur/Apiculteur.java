@@ -17,5 +17,7 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
     public void produire() {
         producteurADecorer.produire();
         System.out.println("je produis du miel");
+
+
     }
 }

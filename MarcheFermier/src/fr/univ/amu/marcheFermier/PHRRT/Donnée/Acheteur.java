@@ -1,9 +1,16 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée;
 
+
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Acheteur {
 
+
+    private List<ProduitFermier> stock = new ArrayList<>();
     private double money;
     private String pseudo;
 
@@ -19,10 +26,13 @@ public class Acheteur {
 
 
 
+    public  List<ProduitFermier> getStock() {
+        return stock;
+    }
     public double getMoney() {
         return money;
     }
-    public void retirerArgent(Double budget) throws NotEnoughtMoneyException{
+    public void retirerArgent(Double budget) throws NotEnoughtMoneyException {
 
         if(budget>money){
             throw new NotEnoughtMoneyException();

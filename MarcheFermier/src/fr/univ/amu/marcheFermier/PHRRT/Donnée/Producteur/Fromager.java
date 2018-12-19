@@ -1,15 +1,16 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur;
 
-public class Orticulteur extends Producteur {
+public class Fromager implements DecorateurProducteur {
+
     private Producteur producteurADecorer;
 
-    public Orticulteur(Producteur producteurADecorer) {
+    public Fromager(Producteur producteurADecorer) {
         this.producteurADecorer = producteurADecorer;
     }
 
     @Override
     public void produire() {
         producteurADecorer.produire();
-        System.out.println("je produis du fruits, des fleurs et des légumes");
+        System.out.println("je produis du fromage");
     }
 }
