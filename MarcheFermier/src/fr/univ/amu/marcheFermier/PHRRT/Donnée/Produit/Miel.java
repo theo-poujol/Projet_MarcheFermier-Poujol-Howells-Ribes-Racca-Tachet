@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class Miel extends ProduitApiculture {
 
 
-    public Miel(LocalDate peremptionDate, double prix) {
-        super(peremptionDate, prix);
+    public Miel(LocalDate peremptionDate) {
+        super(peremptionDate,"Miel");
     }
 
 }
