@@ -23,6 +23,7 @@ public class Producteur extends Acheteur {
     private boolean bio = false;
 
 
+
     public void produire() {
 
     }

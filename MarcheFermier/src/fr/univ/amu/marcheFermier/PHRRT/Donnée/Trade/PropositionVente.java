@@ -16,10 +16,10 @@ public class PropositionVente { //Une Proposition de vente terminée devient une
         System.out.println("Ceci est une proposition de vente");
     }
 
-    public PropositionVente(Producteur monVendeur, ProduitFermier monProduit, int prix) {
+    public PropositionVente(Producteur monVendeur, ProduitFermier monProduit) {
         this.monVendeur = monVendeur;
         this.monProduit = monProduit;
-        this.prix = prix;
+        this.prix = monProduit.setPrix();
     }
 
     public Producteur getMonVendeur() {
