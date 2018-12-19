@@ -5,7 +5,7 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
     private Producteur producteurADecorer; // à modifier
 
     public Apiculteur(Producteur producteurADecorer) {
-        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
+        super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 

@@ -6,7 +6,7 @@ public class ProducteurLaitier extends Producteur implements DecorateurProducteu
 
 
     public ProducteurLaitier(Producteur producteurADecorer) {
-        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
+        super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
 
     }

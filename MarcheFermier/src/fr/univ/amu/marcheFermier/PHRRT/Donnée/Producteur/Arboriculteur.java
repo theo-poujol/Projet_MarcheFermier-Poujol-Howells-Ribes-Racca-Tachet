@@ -4,7 +4,7 @@ public class Arboriculteur extends Producteur {
     private Producteur producteurADecorer; // à modifier
 
     public Arboriculteur(Producteur producteurADecorer) {
-        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
+        super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 

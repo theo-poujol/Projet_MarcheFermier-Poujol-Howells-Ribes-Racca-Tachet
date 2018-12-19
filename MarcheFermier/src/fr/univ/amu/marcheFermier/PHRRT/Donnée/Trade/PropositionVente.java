@@ -7,22 +7,28 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import java.util.ArrayList;
 
 public class PropositionVente { //Une Proposition de vente terminée devient une Transaction, qui sera elle-même insérée dans le Livre de Marché
-    private Producteur monVendeur; //Qui vend
+    private Acheteur monVendeur; //Qui vend
     private ProduitFermier monProduit; // Ce qu'il vend
-    private int prix;
+    private Double prix;
+    private Acheteur monAcheteurChoisi; // choisi par l'AMF
     private ArrayList<Acheteur> mesAcheteurs; //Acheteurs potentiels
     private boolean isValid; //True si l'AMF valide l'annonce, celle ci devient visible
     public void afficher(){ // à implémenter
         System.out.println("Ceci est une proposition de vente");
     }
 
-    public PropositionVente(Producteur monVendeur, ProduitFermier monProduit) {
+    public PropositionVente(Acheteur monVendeur, ProduitFermier monProduit) {
         this.monVendeur = monVendeur;
         this.monProduit = monProduit;
-        this.prix = monProduit.setPrix();
+        //this.prix = monProduit.setPrix();
+    }
+    public Transaction vendre() {
+        this.monVendeur.ajouterArgent(this.getPrix());
+        this.monAcheteurChoisi.retirerArgent(this.getPrix());
+
     }
 
-    public Producteur getMonVendeur() {
+    public Acheteur getMonVendeur() {
         return monVendeur;
     }
 
@@ -38,11 +44,11 @@ public class PropositionVente { //Une Proposition de vente terminée devient une
         this.monProduit = monProduit;
     }
 
-    public int getPrix() {
+    public Double getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(Double prix) {
         this.prix = prix;
     }
 

@@ -11,11 +11,11 @@ public class Acheteur {
 
 
     private List<ProduitFermier> stock = new ArrayList<>();
-    private double money;
+    private double argent;
     private String pseudo;
 
-    public Acheteur(double money, String pseudo) {
-        this.money = money;
+    public Acheteur(double argent, String pseudo) {
+        this.argent = argent;
         this.pseudo = pseudo;
     }
 
@@ -29,16 +29,15 @@ public class Acheteur {
     public  List<ProduitFermier> getStock() {
         return stock;
     }
-    public double getMoney() {
-        return money;
+    public double getArgent() {
+        return argent;
     }
-    public void retirerArgent(Double budget) throws NotEnoughtMoneyException {
+    public void retirerArgent(Double budget)  {
+        argent -= budget;
 
-        if(budget>money){
-            throw new NotEnoughtMoneyException();
-        }
-        money -= budget;
-
+    }
+    public void ajouterArgent(Double budget) {
+        argent += budget;
     }
 }
 

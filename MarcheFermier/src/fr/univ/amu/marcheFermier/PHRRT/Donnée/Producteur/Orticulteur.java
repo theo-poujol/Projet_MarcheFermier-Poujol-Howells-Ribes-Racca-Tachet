@@ -4,7 +4,7 @@ public class Orticulteur extends Producteur implements DecorateurProducteur{
     private Producteur producteurADecorer;
 
     public Orticulteur(Producteur producteurADecorer) {
-        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
+        super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 

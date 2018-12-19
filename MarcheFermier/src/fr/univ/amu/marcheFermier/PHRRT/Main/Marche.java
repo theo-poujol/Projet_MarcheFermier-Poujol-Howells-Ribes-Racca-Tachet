@@ -16,10 +16,10 @@ public class Marche {
     private String region;
     private List<ProduitFermier> lesProduitsFermier;
     private List<Producteur> lesProducteurs;
-    private LivreMarche livreMarche;
+    private LivreMarche livreMarche; // à remplir après chaque transaction
     private List<PropositionVente> lesPropositionsVentes;
-    private int etape;
-    private Controleur amf;
+    private int etape; // PropositionVente, Validation, Achat, mise à jour affichage
+    private Controleur amf; //unique par région
     private int cotisation;
 
 

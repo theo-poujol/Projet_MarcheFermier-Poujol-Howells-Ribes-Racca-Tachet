@@ -5,7 +5,7 @@ public class Fromager extends Producteur implements DecorateurProducteur {
     private Producteur producteurADecorer;
 
     public Fromager(Producteur producteurADecorer) {
-        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
+        super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 

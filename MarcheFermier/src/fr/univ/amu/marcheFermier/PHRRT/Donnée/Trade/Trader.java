@@ -3,7 +3,6 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Trader {
@@ -26,7 +25,7 @@ public class Trader {
             acheteur.retirerArgent(budget);
             ListeDeMesClients.put(acheteur,budget*0.9); //l'acheteur est ajouté aux clients du trader
             argentTrader += (budget-(budget*0.9)); //le solde personnel du trader est crédité de la commission de 10 pourcents
-            System.out.println("Il vous reste " + acheteur.getMoney() +" € sur votre compte");
+            System.out.println("Il vous reste " + acheteur.getArgent() +" € sur votre compte");
             System.out.println(" Le trader "+ this.nom + " est heureux de vous coompter parmis ses clients désormais");
             System.out.println("Une taxe de 10% à été prélevée pour les honoraires du trader sois " + argentTrader + "€" );
         } catch (NotEnoughtMoneyException e) {

@@ -40,7 +40,7 @@ public class MarcheFermier {
         //producteur.produire();
 
         /*Acheteur ahcteurururuu = new Acheteur(4500.0,"Texal");
-        System.out.println(ahcteurururuu.getMoney());
+        System.out.println(ahcteurururuu.getArgent());
         System.out.println(ahcteurururuu.getPseudo());
         Trader traderssss = new Trader("LoupDeWallStreet");
         traderssss.nouveauClient(ahcteurururuu,4000.0);
@@ -48,10 +48,7 @@ public class MarcheFermier {
         */
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
         producteur.produire();
-        ProduitFermier prod = new Miel(LocalDate.now(),35.00);
 
-        PropositionVente propositionVente = new PropositionVente(producteur,prod,50);
-        propositionVente.afficher();
 
 
 
