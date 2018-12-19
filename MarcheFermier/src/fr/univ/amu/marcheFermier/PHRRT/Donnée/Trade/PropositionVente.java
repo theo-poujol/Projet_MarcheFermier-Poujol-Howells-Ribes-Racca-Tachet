@@ -3,10 +3,12 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 
 import java.util.ArrayList;
 
 public class PropositionVente { //Une Proposition de vente terminée devient une Transaction, qui sera elle-même insérée dans le Livre de Marché
+
     private Acheteur monVendeur; //Qui vend
     private ProduitFermier monProduit; // Ce qu'il vend
     private Double prix;
@@ -17,16 +19,30 @@ public class PropositionVente { //Une Proposition de vente terminée devient une
         System.out.println("Ceci est une proposition de vente");
     }
 
-    public PropositionVente(Acheteur monVendeur, ProduitFermier monProduit) {
+
+
+    public PropositionVente(Producteur monVendeur, ProduitFermier monProduit, int prix) {
+
         this.monVendeur = monVendeur;
         this.monProduit = monProduit;
         //this.prix = monProduit.setPrix();
     }
     public Transaction vendre() {
-        this.monVendeur.ajouterArgent(this.getPrix());
-        this.monAcheteurChoisi.retirerArgent(this.getPrix());
+
+        try {
+            this.monAcheteurChoisi.retirerArgent(this.getPrix());
+            this.monVendeur.ajouterArgent(this.getPrix());
+            return new Transaction(); // à définir
+        } catch (NotEnoughMoneyException e) {
+            e.printStackTrace();
+            return null;
+        }
 
     }
+
+
+
+
 
     public Acheteur getMonVendeur() {
         return monVendeur;
