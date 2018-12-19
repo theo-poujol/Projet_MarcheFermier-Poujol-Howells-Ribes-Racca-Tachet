@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Producteur extends Acheteur {
 
-<<<<<<< HEAD
     private List<ProduitFermier> stock = new ArrayList<>();
 
     public Producteur(double money, String pseudo) {
@@ -20,9 +19,9 @@ public class Producteur extends Acheteur {
         return stock;
     }
 
-=======
+
     private boolean bio = false;
->>>>>>> origin/produitProducteur
+
 
     public void produire() {
 
