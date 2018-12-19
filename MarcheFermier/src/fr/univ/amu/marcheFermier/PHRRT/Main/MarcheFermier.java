@@ -9,6 +9,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 
 public class MarcheFermier {
 
+
     public static void main (String[] args){
         /*ProduitFermier produitFermier = new Miel(LocalDate.now(),200);
 
