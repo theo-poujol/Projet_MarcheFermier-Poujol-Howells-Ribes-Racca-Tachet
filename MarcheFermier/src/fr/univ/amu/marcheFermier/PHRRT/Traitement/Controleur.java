@@ -32,4 +32,10 @@ public class Controleur {
         //}
     }
 
+    private Acheteur choisirAcheteurPasDeMonopole(PropositionVente propositionVente){
+        for (Acheteur acheteur: propositionVente.getMesAcheteurs()){
+
+        }
+    }
+
 }
