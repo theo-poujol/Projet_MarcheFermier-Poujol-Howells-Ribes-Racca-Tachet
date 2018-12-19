@@ -1,9 +1,8 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
-import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Trader {
@@ -20,7 +19,7 @@ public class Trader {
         return argentTrader;
     }
 
-
+/* crée un nouveau client, ajoute son budget moins une commision et donne la commission au trader*/
     public void nouveauClient(Acheteur acheteur, Double budget){
         try {
             acheteur.retirerArgent(budget);
@@ -29,7 +28,7 @@ public class Trader {
             System.out.println("Il vous reste " + acheteur.getMoney() +" € sur votre compte");
             System.out.println(" Le trader "+ this.nom + " est heureux de vous coompter parmis ses clients désormais");
             System.out.println("Une taxe de 10% à été prélevée pour les honoraires du trader sois " + argentTrader + "€" );
-        } catch (NotEnoughtMoneyException e) {
+        } catch (NotEnoughMoneyException e) {
             e.printStackTrace();
         }
     }
@@ -43,14 +42,9 @@ avec indication du budget dont il dispose
         } );
     }
 
-    /*
-    soit prends un client en parametre et est a l'affut
-    pour un seul a la fois
-    sois est à l'affut pour le client a la position 1 de la liste
-    et après avoir vérifier le budget et acheté qqch mets ce client a la fin
-    de la liste et décale tous les autres a gauche
-    */
-    public void etreALaffut(){
+
+    public void visiter(){
+        //doit verifier les cotations et si intéréssantes il achete pour les clients
 
     }
 

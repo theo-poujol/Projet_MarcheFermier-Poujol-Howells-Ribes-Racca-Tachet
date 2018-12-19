@@ -2,7 +2,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée;
 
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +32,10 @@ public class Acheteur {
     public double getMoney() {
         return money;
     }
-    public void retirerArgent(Double budget) throws NotEnoughtMoneyException {
+    public void retirerArgent(Double budget) throws NotEnoughMoneyException {
 
         if(budget>money){
-            throw new NotEnoughtMoneyException();
+            throw new NotEnoughMoneyException();
         }
         money -= budget;
 
