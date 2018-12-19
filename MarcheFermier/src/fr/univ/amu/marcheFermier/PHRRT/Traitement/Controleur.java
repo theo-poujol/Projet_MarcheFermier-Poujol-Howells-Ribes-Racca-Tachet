@@ -34,8 +34,9 @@ public class Controleur {
 
     private Acheteur choisirAcheteurPasDeMonopole(PropositionVente propositionVente){
         for (Acheteur acheteur: propositionVente.getMesAcheteurs()){
-
+            System.out.println("sku");
         }
+        return null;
     }
 
 }
