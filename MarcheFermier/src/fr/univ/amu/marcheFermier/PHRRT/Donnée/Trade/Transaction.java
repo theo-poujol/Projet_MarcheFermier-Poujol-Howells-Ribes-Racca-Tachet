@@ -10,4 +10,13 @@ public class Transaction {
         this.vente = vente;
         this.date = LocalDate.now();
     }
+
+    public PropositionVente getVente() {
+        return vente;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
 }
