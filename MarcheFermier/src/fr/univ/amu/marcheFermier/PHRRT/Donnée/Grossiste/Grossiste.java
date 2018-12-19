@@ -2,7 +2,9 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste;
 
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
 
 import java.util.ArrayList;
@@ -31,7 +33,13 @@ public class Grossiste  {
     }
 
     public void buyProduct(ProduitFermier product) {
-        product.getProprietaire().setMoney( product.getProprietaire().getMoney());
+
+        PropositionVente pv = new PropositionVente(product.getProprietaire(), product, product.getPrix() );
+        product.getProprietaire().setMoney( product.getProprietaire().getMoney() + product.getPrix());
+        this.budget -= product.getPrix();
+
+        sellProducts.add(product);
+
     }
 
 

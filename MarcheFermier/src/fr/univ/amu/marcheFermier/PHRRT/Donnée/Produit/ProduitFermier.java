@@ -44,4 +44,13 @@ public abstract class ProduitFermier {
     public void valider() {
         this.isValider = true;
     }
+
+    public double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+    
 }
