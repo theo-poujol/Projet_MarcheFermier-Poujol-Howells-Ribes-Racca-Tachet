@@ -6,10 +6,12 @@ public class ProducteurDeViande extends Producteur implements DecorateurProducte
 
     private Producteur producteurADecorer;
 
-
-    public ProducteurDeViande(Producteur producteurADecorer) {
+    public ProducteurDeViande(double money, String pseudo, Producteur producteurADecorer) {
+        super(money, pseudo);
         this.producteurADecorer = producteurADecorer;
     }
+
+
 
     @Override
     public void produire() {
