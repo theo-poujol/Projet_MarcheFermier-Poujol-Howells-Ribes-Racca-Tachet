@@ -8,18 +8,24 @@ import java.util.List;
 
 public abstract class ProduitFermier {
 
+    private String name;
     private LocalDate peremptionDate;
     private double prix = 0;
     private List<Label> labels = new ArrayList<>();
     private boolean bio = false;
     private Acheteur proprietaire;
-    private boolean isValider = false;
+    private boolean isValide = false;
+    private int amount = 0;
 
 
-    public ProduitFermier(LocalDate peremptionDate, double prix) {
-        this.prix = prix;
+
+
+    public ProduitFermier(LocalDate peremptionDate,String name, int amount) {
         this.peremptionDate = peremptionDate;
+        this.name = name;
+        this.amount = amount;
     }
+
 
     public void addLabel(Label label) {
         labels.add(label);
@@ -43,6 +49,22 @@ public abstract class ProduitFermier {
     }
 
     public void valider() {
-        this.isValider = true;
+        this.isValide = true;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }
