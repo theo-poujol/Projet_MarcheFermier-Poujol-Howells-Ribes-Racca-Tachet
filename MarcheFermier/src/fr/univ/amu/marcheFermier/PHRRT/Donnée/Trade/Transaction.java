@@ -1,5 +1,13 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade;
 
-public class Transaction {
+import java.time.LocalDate;
 
+public class Transaction {
+    private PropositionVente vente;
+    private LocalDate date;
+
+    public Transaction(PropositionVente vente) {
+        this.vente = vente;
+        this.date = LocalDate.now();
+    }
 }
