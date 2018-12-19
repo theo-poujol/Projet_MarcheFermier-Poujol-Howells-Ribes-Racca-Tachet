@@ -16,11 +16,10 @@ public class Menu extends Application {
     private BorderPane root = new BorderPane();
     private VBox vbox = new VBox();
     private Scene scene = new Scene(root);
-    private HBox hbox = new HBox();
-    private Button test1 = new Button("salut");
-    private Button test2 = new Button();
-    private Button test3 = new Button();
-    private Button test4 = new Button("Informations");
+    private Button cata = new Button("catalogue");
+    private Button cot = new Button("cotation");
+    private Button journ = new Button("journal");
+    private Button partic = new Button("participants");
 
     public static void setPrimaryStage(Stage stage) {
         primStage = stage;
@@ -31,11 +30,15 @@ public class Menu extends Application {
         return primStage;
     }
 
+    public BorderPane getRoot() {
+        return root;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         setPrimaryStage(primaryStage);
         primaryStage.setHeight(700); // juste un choix arbitraire pour avoir une image réaliste de la taille de l'application.
-        primaryStage.setWidth(480);
+        primaryStage.setWidth(1000);
         setButtonsSize(primaryStage);
         setButtons();
         setOnAction();
@@ -45,30 +48,56 @@ public class Menu extends Application {
         primaryStage.show();
     }
 
+    public Scene getScene() {
+        return scene;
+    }
 
     public void setButtonsSize(Stage primaryStage) {
-        test1.setPrefSize(primaryStage.getWidth(), 105);
-        test2.setPrefSize(primaryStage.getWidth() / 2, 330);
-        test3.setPrefSize(primaryStage.getWidth() / 2, 330);
-        test4.setPrefSize(primaryStage.getWidth(), 105);
+        cata.setPrefSize( primaryStage.getWidth()/7, primaryStage.getHeight()/4);
+        cot.setPrefSize(primaryStage.getWidth()/7, primaryStage.getHeight()/4);
+        journ.setPrefSize(primaryStage.getWidth()/7,primaryStage.getHeight()/4);
+        partic.setPrefSize(primaryStage.getWidth()/7, primaryStage.getHeight()/4);
     }
 
 
     public void setButtons() {
-        hbox.getChildren().addAll(test2, test3);
-        vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().addAll(test4);
+        vbox.getChildren().addAll(cot, journ,cata,partic);
         root.setStyle("-fx-background-color: white");
-        root.setTop(vbox);
-        root.setCenter(hbox);
-        root.setBottom(test1);
+        root.setLeft(vbox);
     }
 
     public void setOnAction() {
-        test1.setOnAction(event -> {
-            Menu menu = new Menu();
+        cata.setOnAction(event -> {
+            Catalogue catalogue = new Catalogue();
             try {
-                menu.start(primStage);
+                catalogue.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        cot.setOnAction(event -> {
+            Cotation cotation = new Cotation();
+            try {
+                cotation.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        journ.setOnAction(event -> {
+            JournalDeTrans journalDeTrans = new JournalDeTrans();
+            try {
+                journalDeTrans.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        partic.setOnAction(event -> {
+            Participantsvue participantsvue = new Participantsvue();
+            try {
+                participantsvue.start(primStage);
             } catch (Exception e) {
                 e.printStackTrace();
             }
