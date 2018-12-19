@@ -30,7 +30,9 @@ public class Grossiste extends Acheteur {
         }
     }
 
-    public void buyProduct() {}
+    public void buyProduct() {
+
+    }
     public void immediateBuy() {} // Proposer au client de vendre immédiatement son produit à prix réduit à un grossite selon ce que les objets que recherche le grossite
 
 

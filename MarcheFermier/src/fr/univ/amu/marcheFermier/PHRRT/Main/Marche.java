@@ -23,6 +23,14 @@ public class Marche {
     private int cotisation;
 
 
-
-
+    public Marche(String region, List<ProduitFermier> lesProduitsFermier, List<Producteur> lesProducteurs, LivreMarche livreMarche, List<PropositionVente> lesPropositionsVentes, int etape, Controleur amf, int cotisation) {
+        this.region = region;
+        this.lesProduitsFermier = lesProduitsFermier;
+        this.lesProducteurs = lesProducteurs;
+        this.livreMarche = livreMarche;
+        this.lesPropositionsVentes = lesPropositionsVentes;
+        this.etape = etape;
+        this.amf = amf;
+        this.cotisation = cotisation;
+    }
 }

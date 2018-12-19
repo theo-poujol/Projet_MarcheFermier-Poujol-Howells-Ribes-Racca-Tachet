@@ -2,6 +2,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Apiculteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Fromager;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
@@ -46,15 +47,18 @@ public class MarcheFermier {
         traderssss.nouveauClient(ahcteurururuu,4000.0);
         traderssss.mesClients();
         */
+
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
         producteur.produire();
         ProduitFermier prod = new Miel(LocalDate.now(),35.00);
 
-        PropositionVente propositionVente = new PropositionVente(producteur,prod,50);
+        PropositionVente propositionVente = new PropositionVente(producteur,prod);
         propositionVente.afficher();
 
+        Grossiste grossiste = new Grossiste(100,"GrossisteIndustrie");
 
 
+        Marche monMarche = new Marche("Provence", null,null,null,null,0,null,0);
 
 
 
