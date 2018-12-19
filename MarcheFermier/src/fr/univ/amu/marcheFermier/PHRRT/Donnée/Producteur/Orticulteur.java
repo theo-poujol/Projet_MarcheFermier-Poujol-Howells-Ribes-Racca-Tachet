@@ -1,9 +1,10 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur;
 
-public class Orticulteur extends Producteur {
+public class Orticulteur extends Producteur implements DecorateurProducteur{
     private Producteur producteurADecorer;
 
     public Orticulteur(Producteur producteurADecorer) {
+        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 

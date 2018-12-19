@@ -1,14 +1,10 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur;
 
-<<<<<<< HEAD
-public class Arboriculteur extends Producteur{
-    public Arboriculteur(double money, String pseudo) {
-        super(money, pseudo);
-=======
 public class Arboriculteur extends Producteur {
     private Producteur producteurADecorer; // à modifier
 
     public Arboriculteur(Producteur producteurADecorer) {
+        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 
@@ -16,6 +12,5 @@ public class Arboriculteur extends Producteur {
     public void produire() {
         producteurADecorer.produire();
         System.out.println("je produis des arbres");
->>>>>>> origin/produitProducteur
     }
 }
