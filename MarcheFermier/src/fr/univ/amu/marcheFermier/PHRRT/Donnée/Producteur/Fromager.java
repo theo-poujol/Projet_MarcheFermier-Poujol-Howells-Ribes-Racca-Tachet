@@ -1,10 +1,11 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur;
 
-public class Fromager implements DecorateurProducteur {
+public class Fromager extends Producteur implements DecorateurProducteur {
 
     private Producteur producteurADecorer;
 
     public Fromager(Producteur producteurADecorer) {
+        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 

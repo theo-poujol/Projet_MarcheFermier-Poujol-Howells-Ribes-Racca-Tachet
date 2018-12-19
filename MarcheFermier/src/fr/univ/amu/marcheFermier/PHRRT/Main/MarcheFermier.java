@@ -1,12 +1,18 @@
 package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
+
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Apiculteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Fromager;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.ProducteurDeViande;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
+
+
+import java.time.LocalDate;
 
 
 public class MarcheFermier {
@@ -40,8 +46,15 @@ public class MarcheFermier {
         traderssss.nouveauClient(ahcteurururuu,4000.0);
         traderssss.mesClients();
         */
-        Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))))
-        PropositionVente propositionVente = new PropositionVente()
+        Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
+        producteur.produire();
+        ProduitFermier prod = new Miel(LocalDate.now(),35.00);
+
+        PropositionVente propositionVente = new PropositionVente(producteur,prod,50);
+        propositionVente.afficher();
+
+
+
 
 
 

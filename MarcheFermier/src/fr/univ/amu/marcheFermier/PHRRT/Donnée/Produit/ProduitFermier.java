@@ -16,7 +16,8 @@ public abstract class ProduitFermier {
     private boolean isValider = false;
 
 
-    public ProduitFermier(LocalDate peremptionDate) {
+    public ProduitFermier(LocalDate peremptionDate, double prix) {
+        this.prix = prix;
         this.peremptionDate = peremptionDate;
     }
 

@@ -6,8 +6,8 @@ public class ProducteurDeViande extends Producteur implements DecorateurProducte
 
     private Producteur producteurADecorer;
 
-    public ProducteurDeViande(double money, String pseudo, Producteur producteurADecorer) {
-        super(money, pseudo);
+    public ProducteurDeViande(Producteur producteurADecorer) {
+        super(producteurADecorer.getMoney(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 
