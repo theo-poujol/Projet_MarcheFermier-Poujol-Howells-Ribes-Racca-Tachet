@@ -1,5 +1,13 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur;
 
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.CireAbeille;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.GeleeRoyale;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
+
+import java.time.LocalDate;
+
 public class Apiculteur extends Producteur implements DecorateurProducteur{
 
     private Producteur producteurADecorer; // à modifier
@@ -16,6 +24,22 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
         producteurADecorer.produire();
         System.out.println("je produis du miel");
 
+        //production miel
+        ProduitFermier miel = new Miel(LocalDate.now(), 1, this);
+
+        //production gelee
+        ProduitFermier gelee = new GeleeRoyale(LocalDate.now(), 1 , this);
+
+        //production cire
+        ProduitFermier cire = new CireAbeille(LocalDate.now(), 1,this);
+
+        try {
+            producteurADecorer.addProduit(miel);
+            producteurADecorer.addProduit(gelee);
+            producteurADecorer.addProduit(cire);
+        } catch (NotEnoughCapacityException e) {
+            e.printStackTrace();
+        }
 
 
     }

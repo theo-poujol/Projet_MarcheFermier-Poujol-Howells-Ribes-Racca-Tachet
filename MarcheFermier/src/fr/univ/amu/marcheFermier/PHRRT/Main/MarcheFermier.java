@@ -12,8 +12,6 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 
 
-import java.time.LocalDate;
-
 
 public class MarcheFermier {
     
@@ -52,6 +50,13 @@ public class MarcheFermier {
 
 
 
+
+        System.out.println(producteur.getStock());
+        System.out.println("debut");
+        for (ProduitFermier currentProduitFermier : producteur.getStock()) {
+            System.out.println("il y a " + currentProduitFermier.getAmount() + " unités du produit : " + currentProduitFermier.getName());
+        }
+        System.out.println("fini");
 
 
 

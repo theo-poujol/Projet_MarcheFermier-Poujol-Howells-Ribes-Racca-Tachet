@@ -20,10 +20,11 @@ public abstract class ProduitFermier {
 
 
 
-    public ProduitFermier(LocalDate peremptionDate,String name, int amount) {
+    public ProduitFermier(LocalDate peremptionDate,String name, int amount, Acheteur proprietaire) {
         this.peremptionDate = peremptionDate;
         this.name = name;
         this.amount = amount;
+        this.proprietaire = proprietaire;
     }
 
 

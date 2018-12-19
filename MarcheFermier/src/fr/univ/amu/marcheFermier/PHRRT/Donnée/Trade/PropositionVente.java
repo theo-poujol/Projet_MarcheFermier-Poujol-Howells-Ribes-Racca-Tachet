@@ -4,6 +4,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
+import fr.univ.amu.marcheFermier.PHRRT.Traitement.Controleur;
 
 import java.util.ArrayList;
 
@@ -30,9 +31,11 @@ public class PropositionVente { //Une Proposition de vente terminée devient une
     public Transaction vendre() {
 
         try {
+            Controleur control = Controleur.getInstance();
+            monAcheteurChoisi = control.choisirAcheteur(this);
             this.monAcheteurChoisi.retirerArgent(this.getPrix());
             this.monVendeur.ajouterArgent(this.getPrix());
-            return new Transaction(); // à définir
+            return new Transaction(this);
         } catch (NotEnoughMoneyException e) {
             e.printStackTrace();
             return null;
