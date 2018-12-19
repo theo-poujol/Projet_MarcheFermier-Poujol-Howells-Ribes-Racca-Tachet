@@ -4,10 +4,10 @@ public class ProducteurLaitier extends Producteur {
 
     private Producteur producteurADecorer;
 
-
-    public ProducteurLaitier(Producteur producteurADecorer) {
-        this.producteurADecorer = producteurADecorer;
+    public ProducteurLaitier(double money, String pseudo) {
+        super(money, pseudo);
     }
+
 
     @Override
     public void produire() {
