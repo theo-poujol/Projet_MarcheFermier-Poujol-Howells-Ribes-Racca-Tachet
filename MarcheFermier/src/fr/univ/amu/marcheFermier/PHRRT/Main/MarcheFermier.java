@@ -2,6 +2,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.*;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 
 
@@ -41,6 +42,13 @@ public class MarcheFermier {
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Orticulteur(new Producteur(1900,"Loris")))));
 
         producteur.produire();
+
+        System.out.println(producteur.getStock());
+        System.out.println("debut");
+        for (ProduitFermier currentProduitFermier : producteur.getStock()) {
+            System.out.println("il y a " + currentProduitFermier.getAmount() + " unités du produit : " + currentProduitFermier.getName());
+        }
+        System.out.println("fini");
 
 
 

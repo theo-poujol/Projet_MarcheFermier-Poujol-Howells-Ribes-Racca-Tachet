@@ -22,6 +22,7 @@ public class Producteur extends Acheteur {
     }
 
     public void addProduit(ProduitFermier produitFermier) throws NotENoughtCapacityException {
+        /*
         //Check capacite
         int capaciteRestante = capacite - getCurrentCapacite();
 
@@ -40,7 +41,9 @@ public class Producteur extends Acheteur {
                 throw new NotENoughtCapacityException(produitFermier,deletedAmount);
             }
             stock.add(produitFermier);
-        }
+        }*/
+
+        stock.add(produitFermier);
     }
 
     private int getCurrentCapacite() {
