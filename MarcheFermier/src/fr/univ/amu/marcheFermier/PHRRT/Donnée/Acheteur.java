@@ -14,6 +14,10 @@ public class Acheteur {
     private double money;
     private String pseudo;
 
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
     public Acheteur(double money, String pseudo) {
         this.money = money;
         this.pseudo = pseudo;

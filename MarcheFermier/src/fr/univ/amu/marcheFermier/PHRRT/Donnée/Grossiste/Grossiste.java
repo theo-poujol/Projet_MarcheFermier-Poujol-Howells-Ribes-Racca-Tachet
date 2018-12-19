@@ -31,7 +31,7 @@ public class Grossiste  {
     }
 
     public void buyProduct(ProduitFermier product) {
-
+        product.getProprietaire().setMoney( product.getProprietaire().getMoney());
     }
 
 
