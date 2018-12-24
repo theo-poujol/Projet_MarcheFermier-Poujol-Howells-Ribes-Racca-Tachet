@@ -10,15 +10,17 @@ public class PropositionVente { //Une Proposition de vente terminée devient une
     private Acheteur monVendeur; //Qui vend
     private ProduitFermier monProduit; // Ce qu'il vend
     private int prix;
+    private int quantite;
     private ArrayList<Acheteur> mesAcheteurs; //Acheteurs potentiels
     private boolean isValid; //True si l'AMF valide l'annonce, celle ci devient visible
     public void afficher(){ // à implémenter
         System.out.println("Ceci est une proposition de vente");
     }
 
-    public PropositionVente(Acheteur monVendeur, ProduitFermier monProduit) {
+    public PropositionVente(Acheteur monVendeur, ProduitFermier monProduit, int quantite) {
         this.monVendeur = monVendeur;
         this.monProduit = monProduit;
+        this.quantite = quantite;
         //this.prix = monProduit.setPrix();
     }
 

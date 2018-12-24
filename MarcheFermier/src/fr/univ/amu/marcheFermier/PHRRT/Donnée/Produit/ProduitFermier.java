@@ -12,9 +12,21 @@ public abstract class ProduitFermier {
     private double prix = 0;
     private List<Label> labels = new ArrayList<>();
     private boolean bio = false;
+
+
+
     private Acheteur proprietaire;
     private boolean isValider = false;
 
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
+    private int quantite;
 
     public ProduitFermier(LocalDate peremptionDate, double prix) {
         this.prix = prix;
@@ -40,6 +52,10 @@ public abstract class ProduitFermier {
 
     public Acheteur getProprietaire() {
         return proprietaire;
+    }
+
+    public void setProprietaire(Acheteur proprietaire) {
+        this.proprietaire = proprietaire;
     }
 
     public void valider() {

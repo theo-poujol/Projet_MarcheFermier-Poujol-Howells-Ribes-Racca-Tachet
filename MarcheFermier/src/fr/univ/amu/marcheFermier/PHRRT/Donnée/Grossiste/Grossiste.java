@@ -24,8 +24,8 @@ public class Grossiste extends Acheteur {
 
     public void sellMyProduct(ProduitFermier product, int cap) {
         for (ProduitFermier p : sellProducts) {
-            if (p.equals(product)) {
-                PropositionVente pv = new PropositionVente(this,product);
+            if (sellProducts.contains(product)) {
+
             }
         }
     }
