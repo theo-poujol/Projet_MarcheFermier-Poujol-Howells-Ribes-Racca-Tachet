@@ -3,6 +3,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitEncheres;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
@@ -30,8 +31,9 @@ public class Grossiste extends Acheteur {
                 if (sellProducts.contains(product)) {
                     if (product.getQuantite() < cap) throw new NotEnoughCapacityException();
                     else {
-
-                        PropositionVente pv = new PropositionVente(this,product,cap);
+                        ProduitEncheres pe = new ProduitEncheres(product,cap);
+                        PropositionVente pv = new PropositionVente(this,pe,pe.getQuantite());
+                        product.setQuantite(product.getQuantite() - cap);
                     }
 
                 }
@@ -56,6 +58,7 @@ public class Grossiste extends Acheteur {
     public void setSellProducts(ArrayList<ProduitFermier> sellProducts) {
         this.sellProducts = sellProducts;
     }
+
 
 
 }

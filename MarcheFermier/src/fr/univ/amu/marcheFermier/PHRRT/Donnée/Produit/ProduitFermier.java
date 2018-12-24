@@ -12,7 +12,7 @@ public abstract class ProduitFermier {
     private double prix = 0;
     private List<Label> labels = new ArrayList<>();
     private boolean bio = false;
-
+    private int quantite;
 
 
     private Acheteur proprietaire;
@@ -26,11 +26,12 @@ public abstract class ProduitFermier {
         this.quantite = quantite;
     }
 
-    private int quantite;
 
-    public ProduitFermier(LocalDate peremptionDate, double prix) {
+
+    public ProduitFermier(LocalDate peremptionDate, double prix, int quantite) {
         this.prix = prix;
         this.peremptionDate = peremptionDate;
+        this.quantite = quantite;
     }
 
     public void addLabel(Label label) {
