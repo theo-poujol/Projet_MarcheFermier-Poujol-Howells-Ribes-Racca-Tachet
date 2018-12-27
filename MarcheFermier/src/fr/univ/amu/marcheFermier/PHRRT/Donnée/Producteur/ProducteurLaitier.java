@@ -21,6 +21,9 @@ public class ProducteurLaitier extends Producteur implements DecorateurProducteu
     public void produire() {
         producteurADecorer.produire();
 
+
+        System.out.println("Je produit du lait");
+
         //production lait de vache
 
         ProduitFermier laitDeVache = new LaitDeVache(LocalDate.now(),1,this);
@@ -30,8 +33,11 @@ public class ProducteurLaitier extends Producteur implements DecorateurProducteu
         ProduitFermier laitDeBrebis = new LaitDeBrebis(LocalDate.now(),1,this);
 
         try {
-            producteurADecorer.addProduit(laitDeVache);
-            producteurADecorer.addProduit(laitDeBrebis);
+            for (ProduitFermier produitFermier : producteurADecorer.getStock()) {
+                addProduit(produitFermier);
+            }
+            addProduit(laitDeVache);
+            addProduit(laitDeBrebis);
         } catch (NotENoughtCapacityException e) {
             e.printStackTrace();
         }

@@ -18,6 +18,8 @@ public class Arboriculteur extends Producteur {
     @Override
     public void produire() {
         producteurADecorer.produire();
+        System.out.println("Je produit de l'arboriculture");
+
 
         //production olivier
         ProduitFermier olivier = new Olivier(LocalDate.now(),1,this);
@@ -26,9 +28,11 @@ public class Arboriculteur extends Producteur {
         ProduitFermier cerisier = new Cerisier(LocalDate.now(),1,this);
 
         try {
-            producteurADecorer.addProduit(olivier);
-            producteurADecorer.addProduit(cerisier);
-
+            for (ProduitFermier produitFermier : producteurADecorer.getStock()) {
+                addProduit(produitFermier);
+            }
+            addProduit(olivier);
+            addProduit(cerisier);
         } catch (NotENoughtCapacityException e) {
             e.printStackTrace();
         }

@@ -22,6 +22,8 @@ public class ProducteurDeViande extends Producteur implements DecorateurProducte
     public void produire() {
         producteurADecorer.produire();
 
+        System.out.println("Je produit de la viande");
+
         //production boeuf
 
         ProduitFermier boeuf = new ViandeDeBoeuf(LocalDate.now(), 1,this);
@@ -31,8 +33,11 @@ public class ProducteurDeViande extends Producteur implements DecorateurProducte
         ProduitFermier cochon = new ViandeDeCochon(LocalDate.now(),1,this);
 
         try {
-            producteurADecorer.addProduit(boeuf);
-            producteurADecorer.addProduit(cochon);
+            for (ProduitFermier produitFermier : producteurADecorer.getStock()) {
+                addProduit(produitFermier);
+            }
+            addProduit(boeuf);
+            addProduit(cochon);
         } catch (NotENoughtCapacityException e) {
             e.printStackTrace();
         }

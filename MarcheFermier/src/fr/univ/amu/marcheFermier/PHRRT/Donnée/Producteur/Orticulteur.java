@@ -19,6 +19,8 @@ public class Orticulteur extends Producteur implements DecorateurProducteur{
     @Override
     public void produire() {
         producteurADecorer.produire();
+
+        System.out.println("Je produit de l'orticulture");
         //production pomme
         ProduitFermier pomme = new Pomme(LocalDate.now(),1,this);
         //production tomate
@@ -27,9 +29,12 @@ public class Orticulteur extends Producteur implements DecorateurProducteur{
         ProduitFermier iris = new Iris(LocalDate.now(), 1,this);
 
         try {
-            producteurADecorer.addProduit(pomme);
-            producteurADecorer.addProduit(tomate);
-            producteurADecorer.addProduit(iris);
+            for (ProduitFermier produitFermier : producteurADecorer.getStock()) {
+                addProduit(produitFermier);
+            }
+            addProduit(pomme);
+            addProduit(tomate);
+            addProduit(iris);
         } catch (NotENoughtCapacityException e) {
             e.printStackTrace();
         }

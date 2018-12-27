@@ -22,8 +22,8 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
     @Override
     public void produire() {
         producteurADecorer.produire();
-        System.out.println("je produis du miel");
 
+        System.out.println("Je produit du miel");
         //production miel
         ProduitFermier miel = new Miel(LocalDate.now(), 1, this);
 
@@ -34,9 +34,12 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
         ProduitFermier cire = new CireAbeille(LocalDate.now(), 1,this);
 
         try {
-            producteurADecorer.addProduit(miel);
-            producteurADecorer.addProduit(gelee);
-            producteurADecorer.addProduit(cire);
+            for (ProduitFermier produitFermier : producteurADecorer.getStock()) {
+                addProduit(produitFermier);
+            }
+            addProduit(miel);
+            addProduit(gelee);
+            addProduit(cire);
         } catch (NotENoughtCapacityException e) {
             e.printStackTrace();
         }
