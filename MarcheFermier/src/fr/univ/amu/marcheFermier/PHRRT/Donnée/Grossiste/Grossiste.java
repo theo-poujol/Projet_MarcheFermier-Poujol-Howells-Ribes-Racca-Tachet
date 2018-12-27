@@ -37,6 +37,7 @@ public class Grossiste extends Acheteur {
                     if (product.getQuantite() < cap) throw new NotEnoughCapacityException(); // Exception sur la quantité
                     else {
                         ProduitEncheres pe = new ProduitEncheres(product,cap);
+                        pe.setPrix(p.getPrix() * cap);
                         PropositionVente pv = new PropositionVente(this,pe,pe.getQuantite());
                         product.setQuantite(product.getQuantite() - cap);
                     }
@@ -54,6 +55,14 @@ public class Grossiste extends Acheteur {
     public void immediateBuy() {} // Proposer au client de vendre immédiatement son produit à prix réduit à un grossite selon ce que les objets que recherche le grossite
 
 
+
+    public void addToMyList(ProduitFermier p) {
+        sellProducts.add(p);
+    }
+
+    public void removeFromList(ProduitFermier p){
+        sellProducts.remove(p);
+    }
 
     public ArrayList<ProduitFermier> getSellProducts() {
         return sellProducts;

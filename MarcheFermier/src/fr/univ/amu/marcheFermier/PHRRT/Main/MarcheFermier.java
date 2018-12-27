@@ -10,6 +10,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.ProducteurDeViande;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Reblochon;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 
 
@@ -49,14 +50,19 @@ public class MarcheFermier {
         */
 
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
-        producteur.produire();
 
         ProduitFermier prod = new Miel(LocalDate.now(),35.00,10);
-        PropositionVente propositionVente = new PropositionVente(producteur,prod,10);
-        propositionVente.afficher();
+        prod.setProprietaire(producteur);
+
+
+
 
         Grossiste grossiste = new Grossiste(100,"GrossisteIndustrie");
+        ProduitFermier prod2 = new Reblochon(LocalDate.now(), 5,10);
+        prod2.setProprietaire(grossiste);
 
+
+        grossiste.sellMyProduct(prod,3);
 
         Marche monMarche = new Marche("Provence", null,null,null,null,0,null,0);
 
