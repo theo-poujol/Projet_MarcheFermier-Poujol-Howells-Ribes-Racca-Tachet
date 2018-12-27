@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Reblochon extends Fromage {
 
 
-    public Reblochon(LocalDate peremptionDate, double prix) {
-        super(peremptionDate, prix);
+    public Reblochon(LocalDate peremptionDate, double prix, int quantite) {
+        super(peremptionDate, prix, quantite);
     }
 }

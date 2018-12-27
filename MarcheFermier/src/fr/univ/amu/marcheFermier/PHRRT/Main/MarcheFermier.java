@@ -50,9 +50,9 @@ public class MarcheFermier {
 
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
         producteur.produire();
-        ProduitFermier prod = new Miel(LocalDate.now(),35.00);
 
-        PropositionVente propositionVente = new PropositionVente(producteur,prod);
+        ProduitFermier prod = new Miel(LocalDate.now(),35.00,10);
+        PropositionVente propositionVente = new PropositionVente(producteur,prod,10);
         propositionVente.afficher();
 
         Grossiste grossiste = new Grossiste(100,"GrossisteIndustrie");

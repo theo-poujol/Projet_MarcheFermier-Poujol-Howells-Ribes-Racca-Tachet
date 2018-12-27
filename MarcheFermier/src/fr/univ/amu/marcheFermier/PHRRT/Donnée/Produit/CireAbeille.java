@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class CireAbeille extends ProduitApiculture {
 
-    public CireAbeille(LocalDate peremptionDate, double prix) {
-        super(peremptionDate, prix);
+    public CireAbeille(LocalDate peremptionDate, double prix, int quantite) {
+        super(peremptionDate, prix, quantite);
     }
 
 }
