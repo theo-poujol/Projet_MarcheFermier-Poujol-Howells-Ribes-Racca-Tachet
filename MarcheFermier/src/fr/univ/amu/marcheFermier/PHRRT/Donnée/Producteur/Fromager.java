@@ -20,7 +20,7 @@ public class Fromager extends Producteur implements DecorateurProducteur {
     public void produire() {
         producteurADecorer.produire();
 
-
+        System.out.println("Je produit du fromage");
         //Production Reblochon
 
         ProduitFermier reblochon = new Reblochon(LocalDate.now(),1,this);
@@ -30,9 +30,14 @@ public class Fromager extends Producteur implements DecorateurProducteur {
         ProduitFermier emmental = new Emmental(LocalDate.now(),1,this);
 
         try {
-            producteurADecorer.addProduit(reblochon);
-            producteurADecorer.addProduit(emmental);
+
+            for (ProduitFermier produitFermier : producteurADecorer.getStock()) {
+                addProduit(produitFermier);
+            }
+            addProduit(reblochon);
+            addProduit(emmental);
         } catch (NotEnoughCapacityException e) {
+
             e.printStackTrace();
         }
 

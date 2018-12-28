@@ -10,7 +10,6 @@ import java.util.List;
 public class Producteur extends Acheteur {
 
     private boolean bio = false;
-    private List<ProduitFermier> stock = new ArrayList<>();
     private int capacite = 50;
 
     public Producteur(double money, String pseudo) {
@@ -18,7 +17,7 @@ public class Producteur extends Acheteur {
     }
 
     public  List<ProduitFermier> getStock() {
-        return stock;
+        return super.getStock();
     }
 
 
@@ -26,8 +25,9 @@ public class Producteur extends Acheteur {
 
     }
 
+
     public void addProduit(ProduitFermier produitFermier) throws NotEnoughCapacityException {
-        /*
+
         //Check capacite
         int capaciteRestante = capacite - getCurrentCapacite();
 
@@ -45,15 +45,13 @@ public class Producteur extends Acheteur {
                 //on leve une exception comme quoi des produits ont été perdus pour manque de place
                 throw new NotEnoughCapacityException(produitFermier,deletedAmount);
             }
-            stock.add(produitFermier);
-        }*/
-
-        stock.add(produitFermier);
+            super.getStock().add(produitFermier);
+        }
     }
 
     private int getCurrentCapacite() {
         int currentCapacite = 0;
-        for (ProduitFermier produitFermier : stock) {
+        for (ProduitFermier produitFermier : super.getStock()) {
             currentCapacite += produitFermier.getAmount();
         }
         return currentCapacite;
@@ -61,7 +59,7 @@ public class Producteur extends Acheteur {
 
     private boolean addExistingProduit(ProduitFermier produitFermier) {
         //si le produit est deja en possession du producteur
-        for (ProduitFermier currentProduit : stock) {
+        for (ProduitFermier currentProduit : super.getStock()) {
             //si le nom du nouveau produit correspond au nom d'un produit du stock
             if (currentProduit.getName().equalsIgnoreCase(produitFermier.getName())) {
                 //on change juste le montant
