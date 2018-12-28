@@ -1,9 +1,11 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit;
 
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
+
 import java.time.LocalDate;
 
-public abstract class ViandeDeCochon extends Viande {
-    public ViandeDeCochon(LocalDate peremptionDate, double prix, int quantite) {
-        super(peremptionDate, prix, quantite);
+public class ViandeDeCochon extends ProduitBoucher {
+    public ViandeDeCochon(LocalDate peremptionDate, int amount, Acheteur proprietaire) {
+        super(peremptionDate, "Viande de cochon", amount, proprietaire);
     }
 }

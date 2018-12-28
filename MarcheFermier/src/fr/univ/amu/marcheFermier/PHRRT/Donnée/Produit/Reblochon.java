@@ -1,11 +1,13 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit;
 
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
+
 import java.time.LocalDate;
 
-public class Reblochon extends Fromage {
+public class Reblochon extends ProduitFromager {
 
 
-    public Reblochon(LocalDate peremptionDate, double prix, int quantite) {
-        super(peremptionDate, prix, quantite);
+    public Reblochon(LocalDate peremptionDate, int amount, Acheteur proprietaire) {
+        super(peremptionDate,"Reblochon", amount, proprietaire);
     }
 }

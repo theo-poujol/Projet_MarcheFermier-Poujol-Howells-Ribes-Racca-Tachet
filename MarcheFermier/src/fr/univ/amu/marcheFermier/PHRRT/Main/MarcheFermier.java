@@ -1,24 +1,13 @@
 package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
-
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Apiculteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Fromager;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.ProducteurDeViande;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.*;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Reblochon;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
-
-
-import java.time.LocalDate;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 
 
 public class MarcheFermier {
-    
+
 
 
     public static void main (String[] args){
@@ -38,7 +27,7 @@ public class MarcheFermier {
         }
         */
 
-       // Producteur producteur = new Apiculteur(new ProducteurDeViande(new Producteur()));
+        // Producteur producteur = new Apiculteur(new ProducteurDeViande(new Producteur()));
         //producteur.produire();
 
         /*Acheteur ahcteurururuu = new Acheteur(4500.0,"Texal");
@@ -49,22 +38,17 @@ public class MarcheFermier {
         traderssss.mesClients();
         */
 
-        Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
 
-        ProduitFermier prod = new Miel(LocalDate.now(),35.00,10);
-        prod.setProprietaire(producteur);
+        Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Orticulteur(new Producteur(1900,"Loris")))));
 
+        producteur.produire();
 
-
-
-        Grossiste grossiste = new Grossiste(100,"GrossisteIndustrie");
-        ProduitFermier prod2 = new Reblochon(LocalDate.now(), 5,10);
-        prod2.setProprietaire(grossiste);
-
-
-        grossiste.sellMyProduct(prod,3);
-
-        Marche monMarche = new Marche("Provence", null,null,null,null,0,null,0);
+        System.out.println(producteur.getStock());
+        System.out.println("debut");
+        for (ProduitFermier currentProduitFermier : producteur.getStock()) {
+            System.out.println("il y a " + currentProduitFermier.getAmount() + " unités du produit : " + currentProduitFermier.getName());
+        }
+        System.out.println("fini");
 
 
 
