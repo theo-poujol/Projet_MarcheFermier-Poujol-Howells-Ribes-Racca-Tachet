@@ -57,6 +57,11 @@ public abstract class ProduitFermier {
         this.prix = prix;
     }
 
+
+    public double getPrix() {
+        return this.prix;
+    }
+
     public String getName() {
         return name;
     }
