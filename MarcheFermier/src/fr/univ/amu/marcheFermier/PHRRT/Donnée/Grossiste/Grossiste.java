@@ -27,6 +27,7 @@ public class Grossiste extends Acheteur {
     // Et le ProduitEnchere qui est aux enchères avec la quantité voulue.
 
     public void sellMyProduct(ProduitFermier product, int cap) {
+
         try {
             for (ProduitFermier p : sellProducts) {
                 if (sellProducts.contains(product)) {
@@ -36,6 +37,7 @@ public class Grossiste extends Acheteur {
                         pe.setPrix(p.getPrix() * cap);
                         PropositionVente pv = new PropositionVente(this,pe,pe.getAmount());
                         product.setAmount(product.getAmount() - cap);
+                        System.out.println("cest bon");
                     }
                 }
                 else throw new NotFoundException();
@@ -62,6 +64,12 @@ public class Grossiste extends Acheteur {
     }
 
     public ArrayList<ProduitFermier> getSellProducts() {
+
+        for(ProduitFermier p : sellProducts) {
+            System.out.println(p.getName());
+            System.out.println(p.getAmount());
+
+        }
         return sellProducts;
     }
 
