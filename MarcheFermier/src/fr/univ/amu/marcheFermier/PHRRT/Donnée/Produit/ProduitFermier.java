@@ -73,4 +73,8 @@ public abstract class ProduitFermier {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    public void setProprietaire(Acheteur proprietaire) {
+        this.proprietaire = proprietaire;
+    }
 }

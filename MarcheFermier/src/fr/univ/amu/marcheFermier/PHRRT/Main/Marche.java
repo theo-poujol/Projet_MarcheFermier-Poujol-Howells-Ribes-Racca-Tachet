@@ -1,10 +1,7 @@
 package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitApiculture;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitBio;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.*;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Traitement.Controleur;
 
@@ -17,6 +14,9 @@ public class Marche {
     private List<ProduitFermier> lesProduitsFermier;
     private List<Producteur> lesProducteurs;
     private LivreMarche livreMarche;
+
+
+
     private List<PropositionVente> lesPropositionsVentes;
     private int etape;
     private Controleur amf;
@@ -33,4 +33,17 @@ public class Marche {
         this.amf = amf;
         this.cotisation = cotisation;
     }
+
+
+    public List<PropositionVente> getLesPropositionsVentes() {
+        return lesPropositionsVentes;
+    }
+
+
+    public boolean isPresent(ProduitEncheres p) {
+        if (this.lesProducteurs.contains(p)) return true;
+        else return false;
+    }
+
+
 }

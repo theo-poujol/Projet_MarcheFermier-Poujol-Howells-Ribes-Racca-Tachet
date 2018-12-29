@@ -6,7 +6,10 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitEncheres;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotFoundException;
+import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
+
 import java.util.ArrayList;
 
 public class Grossiste extends Acheteur {
@@ -36,7 +39,9 @@ public class Grossiste extends Acheteur {
                         ProduitEncheres pe = new ProduitEncheres(product,cap);
                         pe.setPrix(p.getPrix() * cap);
                         PropositionVente pv = new PropositionVente(this,pe,pe.getAmount());
+                        // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
                         product.setAmount(product.getAmount() - cap);
+                        if (product.getAmount() == 0) this.removeFromList(product);
                         System.out.println("cest bon");
                     }
                 }
@@ -47,8 +52,17 @@ public class Grossiste extends Acheteur {
         catch (NotFoundException e) {e.getMessage();}
     }
 
-    public void buyProduct() {
-
+    public void buyProduct(Marche market,ProduitEncheres p) throws NotEnoughtMoneyException {
+        if (market.isPresent(p)) {
+            for (PropositionVente pv : market.getLesPropositionsVentes()) {
+                if(pv.getMonProduit().equals(p)) {
+                    this.retirerArgent(p.getPrix());
+                    p.getProprietaire().setMoney(p.getProprietaire().getMoney() + p.getPrix());
+                    p.setProprietaire(this);
+                    this.addToMyList(p);
+                }
+            }
+        }
     }
 
     public void immediateBuy() {} // Proposer au client de vendre immédiatement son produit à prix réduit à un grossite selon ce que les objets que recherche le grossite
