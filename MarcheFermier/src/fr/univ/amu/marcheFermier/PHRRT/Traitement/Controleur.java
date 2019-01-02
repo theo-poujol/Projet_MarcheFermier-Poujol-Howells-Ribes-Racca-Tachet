@@ -1,7 +1,10 @@
 package fr.univ.amu.marcheFermier.PHRRT.Traitement;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Label;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
+import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 
 import java.util.List;
 import java.util.Random;
@@ -11,6 +14,7 @@ public class Controleur {
     private static Controleur instance;
 
     private Controleur() {
+
     }
 
     public static Controleur getInstance() {
@@ -37,6 +41,26 @@ public class Controleur {
             System.out.println("sku");
         }
         return null;
+    }
+
+    public void inspecter(ProduitFermier produitFermier, int index) {
+        System.out.println(index + ") " + produitFermier.getName());
+        if (produitFermier.isBio()) {
+            System.out.println("#Le produit est bio");
+        }
+        System.out.println("#Le produit n'est pas bio");
+        System.out.println("#propriétaire : " + produitFermier.getProprietaire().getPseudo());
+        System.out.println("#Labels : ");
+        for (Label currentLabel : produitFermier.getLabels()) {
+            System.out.println("- Titre : " + currentLabel.getTitle());
+            System.out.println("- desc : " + currentLabel.getTitle());
+        }
+        System.out.println("Nombre de produit : " + produitFermier.getAmount());
+        System.out.println("------------------------------");
+    }
+
+    public void valider(ProduitFermier produitFermier) {
+        produitFermier.valider();
     }
 
 }
