@@ -22,7 +22,7 @@ public class Producteur extends Acheteur {
 
 
     public void produire() {
-
+        System.out.println("je produis");
     }
 
 
@@ -44,6 +44,9 @@ public class Producteur extends Acheteur {
                 produitFermier.setAmount(capaciteRestante);
                 //on leve une exception comme quoi des produits ont été perdus pour manque de place
                 throw new NotEnoughCapacityException(produitFermier,deletedAmount);
+            }
+            if (bio) {
+                produitFermier.setBio(true);
             }
             super.getStock().add(produitFermier);
         }
@@ -72,5 +75,7 @@ public class Producteur extends Acheteur {
         return false;
     }
 
-
+    public void setBio(boolean bio) {
+        this.bio = bio;
+    }
 }

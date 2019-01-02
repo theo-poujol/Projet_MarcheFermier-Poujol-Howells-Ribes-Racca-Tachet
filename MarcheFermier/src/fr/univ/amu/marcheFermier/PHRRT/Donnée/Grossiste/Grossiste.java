@@ -2,18 +2,14 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste;
 
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitEncheres;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
-import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotFoundException;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
-public class Grossiste extends Acheteur {
+/*public class Grossiste extends Acheteur {
 
 
     private ArrayList<ProduitFermier> sellProducts = new ArrayList<>();
@@ -34,7 +30,7 @@ public class Grossiste extends Acheteur {
         try {
             for (ProduitFermier p : sellProducts) {
                 if (sellProducts.contains(product)) {
-                    if (product.getQuantite() < cap) throw new NotEnoughCapacityException(); // Exception sur la quantité
+                    if (product.getAmount() < cap) throw new NotEnoughCapacityException(); // Exception sur la quantité
                     else {
                         ProduitEncheres pe = new ProduitEncheres(product,cap);
                         pe.setPrix(p.getPrix() * cap);
@@ -74,4 +70,4 @@ public class Grossiste extends Acheteur {
 
 
 
-}
+}*/
