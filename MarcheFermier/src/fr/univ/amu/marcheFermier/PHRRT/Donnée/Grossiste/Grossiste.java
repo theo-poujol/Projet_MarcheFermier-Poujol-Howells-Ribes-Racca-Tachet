@@ -35,7 +35,7 @@ public class Grossiste extends Acheteur {
     // On a donc le ProduitFermier au quel on a enlevé la quantité mise en vente voulue
     // Et le ProduitEnchere qui est aux enchères avec la quantité voulue.
 
-    public void sellMyProduct(ProduitFermier product, double price, int cap) {
+    public void sellMyProduct(Marche market, ProduitFermier product, double price, int cap) {
 
         try {
             if (sellProducts.contains(product)) {
@@ -49,8 +49,9 @@ public class Grossiste extends Acheteur {
                         product.setAmount(product.getAmount() - cap);
                         if (product.getAmount() == 0) this.removeFromList(product);
 
+                        market.addSale(pv);
                         // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
-                        System.out.println( this.getPseudo() + " a mit en vente " + pe.getName() + " pour " + pe.getPrix() + " €");
+                        System.out.println( this.getPseudo() + " a mit en vente " + pe.getName() + " pour " + pe.getPrix() + " € " + "en " + market.getRegion());
                     }
                 }
                 else throw new NotFoundException();

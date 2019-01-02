@@ -56,7 +56,10 @@ public class MarcheFermier {
         System.out.println("fini");
         */
 
-        Marche LesHalles = new Marche();
+        Marche lesHalles = new Marche("Provence");
+        System.out.println(lesHalles.getRegion());
+
+
 
         Grossiste grossiste = new Grossiste(1000000000,"Luca");
 
@@ -72,9 +75,10 @@ public class MarcheFermier {
         grossiste.showMyInformation();
 
 
-        grossiste.sellMyProduct(reblochon,2,1);
-        grossiste.sellMyProduct(pomme,0.50,123);
-        grossiste.sellMyProduct(monMiel,2.5,2);
+
+        grossiste.sellMyProduct(lesHalles,reblochon,2,1);
+        grossiste.sellMyProduct(lesHalles,pomme,0.50,123);
+        grossiste.sellMyProduct(lesHalles,monMiel,2.5,2);
 
         grossiste.showMyInformation();
 

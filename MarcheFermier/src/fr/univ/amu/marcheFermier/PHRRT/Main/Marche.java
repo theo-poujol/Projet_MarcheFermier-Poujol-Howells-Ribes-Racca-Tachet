@@ -10,31 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Marche {
+
+
     private String region;
-    private List<ProduitFermier> lesProduitsFermier;
-    private List<Producteur> lesProducteurs;
+    private List<ProduitFermier> lesProduitsFermier = new ArrayList<ProduitFermier>();
+    private List<Producteur> lesProducteurs = new ArrayList<Producteur>();
     private LivreMarche livreMarche;
-
-
-
-    private List<PropositionVente> lesPropositionsVentes;
-    private int etape;
+    private List<PropositionVente> lesPropositionsVentes = new ArrayList<PropositionVente>();
+    private int etape = 0;
     private Controleur amf;
-    private int cotisation;
+    private double cotisation = 0.0;
 
-
-    /*
-    public Marche(String region, List<ProduitFermier> lesProduitsFermier, List<Producteur> lesProducteurs, LivreMarche livreMarche, List<PropositionVente> lesPropositionsVentes, int etape, Controleur amf, int cotisation) {
+    public Marche(String region) {
         this.region = region;
-        this.lesProduitsFermier = lesProduitsFermier;
-        this.lesProducteurs = lesProducteurs;
-        this.livreMarche = livreMarche;
-        this.lesPropositionsVentes = lesPropositionsVentes;
-        this.etape = etape;
-        this.amf = amf;
-        this.cotisation = cotisation;
+
     }
-    */
+
+
+    public String getRegion() {
+        return region;
+    }
 
     public List<PropositionVente> getLesPropositionsVentes() {
         return lesPropositionsVentes;
