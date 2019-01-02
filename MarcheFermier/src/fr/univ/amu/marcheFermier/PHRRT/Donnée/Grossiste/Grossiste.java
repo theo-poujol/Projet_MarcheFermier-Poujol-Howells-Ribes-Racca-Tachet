@@ -16,7 +16,12 @@ import java.util.ArrayList;
 public class Grossiste extends Acheteur {
 
 
+    public ArrayList<ProduitFermier> getSellProducts() {
+        return sellProducts;
+    }
+
     private ArrayList<ProduitFermier> sellProducts = new ArrayList<>();
+
 
 
     public Grossiste(double money, String pseudo) {
@@ -30,31 +35,33 @@ public class Grossiste extends Acheteur {
     // On a donc le ProduitFermier au quel on a enlevé la quantité mise en vente voulue
     // Et le ProduitEnchere qui est aux enchères avec la quantité voulue.
 
-    public void sellMyProduct(ProduitFermier product,double price, int cap) {
+    public void sellMyProduct(ProduitFermier product, double price, int cap) {
 
         try {
-            for (ProduitFermier p : sellProducts) {
-                if (sellProducts.contains(product)) {
-                    if (product.getAmount() < cap) throw new NotEnoughCapacityException(); // Exception sur la quantité
+            if (sellProducts.contains(product)) {
+                if (product.getAmount() < cap) throw new NotEnoughCapacityException(); // Exception sur la quantité
                     if (price==0) throw new NullPriceException();
                     else {
-
                         ProduitEncheres pe = new ProduitEncheres(product,cap);
                         pe.setPrix(price * cap);
                         PropositionVente pv = new PropositionVente(this,pe,pe.getAmount());
-                        // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
+
                         product.setAmount(product.getAmount() - cap);
                         if (product.getAmount() == 0) this.removeFromList(product);
-                        System.out.println("cest bon");
+
+                        // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
+                        System.out.println( this.getPseudo() + " a mit en vente " + pe.getName() + " pour " + pe.getPrix() + " €");
                     }
                 }
                 else throw new NotFoundException();
-            }
+
         }
         catch (NotEnoughCapacityException e) {e.getMessage();}
         catch (NotFoundException e) {e.getMessage();}
         catch (NullPriceException e) {e.getMessage();}
     }
+
+
 
     public void buyProduct(Marche market,ProduitEncheres p) throws NotEnoughtMoneyException {
         if (market.isPresent(p)) {
@@ -64,6 +71,8 @@ public class Grossiste extends Acheteur {
                     p.getProprietaire().setMoney(p.getProprietaire().getMoney() + p.getPrix());
                     p.setProprietaire(this);
                     this.addToMyList(p);
+                    market.removeSale(pv);
+                    System.out.println("Produit acheté");
                 }
             }
         }
@@ -81,20 +90,21 @@ public class Grossiste extends Acheteur {
         sellProducts.remove(p);
     }
 
-    public ArrayList<ProduitFermier> getSellProducts() {
+    public void showMyInformation() {
+        System.out.println("---------------------");
+        System.out.println(
+                "Nom    : " + this.getPseudo() + '\n'  +
+                "Argent : " + this.getMoney()  + " €"  + '\n'  +
+                "Stock : ");
 
         for(ProduitFermier p : sellProducts) {
-            System.out.println(p.getName());
-            System.out.println(p.getAmount());
-
+            System.out.println(p.getName() + " " + p.getAmount());
         }
-        return sellProducts;
+        System.out.println("---------------------");
     }
+
 
     public void setSellProducts(ArrayList<ProduitFermier> sellProducts) {
         this.sellProducts = sellProducts;
     }
-
-
-
 }

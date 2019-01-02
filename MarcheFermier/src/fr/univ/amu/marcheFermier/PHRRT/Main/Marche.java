@@ -23,6 +23,7 @@ public class Marche {
     private int cotisation;
 
 
+    /*
     public Marche(String region, List<ProduitFermier> lesProduitsFermier, List<Producteur> lesProducteurs, LivreMarche livreMarche, List<PropositionVente> lesPropositionsVentes, int etape, Controleur amf, int cotisation) {
         this.region = region;
         this.lesProduitsFermier = lesProduitsFermier;
@@ -33,7 +34,7 @@ public class Marche {
         this.amf = amf;
         this.cotisation = cotisation;
     }
-
+    */
 
     public List<PropositionVente> getLesPropositionsVentes() {
         return lesPropositionsVentes;
@@ -41,8 +42,16 @@ public class Marche {
 
 
     public boolean isPresent(ProduitEncheres p) {
-        if (this.lesProducteurs.contains(p)) return true;
+        if (this.lesProduitsFermier.contains(p)) return true;
         else return false;
+    }
+
+    public void addSale(PropositionVente pv) {
+        this.lesPropositionsVentes.add(pv);
+    }
+
+    public void removeSale(PropositionVente pv) {
+        this.lesPropositionsVentes.remove(pv);
     }
 
 

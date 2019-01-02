@@ -3,8 +3,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.*;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.*;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 
 import java.time.LocalDate;
@@ -57,13 +56,27 @@ public class MarcheFermier {
         System.out.println("fini");
         */
 
+        Marche LesHalles = new Marche();
 
         Grossiste grossiste = new Grossiste(1000000000,"Luca");
+
         Miel monMiel = new Miel(LocalDate.now(),10,grossiste);
+        Reblochon reblochon = new Reblochon(LocalDate.now(),20,grossiste);
+        Pomme pomme = new Pomme(LocalDate.now(),160,grossiste);
+
+
+        grossiste.addToMyList(reblochon);
         grossiste.addToMyList(monMiel);
-        System.out.println(grossiste.getSellProducts());
-        grossiste.sellMyProduct(monMiel,2.00,5);
-        System.out.println(grossiste.getSellProducts());
+        grossiste.addToMyList(pomme);
+
+        grossiste.showMyInformation();
+
+
+        grossiste.sellMyProduct(reblochon,2,1);
+        grossiste.sellMyProduct(pomme,0.50,123);
+        grossiste.sellMyProduct(monMiel,2.5,2);
+
+        grossiste.showMyInformation();
 
 
     }
