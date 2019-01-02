@@ -8,6 +8,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotFoundException;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NullPriceException;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 
 import java.util.ArrayList;
@@ -29,15 +30,17 @@ public class Grossiste extends Acheteur {
     // On a donc le ProduitFermier au quel on a enlevé la quantité mise en vente voulue
     // Et le ProduitEnchere qui est aux enchères avec la quantité voulue.
 
-    public void sellMyProduct(ProduitFermier product, int cap) {
+    public void sellMyProduct(ProduitFermier product,double price, int cap) {
 
         try {
             for (ProduitFermier p : sellProducts) {
                 if (sellProducts.contains(product)) {
                     if (product.getAmount() < cap) throw new NotEnoughCapacityException(); // Exception sur la quantité
+                    if (price==0) throw new NullPriceException();
                     else {
+
                         ProduitEncheres pe = new ProduitEncheres(product,cap);
-                        pe.setPrix(p.getPrix() * cap);
+                        pe.setPrix(price * cap);
                         PropositionVente pv = new PropositionVente(this,pe,pe.getAmount());
                         // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
                         product.setAmount(product.getAmount() - cap);
@@ -50,6 +53,7 @@ public class Grossiste extends Acheteur {
         }
         catch (NotEnoughCapacityException e) {e.getMessage();}
         catch (NotFoundException e) {e.getMessage();}
+        catch (NullPriceException e) {e.getMessage();}Ò
     }
 
     public void buyProduct(Marche market,ProduitEncheres p) throws NotEnoughtMoneyException {

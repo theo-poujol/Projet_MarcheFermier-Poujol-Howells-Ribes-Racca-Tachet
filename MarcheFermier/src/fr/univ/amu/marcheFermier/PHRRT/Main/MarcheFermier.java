@@ -62,7 +62,7 @@ public class MarcheFermier {
         Miel monMiel = new Miel(LocalDate.now(),10,grossiste);
         grossiste.addToMyList(monMiel);
         System.out.println(grossiste.getSellProducts());
-        grossiste.sellMyProduct(monMiel,5);
+        grossiste.sellMyProduct(monMiel,2.00,5);
         System.out.println(grossiste.getSellProducts());
 
 
