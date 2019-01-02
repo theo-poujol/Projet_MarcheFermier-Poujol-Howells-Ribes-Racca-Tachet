@@ -53,7 +53,7 @@ public class Grossiste extends Acheteur {
         }
         catch (NotEnoughCapacityException e) {e.getMessage();}
         catch (NotFoundException e) {e.getMessage();}
-        catch (NullPriceException e) {e.getMessage();}Ò
+        catch (NullPriceException e) {e.getMessage();}
     }
 
     public void buyProduct(Marche market,ProduitEncheres p) throws NotEnoughtMoneyException {
