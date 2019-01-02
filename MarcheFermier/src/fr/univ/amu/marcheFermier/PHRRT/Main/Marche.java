@@ -1,5 +1,6 @@
 package fr.univ.amu.marcheFermier.PHRRT.Main;
 
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitApiculture;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitBio;
@@ -7,6 +8,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Traitement.Controleur;
+import fr.univ.amu.marcheFermier.PHRRT.Traitement.Menu;
 
 import javax.naming.ldap.Control;
 import java.util.ArrayList;
@@ -14,23 +16,50 @@ import java.util.List;
 
 public class Marche {
     private String region;
-    private List<ProduitFermier> lesProduitsFermier;
-    private List<Producteur> lesProducteurs;
+    private Menu menu;
+    private List<ProduitFermier> productSell;
+    private List<ProduitFermier> waitingValidationProduct;
+    private List<Acheteur> participants;
     private LivreMarche livreMarche; // à remplir après chaque transaction
-    private List<PropositionVente> lesPropositionsVentes;
-    private int etape; // PropositionVente, Validation, Achat, mise à jour affichage
     private Controleur amf; //unique par région
-    private int cotisation;
+    private int taxe;
 
 
-    public Marche(String region, List<ProduitFermier> lesProduitsFermier, List<Producteur> lesProducteurs, LivreMarche livreMarche, List<PropositionVente> lesPropositionsVentes, int etape, Controleur amf, int cotisation) {
+
+
+
+    public Marche(String region, int taxe) {
         this.region = region;
-        this.lesProduitsFermier = lesProduitsFermier;
-        this.lesProducteurs = lesProducteurs;
-        this.livreMarche = livreMarche;
-        this.lesPropositionsVentes = lesPropositionsVentes;
-        this.etape = etape;
-        this.amf = amf;
-        this.cotisation = cotisation;
+        this.taxe = taxe;
+
+        this.menu = new Menu(this);
+
+        this.amf = Controleur.getInstance();
+    }
+
+
+    public void start() {
+        //starting
+        System.out.println("Starting market in " + region + "...");
+
+        //affichage du menu
+        menu.start();
+    }
+
+    public List<ProduitFermier> getProductSell() {
+        return productSell;
+    }
+
+    public List<ProduitFermier> getWaitingValidationProduct() {
+        return waitingValidationProduct;
+    }
+
+    public void iteration() {
+        //validation waitingproduct
+
+    }
+
+    public Controleur getAmf() {
+        return amf;
     }
 }
