@@ -59,7 +59,24 @@ public class Marche {
 
     }
 
+    public List<Acheteur> getParticipants() {
+        return participants;
+    }
+
     public Controleur getAmf() {
         return amf;
+    }
+
+    public void sell(Acheteur acheteur, int indexProduit) {
+
+        ProduitFermier produitFermier = acheteur.getStock().get(indexProduit);
+
+        int price = menu.menuSellerProduct(produitFermier);
+
+        acheteur.getStock().remove(produitFermier);
+
+        produitFermier.setPrix(price);
+
+        productSell.add(produitFermier);
     }
 }

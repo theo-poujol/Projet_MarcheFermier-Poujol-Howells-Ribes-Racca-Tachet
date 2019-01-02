@@ -10,7 +10,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
-
+import fr.univ.amu.marcheFermier.PHRRT.Traitement.Menu;
 
 
 public class MarcheFermier {
@@ -45,6 +45,7 @@ public class MarcheFermier {
         traderssss.mesClients();
         */
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
+        producteur.setBio(true);
         producteur.produire();
 
 
@@ -55,15 +56,10 @@ public class MarcheFermier {
         System.out.println("debut");
         for (ProduitFermier currentProduitFermier : producteur.getStock()) {
             System.out.println("il y a " + currentProduitFermier.getAmount() + " unités du produit : " + currentProduitFermier.getName());
+            if (currentProduitFermier.isBio()) {
+                System.out.println("je suis bio");
+            }
         }
         System.out.println("fini");
-
-
-
-    }
-
-
-    public void loadMarketListing() {
-
     }
 }
