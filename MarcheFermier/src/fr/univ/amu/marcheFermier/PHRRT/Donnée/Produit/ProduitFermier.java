@@ -13,8 +13,8 @@ public abstract class ProduitFermier {
     private double prix = 0;
     private List<Label> labels = new ArrayList<>();
     private boolean bio = false;
+    private boolean valide = false;
     private Acheteur proprietaire;
-    private boolean isValide = false;
     private int amount = 0;
 
 
@@ -45,12 +45,20 @@ public abstract class ProduitFermier {
         this.bio = bio;
     }
 
-    public Acheteur getProprietaire() {
-        return proprietaire;
+    public boolean isBio() {
+        return bio;
+    }
+
+    public boolean isValide() {
+        return valide;
     }
 
     public void valider() {
-        this.isValide = true;
+        this.valide = true;
+    }
+
+    public Acheteur getProprietaire() {
+        return proprietaire;
     }
 
     public void setPrix(double prix) {
