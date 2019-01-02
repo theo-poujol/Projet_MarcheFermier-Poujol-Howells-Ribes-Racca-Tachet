@@ -35,6 +35,12 @@ public class Marche {
         return lesPropositionsVentes;
     }
 
+    public void mesPropositionsVentes() {
+        for (PropositionVente pv : lesPropositionsVentes) {
+            System.out.println(pv.getMonProduit().getName() + " " + pv.getMonProduit().getPrix() + " € " + pv.getMonProduit().getAmount());
+        }
+    }
+
 
     public boolean isPresent(ProduitEncheres p) {
         if (this.lesProduitsFermier.contains(p)) return true;

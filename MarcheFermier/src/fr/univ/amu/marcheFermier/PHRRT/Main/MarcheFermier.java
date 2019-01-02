@@ -4,6 +4,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.*;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.*;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 
 import java.time.LocalDate;
@@ -81,6 +82,8 @@ public class MarcheFermier {
         grossiste.sellMyProduct(lesHalles,monMiel,2.5,2);
 
         grossiste.showMyInformation();
+
+        lesHalles.mesPropositionsVentes();
 
 
     }
