@@ -15,7 +15,7 @@ public class MarcheFermier {
 
 
 
-    public static void main (String[] args) throws NotEnoughtMoneyException {
+    public static void main (String[] args) {
         /*ProduitFermier produitFermier = new Miel(LocalDate.now(),200);
 
         System.out.println(produitFermier.getPeremptionDate());
@@ -114,7 +114,7 @@ public class MarcheFermier {
 
         System.out.println("\n" + "-------- PARTIE BUY ---------" + "\n");
 
-        grossiste1.buy(lesHalles,"Pomme",10,grossiste);
+        grossiste1.buyProduct(lesHalles,"Pomme",10,grossiste);
 
 
         System.out.println("\n "+ "----apres achat------" + "\n");
@@ -126,6 +126,9 @@ public class MarcheFermier {
 
         System.out.println("\n "+ "Charles");
         grossiste1.showMyInformation();
+
+
+
     }
 
 

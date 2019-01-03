@@ -70,43 +70,53 @@ public class Grossiste extends Acheteur {
 
 
 
-    //pv.getMonProduit().getName() == s && pv.getMonProduit().getProprietaire().equals(proprietaire)
+    public void buyProduct (Marche market,String s, int cap, Acheteur proprietaire){
 
-    public void buy (Marche market,String s, int cap, Acheteur proprietaire) throws NotEnoughtMoneyException {
+        try {
             for (PropositionVente pv : market.getLesPropositionsVentes()) {
 
-                if (pv.getMonProduit().getName()==s && pv.getMonProduit().getProprietaire().equals(proprietaire)) {
+                if (pv.getMonProduit().getName() == s && pv.getMonProduit().getProprietaire().equals(proprietaire)) {
                     System.out.println("OUIENFIN");
 
-                    if(pv.getMonProduit().getAmount() == cap) {
-                        if(this.getMoney() < pv.getMonProduit().getPrix()) throw new NotEnoughtMoneyException();
+                    if (pv.getMonProduit().getAmount() == cap) {
+                        if (this.getMoney() < pv.getMonProduit().getPrix()) throw new NotEnoughtMoneyException();
+                        double prix = pv.getMonProduit().getPrix();
                         this.retirerArgent(pv.getMonProduit().getPrix());
                         proprietaire.setMoney(proprietaire.getMoney() + pv.getMonProduit().getPrix());
                         pv.getMonProduit().setProprietaire(this);
                         this.addToMyList(pv.getMonProduit());
                         market.removeSale(pv);
-                        System.out.println("Produit " + pv.getMonProduit().getName() + " acheté au vendeur " + pv.getMonProduit().getProprietaire().getPseudo() + " et supprimé du marché car quantité écoulée");
+                        System.out.println(this.getPseudo() + " a acheté " + pv.getMonProduit().getName() + " au vendeur " +
+                        pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€'
+                        + " et supprimé du marché car quantité écoulée");
 
                     }
 
 
-
-                    if(pv.getMonProduit().getAmount() > cap) {
-                        if(((cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount()) > this.getMoney()) throw new NotEnoughtMoneyException();
-                        this.retirerArgent((cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount());
+                    if (pv.getMonProduit().getAmount() > cap) {
+                        if (((cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount()) > this.getMoney())
+                            throw new NotEnoughtMoneyException();
+                        double prix = (cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount();
+                        this.retirerArgent(prix);
                         pv.getMonProduit().setPrix(((pv.getMonProduit().getAmount() - cap) * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount());
                         pv.getMonProduit().setAmount(pv.getMonProduit().getAmount() - cap);
-                        ProduitFermier nouveauProduit = new ProduitEncheres(pv.getMonProduit(),cap);
+                        ProduitFermier nouveauProduit = new ProduitEncheres(pv.getMonProduit(), cap);
                         nouveauProduit.setProprietaire(this);
                         this.addToMyList(nouveauProduit);
-                        System.out.println("Produit "+ nouveauProduit.getName() +" acheté au vendeur " + pv.getMonProduit().getProprietaire().getPseudo());
+                        System.out.println(this.getPseudo() + " a acheté " + nouveauProduit.getName() + " au vendeur " +
+                        pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€' );
 
                     }
 
                 }
 
             }
+        }
+
+        catch(NotEnoughtMoneyException e) {e.getMessage();}
     }
+
+
 
 
 
