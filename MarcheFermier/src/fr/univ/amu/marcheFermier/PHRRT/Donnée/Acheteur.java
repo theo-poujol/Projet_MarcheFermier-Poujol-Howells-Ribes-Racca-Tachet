@@ -2,6 +2,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée;
 
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 
 import java.util.ArrayList;
@@ -39,6 +40,13 @@ public class Acheteur {
     }
     public void ajouterArgent(Double budget) {
         argent += budget;
+    }
+    public void addProduit(ProduitFermier produitFermier) throws NotEnoughCapacityException {
+        stock.add(produitFermier);
+    }
+
+    public void addArgent(double montant) {
+        this.argent = argent + montant;
     }
 }
 

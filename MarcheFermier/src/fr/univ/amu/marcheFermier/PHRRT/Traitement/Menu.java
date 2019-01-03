@@ -3,6 +3,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Traitement;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Label;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 
 import java.io.BufferedReader;
@@ -83,7 +84,7 @@ public class Menu {
             mainMenu();
             return;
         }
-        int choix = Integer.getInteger(entry);
+        int choix = Integer.parseInt(entry);
 
         if (choix < marche.getWaitingValidationProduct().size()) {
             ProduitFermier productChosen = marche.getWaitingValidationProduct().get(choix);
@@ -101,7 +102,7 @@ public class Menu {
             mainMenu();
             return;
         }
-        int choix = Integer.getInteger(entry);
+        int choix = Integer.parseInt(entry);
 
         if (choix < marche.getParticipants().size()) {
             Acheteur acheteur  = marche.getParticipants().get(choix);
@@ -109,25 +110,76 @@ public class Menu {
             menuSellerStock(acheteur);
 
             String entry1 = getKeyboardEntry();
-            if (entry.equalsIgnoreCase("x")) {
+            if (entry1.equalsIgnoreCase("x")) {
                 mainMenu();
                 return;
             }
 
-            int produit = Integer.getInteger(entry);
+            int produit = Integer.parseInt(entry1);
 
             marche.sell(acheteur,produit);
         }
         else menuSeller();
     }
-    
+
 
     public void menuIteration() {
         menuIterationView();
+        System.out.println("#######Iteration######");
+        marche.iteration();
     }
 
     public void menuBuyers() {
         menuBuyersView();
+
+        String entry = getKeyboardEntry();
+        if (entry.equalsIgnoreCase("x")) {
+            mainMenu();
+            return;
+        }
+        int choix = Integer.parseInt(entry);
+
+        if (choix < marche.getParticipants().size()) {
+            Acheteur acheteur  = marche.getParticipants().get(choix);
+
+            marche.displayMarketListing();
+
+            String entry1 = getKeyboardEntry();
+            if (entry1.equalsIgnoreCase("x")) {
+                mainMenu();
+                return;
+            }
+
+            int produit = Integer.parseInt(entry1);
+
+            try {
+                marche.buy(acheteur,produit);
+            } catch (NotEnoughMoneyException e) {
+                e.printStackTrace();
+            }
+        }
+        else menuBuyers();
+
+    }
+
+
+
+    private void menuBuyersView() {
+        System.out.println("########################");
+        System.out.println("#######Menu Achat#######");
+        System.out.println("########################");
+
+
+        int index = 0;
+
+        for (Acheteur acheteur : marche.getParticipants()) {
+            System.out.println(index +") " + acheteur.getPseudo());
+            System.out.println("#argent : " + acheteur.getArgent());
+            ++index;
+        }
+        System.out.println("x)menu principal");
+
+
     }
 
     private void menuControllerView() {
@@ -158,6 +210,7 @@ public class Menu {
             for (ProduitFermier produitFermier : acheteur.getStock()) {
                 System.out.println("-" + produitFermier.getName() + " : " + produitFermier.getAmount());
             }
+            ++index;
         }
         System.out.println("x)menu principal");
     }
@@ -172,6 +225,7 @@ public class Menu {
         for (ProduitFermier produitFermier : acheteur.getStock()) {
             System.out.println(index+") " + produitFermier.getName());
             System.out.println("#quantité : " + produitFermier.getAmount());
+            ++index;
         }
         System.out.println("x)menu principal");
     }
@@ -181,7 +235,7 @@ public class Menu {
 
         String entry = getKeyboardEntry();
 
-        return Integer.getInteger(entry);
+        return Integer.parseInt(entry);
     }
     private void menuSellerProductView(ProduitFermier produitFermier) {
         System.out.println("Indiquer votre prix pour " + produitFermier.getAmount() + "de " + produitFermier.getName());
@@ -193,9 +247,5 @@ public class Menu {
         System.out.println("########################");
     }
 
-    private void menuBuyersView() {
-        System.out.println("########################");
-        System.out.println("#######Menu Achat#######");
-        System.out.println("########################");
-    }
+
 }
