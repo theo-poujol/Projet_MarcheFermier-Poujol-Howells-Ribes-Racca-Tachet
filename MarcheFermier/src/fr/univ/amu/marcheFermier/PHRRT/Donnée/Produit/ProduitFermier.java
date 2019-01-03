@@ -27,6 +27,9 @@ public abstract class ProduitFermier {
         this.proprietaire = proprietaire;
     }
 
+    public void setProprietaire(Acheteur proprietaire) {
+        this.proprietaire = proprietaire;
+    }
 
     public void addLabel(Label label) {
         labels.add(label);
@@ -55,6 +58,10 @@ public abstract class ProduitFermier {
 
     public void valider() {
         this.valide = true;
+    }
+
+    public double getPrix() {
+        return prix;
     }
 
     public Acheteur getProprietaire() {
