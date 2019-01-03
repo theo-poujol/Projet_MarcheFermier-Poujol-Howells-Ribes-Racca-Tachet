@@ -96,6 +96,8 @@ public class Grossiste extends Acheteur {
                     if (pv.getMonProduit().getAmount() > cap) {
                         if (((cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount()) > this.getMoney())
                             throw new NotEnoughtMoneyException();
+                        // Produit en croix pour avoir le nouveau prix, car celui de base
+                        // est proportionnel à la quantité
                         double prix = (cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount();
                         this.retirerArgent(prix);
                         pv.getMonProduit().setPrix(((pv.getMonProduit().getAmount() - cap) * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount());
