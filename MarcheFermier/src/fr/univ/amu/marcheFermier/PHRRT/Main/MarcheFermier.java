@@ -12,6 +12,9 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Traitement.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MarcheFermier {
     
@@ -44,6 +47,7 @@ public class MarcheFermier {
         traderssss.nouveauClient(ahcteurururuu,5000.0);
         traderssss.mesClients();
         */
+        /*
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
         producteur.setBio(true);
         producteur.produire();
@@ -60,6 +64,21 @@ public class MarcheFermier {
                 System.out.println("je suis bio");
             }
         }
-        System.out.println("fini");
+        System.out.println("fini");*/
+
+        Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));
+
+        Acheteur loris = new Acheteur(20,"Lorisou");
+        Acheteur albert = new Acheteur(30000, "Alberto30");
+
+        List<Acheteur> participants = new ArrayList<>();
+        participants.add(producteur);
+        participants.add(loris);
+        participants.add(albert);
+
+        Marche marche = new Marche("Loris",5);
+        marche.setParticipants(participants);
+        marche.start();
+
     }
 }
