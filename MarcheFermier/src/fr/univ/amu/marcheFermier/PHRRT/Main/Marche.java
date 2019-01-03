@@ -36,8 +36,10 @@ public class Marche {
     }
 
     public void mesPropositionsVentes() {
+        System.out.println('\n' + "Stock en " + this.getRegion() + '\n');
         for (PropositionVente pv : lesPropositionsVentes) {
-            System.out.println(pv.getMonProduit().getName() + " " + pv.getMonProduit().getPrix() + " € " + pv.getMonProduit().getAmount());
+            System.out.println(pv.getMonProduit().getName() + " " + pv.getMonProduit().getPrix() + " € " + pv.getMonProduit().getAmount() +
+            ' ' + pv.getMonProduit().getProprietaire().getPseudo());
         }
     }
 
