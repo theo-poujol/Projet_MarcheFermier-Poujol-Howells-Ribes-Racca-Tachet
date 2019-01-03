@@ -48,6 +48,7 @@ public class Producteur extends Acheteur {
             if (bio) {
                 produitFermier.setBio(true);
             }
+            produitFermier.setProprietaire(this);
             super.getStock().add(produitFermier);
         }
     }
