@@ -7,6 +7,7 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitBio;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Traitement.Controleur;
@@ -24,6 +25,7 @@ public class Marche {
     private List<Acheteur> participants = new ArrayList<>();
     private LivreMarche livreMarche; // à remplir après chaque transaction
     private Controleur amf; //unique par région
+    private Trader trader;
     private int taxe;
 
 
@@ -37,6 +39,8 @@ public class Marche {
         this.menu = new Menu(this);
 
         this.amf = Controleur.getInstance();
+
+        this.trader = new Trader(this);
     }
 
 
@@ -57,6 +61,13 @@ public class Marche {
         validateWaitingProduct();
         //production
         product();
+        //recherche du trader
+        try {
+            trader.checkMarket();
+        } catch (NotEnoughMoneyException e) {
+            e.printStackTrace();
+        }
+        //retour au menu
         menu.start();
     }
 
@@ -72,23 +83,39 @@ public class Marche {
 
         ProduitFermier produitFermier = acheteur.getStock().get(indexProduit);
 
+        ProduitFermier sellProduct = new ProduitFermier(produitFermier);
+
         int price = menu.menuSellerProduct(produitFermier);
+
+        sellProduct.setPrix(price);
+        sellProduct.setAmount(produitFermier.getAmount());
 
         acheteur.getStock().remove(produitFermier);
 
-        produitFermier.setPrix(price);
-
-        waitingValidationProduct.add(produitFermier);
+        waitingValidationProduct.add(sellProduct);
         menu.start();
     }
 
-    public void buy(Acheteur acheteur, int indexProduit) throws NotEnoughMoneyException {
+    public void buy(Acheteur acheteur, int indexProduit, int amount) throws NotEnoughMoneyException {
 
         ProduitFermier produitFermier = productSell.get(indexProduit);
+
+
 
         if (acheteur.getArgent() >= produitFermier.getPrix()) {
 
             try {
+                if (produitFermier.getAmount() > amount) {
+                    ProduitFermier nonSelledProduct = new ProduitFermier(produitFermier);
+                    int remainingAmount = produitFermier.getAmount() - amount;
+                    nonSelledProduct.setAmount(remainingAmount);
+                    double unitPrice = produitFermier.getPrix()/produitFermier.getAmount();
+                    nonSelledProduct.setPrix(unitPrice*remainingAmount);
+                    productSell.add(nonSelledProduct);
+
+                    produitFermier.setAmount(amount);
+                    produitFermier.setPrix(amount*unitPrice);
+                }
                 //ajout dans le stock de l'acheteur
                 acheteur.addProduit(produitFermier);
                 //retirer l'argent
@@ -125,6 +152,29 @@ public class Marche {
         System.out.println("x)menu principal");
     }
 
+    public void displayParticipantsStock() {
+        int index = 0;
+
+        for (Acheteur acheteur : participants) {
+            System.out.println(index +") " + acheteur.getPseudo());
+            System.out.println("#Stock : ");
+            for (ProduitFermier produitFermier : acheteur.getStock()) {
+                System.out.println("-" + produitFermier.getName() + " : " + produitFermier.getAmount());
+            }
+            ++index;
+        }
+    }
+
+    public void displayParticipantsMoney() {
+        int index = 0;
+
+        for (Acheteur acheteur : participants) {
+            System.out.println(index +") " + acheteur.getPseudo());
+            System.out.println("#argent : " + acheteur.getArgent());
+            ++index;
+        }
+    }
+
     private void validateWaitingProduct() {
         List<ProduitFermier> waitingListCopy = new ArrayList<>();
         waitingListCopy.addAll(waitingValidationProduct);
@@ -146,7 +196,15 @@ public class Marche {
         }
     }
 
+    public List<ProduitFermier> getProductSell() {
+        return productSell;
+    }
+
     public void setParticipants(List<Acheteur> participants) {
         this.participants = participants;
+    }
+
+    public Trader getTrader() {
+        return trader;
     }
 }
