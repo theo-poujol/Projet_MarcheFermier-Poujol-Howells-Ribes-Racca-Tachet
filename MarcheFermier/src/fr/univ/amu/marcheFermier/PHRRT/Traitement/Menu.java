@@ -3,6 +3,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Traitement;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Label;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.OrdreTrader;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 
@@ -31,6 +32,10 @@ public class Menu {
 
         String choix = getKeyboardEntry();
 
+        selectMenu(choix);
+    }
+
+    private void selectMenu(String choix) {
         switch (choix) {
             case "1":
                 menuController();
@@ -44,11 +49,13 @@ public class Menu {
             case "4":
                 menuBuyers();
                 break;
+            case "5":
+                menuTrader();
+                break;
             default:
                 mainMenu();
                 break;
         }
-
     }
 
     private static String getKeyboardEntry() {
@@ -73,6 +80,7 @@ public class Menu {
         System.out.println("2) Mettre en vente");
         System.out.println("3) Produire (itération)");
         System.out.println("4) Acheter");
+        System.out.println("5) trader");
     }
 
     public void menuController() {
@@ -152,8 +160,12 @@ public class Menu {
 
             int produit = Integer.parseInt(entry1);
 
+            System.out.println("Entrez le nombre de produit que vous vous souhaitez");
+            int amount = Integer.parseInt(getKeyboardEntry());
+
+
             try {
-                marche.buy(acheteur,produit);
+                marche.buy(acheteur,produit,amount);
             } catch (NotEnoughMoneyException e) {
                 e.printStackTrace();
             }
@@ -169,14 +181,8 @@ public class Menu {
         System.out.println("#######Menu Achat#######");
         System.out.println("########################");
 
+        marche.displayParticipantsMoney();
 
-        int index = 0;
-
-        for (Acheteur acheteur : marche.getParticipants()) {
-            System.out.println(index +") " + acheteur.getPseudo());
-            System.out.println("#argent : " + acheteur.getArgent());
-            ++index;
-        }
         System.out.println("x)menu principal");
 
 
@@ -202,16 +208,7 @@ public class Menu {
         System.out.println("######Menu Vendeur######");
         System.out.println("########################");
 
-        int index = 0;
-
-        for (Acheteur acheteur : marche.getParticipants()) {
-            System.out.println(index +") " + acheteur.getPseudo());
-            System.out.println("#Stock : ");
-            for (ProduitFermier produitFermier : acheteur.getStock()) {
-                System.out.println("-" + produitFermier.getName() + " : " + produitFermier.getAmount());
-            }
-            ++index;
-        }
+        marche.displayParticipantsStock();
         System.out.println("x)menu principal");
     }
 
@@ -246,6 +243,51 @@ public class Menu {
         System.out.println("#####Menu Production####");
         System.out.println("########################");
     }
+
+
+    private void menuTrader() {
+        menuTraderView();
+
+        String entry = getKeyboardEntry();
+        if (entry.equalsIgnoreCase("x")) {
+            mainMenu();
+            return;
+        }
+        int choix = Integer.parseInt(entry);
+
+
+        if (choix < marche.getParticipants().size()) {
+            Acheteur acheteur  = marche.getParticipants().get(choix);
+
+            System.out.println("Entrez le nom du produit que vous voulez acheter");
+
+            String productName = getKeyboardEntry();
+
+            System.out.println("Entrez le prix maximum que vous cherchez");
+            double maxPrice = Double.parseDouble(getKeyboardEntry());
+
+            System.out.println("Entrez le nombre de produit que vous vous souhaitez");
+            int amount = Integer.parseInt(getKeyboardEntry());
+
+            marche.getTrader().addOrder(new OrdreTrader(productName,amount,acheteur,maxPrice));
+            mainMenu();
+        }
+        else menuTrader();
+
+
+    }
+
+    private void menuTraderView() {
+        System.out.println("########################");
+        System.out.println("#######Menu Trader######");
+        System.out.println("########################");
+
+        marche.displayParticipantsMoney();
+        System.out.println("x)menu principal");
+
+    }
+
+
 
 
 }
