@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ProduitFermier {
+public class ProduitFermier {
 
     private String name;
     private LocalDate peremptionDate;
@@ -26,6 +26,16 @@ public abstract class ProduitFermier {
         this.amount = amount;
         this.proprietaire = proprietaire;
     }
+
+    public ProduitFermier(ProduitFermier produitFermier) {
+        this.name = produitFermier.getName();
+        this.peremptionDate = produitFermier.getPeremptionDate();
+        this.bio = produitFermier.isBio();
+        this.valide = produitFermier.isValide();
+        this.proprietaire = produitFermier.getProprietaire();
+        this.labels = produitFermier.getLabels();
+    }
+
 
     public void setProprietaire(Acheteur proprietaire) {
         this.proprietaire = proprietaire;
