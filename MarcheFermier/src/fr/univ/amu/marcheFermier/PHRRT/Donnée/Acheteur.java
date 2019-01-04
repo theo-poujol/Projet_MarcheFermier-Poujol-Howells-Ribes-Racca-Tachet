@@ -42,7 +42,26 @@ public class Acheteur {
         argent += budget;
     }
     public void addProduit(ProduitFermier produitFermier) throws NotEnoughCapacityException {
-        stock.add(produitFermier);
+
+
+        if (!addExistingProduit(produitFermier)) {
+            stock.add(produitFermier);
+        }
+    }
+
+    private boolean addExistingProduit(ProduitFermier produitFermier) {
+        //si le produit est deja en possession du producteur
+        for (ProduitFermier currentProduit : stock) {
+            //si le nom du nouveau produit correspond au nom d'un produit du stock
+            if (currentProduit.getName().equalsIgnoreCase(produitFermier.getName())) {
+                //on change juste le montant
+                int currentAmount = currentProduit.getAmount();
+                currentProduit.setAmount(currentAmount + produitFermier.getAmount());
+                return true;
+            }
+        }
+        //si le produit n'existe pas dans le stock
+        return false;
     }
 
     public void addArgent(double montant) {
