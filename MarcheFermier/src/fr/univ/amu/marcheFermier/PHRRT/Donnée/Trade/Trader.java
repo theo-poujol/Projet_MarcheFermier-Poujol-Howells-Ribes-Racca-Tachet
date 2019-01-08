@@ -13,15 +13,30 @@ public class Trader {
     private List<OrdreTrader> ordres = new ArrayList<>();
     private Marche marche;
 
-
+    /**
+     * Constructeur Trader.
+     *
+     * @param marche
+     */
     public Trader(Marche marche) {
         this.marche = marche;
     }
 
+    /**
+     * Permet d'ajouter des commandes au trader.
+     *
+     * @param ordreTrader
+     */
     public void addOrder(OrdreTrader ordreTrader) {
         ordres.add(ordreTrader);
     }
 
+    /**
+     * Achete le produit au prix demandé.
+     *
+     * @throws NotEnoughMoneyException
+     *          verifie que le client a l'argent nécessaire pour acheter le produit.
+     */
     public void checkMarket() throws NotEnoughMoneyException {
         for (ProduitFermier produitFermier : marche.getProductSell()) {
             for (OrdreTrader ordreTrader : ordres) {
