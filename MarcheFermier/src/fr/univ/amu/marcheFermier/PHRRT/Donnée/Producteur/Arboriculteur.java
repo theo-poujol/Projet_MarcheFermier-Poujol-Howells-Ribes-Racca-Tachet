@@ -10,12 +10,20 @@ import java.time.LocalDate;
 public class Arboriculteur extends Producteur {
     private Producteur producteurADecorer; // à modifier
 
+    /**
+     * Constructeur Arboriculteur.
+     *
+     * @param producteurADecorer
+     */
     public Arboriculteur(Producteur producteurADecorer) {
         super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 
     @Override
+    /**
+     * Permet de produire des produits de l'arboriculture.
+     */
     public void produire() {
         producteurADecorer.produire();
         System.out.println("Je produit de l'arboriculture");
