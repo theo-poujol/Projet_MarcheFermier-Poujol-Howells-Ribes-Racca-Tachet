@@ -12,6 +12,11 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
 
     private Producteur producteurADecorer; // à modifier
 
+    /**
+     * Constructeur Apiculteur.
+     *
+     * @param producteurADecorer
+     */
     public Apiculteur(Producteur producteurADecorer) {
         super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
@@ -20,6 +25,9 @@ public class Apiculteur extends Producteur implements DecorateurProducteur{
 
 
     @Override
+    /**
+     * Permet de produire des produits de l'apiculture.
+     */
     public void produire() {
         producteurADecorer.produire();
 
