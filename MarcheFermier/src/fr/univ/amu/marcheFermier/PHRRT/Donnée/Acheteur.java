@@ -15,32 +15,76 @@ public class Acheteur {
     private double argent;
     private String pseudo;
 
+    /**
+     * Constructeur Acheteur.
+     *
+     * @param argent
+     * @param pseudo
+     */
     public Acheteur(double argent, String pseudo) {
         this.argent = argent;
         this.pseudo = pseudo;
     }
 
+    /**
+     * Getter qui retourne le pseudo de l'acheteur.
+     *
+     * @return
+     */
     public String getPseudo() {
         return pseudo;
     }
 
 
-
-
+    /**
+     * Getter qui retourne le stock.
+     *
+     * @return
+     */
     public  List<ProduitFermier> getStock() {
         return stock;
     }
+
+    /**
+     * Getter qui retourne l'argent de l'acheteur.
+     *
+     * @return
+     */
     public double getArgent() {
         return argent;
     }
+
+    /**
+     * Permet de retirer de l'argent sur le compte de l'acheteur.
+     *
+     * @param budget
+     * @throws NotEnoughMoneyException
+     *              verifie que le client a l'argent nécessaire pour acheter le produit.
+     */
+
     public void retirerArgent(Double budget) throws NotEnoughMoneyException {
         argent -= budget;
 
 
     }
+
+    /**
+     * Permet d'ajouter de l'argent sur le compte de l'acheteur.
+     *
+     * @param budget
+     * @throws NotEnoughMoneyException
+     *              verifie que le client a l'argent nécessaire pour acheter le produit.
+     */
     public void ajouterArgent(Double budget) {
         argent += budget;
     }
+
+    /**
+     * Permet l'ajout de produits fermier dans le stock.
+     *
+     * @param produitFermier
+     * @throws NotEnoughCapacityException
+     */
     public void addProduit(ProduitFermier produitFermier) throws NotEnoughCapacityException {
 
 
@@ -49,6 +93,12 @@ public class Acheteur {
         }
     }
 
+    /**
+     * Permet d'ajouter un produit, et de verifier si il existe dejà dans le stock ou non.
+     *
+     * @param produitFermier
+     * @return
+     */
     private boolean addExistingProduit(ProduitFermier produitFermier) {
         //si le produit est deja en possession du producteur
         for (ProduitFermier currentProduit : stock) {
@@ -64,6 +114,11 @@ public class Acheteur {
         return false;
     }
 
+    /**
+     * Permet d'ajouter un certain montant sur le compte de l'acheteur.
+     *
+     * @param montant
+     */
     public void addArgent(double montant) {
         this.argent = argent + montant;
     }
