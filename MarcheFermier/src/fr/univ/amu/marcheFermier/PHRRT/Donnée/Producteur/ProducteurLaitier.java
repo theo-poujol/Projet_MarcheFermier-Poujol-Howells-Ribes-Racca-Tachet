@@ -12,6 +12,11 @@ public class ProducteurLaitier extends Producteur implements DecorateurProducteu
     private Producteur producteurADecorer;
 
 
+    /**
+     * Constructeur de ProducteurLaitier.
+     *
+     * @param producteurADecorer
+     */
     public ProducteurLaitier(Producteur producteurADecorer) {
         super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
@@ -20,6 +25,9 @@ public class ProducteurLaitier extends Producteur implements DecorateurProducteu
 
 
     @Override
+    /**
+     *  Permet de produire des produits laitiers.
+     */
     public void produire() {
         producteurADecorer.produire();
 
