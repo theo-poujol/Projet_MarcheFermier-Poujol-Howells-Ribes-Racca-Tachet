@@ -11,12 +11,20 @@ public class Fromager extends Producteur implements DecorateurProducteur {
 
     private Producteur producteurADecorer;
 
+    /**
+     * Constructeur de Fromager.
+     *
+     * @param producteurADecorer
+     */
     public Fromager(Producteur producteurADecorer) {
         super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 
     @Override
+    /**
+     * Permet de produire des produits fromagers.
+     */
     public void produire() {
         producteurADecorer.produire();
 
