@@ -12,20 +12,40 @@ public class Producteur extends Acheteur {
     private boolean bio = false;
     private int capacite = 50000000;
 
+    /**
+     * Constructeur de Producteur.
+     *
+     * @param money
+     * @param pseudo
+     */
     public Producteur(double money, String pseudo) {
         super(money, pseudo);
     }
 
+    /**
+     * Getter retourne le stock.
+     *
+     * @return getStock
+     */
     public  List<ProduitFermier> getStock() {
         return super.getStock();
     }
 
 
+    /**
+     * Affiche "je produis".
+     */
     public void produire() {
         System.out.println("je produis");
     }
 
 
+    /**
+     * Ajoute un produit.
+     *
+     * @param produitFermier
+     * @throws NotEnoughCapacityException
+     */
     public void addProduit(ProduitFermier produitFermier) throws NotEnoughCapacityException {
 
         //Check capacite
@@ -52,6 +72,11 @@ public class Producteur extends Acheteur {
 
     }
 
+    /**
+     * Getter qui retourne la capacité.
+     *
+     * @return
+     */
     private int getCurrentCapacite() {
         int currentCapacite = 0;
         for (ProduitFermier produitFermier : super.getStock()) {
@@ -61,7 +86,11 @@ public class Producteur extends Acheteur {
     }
 
 
-
+    /**
+     * Setter qui definie si c'est un produit bio ou non.
+     *
+     * @param bio
+     */
     public void setBio(boolean bio) {
         this.bio = bio;
     }
