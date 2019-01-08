@@ -11,12 +11,20 @@ import java.time.LocalDate;
 public class Orticulteur extends Producteur implements DecorateurProducteur{
     private Producteur producteurADecorer;
 
+    /**
+     * Constructeur d'Orticulteur.
+     *
+     * @param producteurADecorer
+     */
     public Orticulteur(Producteur producteurADecorer) {
         super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
     }
 
     @Override
+    /**
+     * Permet de produire des produits de l'orticulture .
+     */
     public void produire() {
         producteurADecorer.produire();
 
