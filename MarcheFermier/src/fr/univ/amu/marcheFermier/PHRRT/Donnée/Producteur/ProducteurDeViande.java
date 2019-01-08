@@ -10,6 +10,11 @@ public class ProducteurDeViande extends Producteur implements DecorateurProducte
 
     private Producteur producteurADecorer;
 
+    /**
+     * Constructeur de ProducteurDeViande.
+     *
+     * @param producteurADecorer
+     */
     public ProducteurDeViande(Producteur producteurADecorer) {
         super(producteurADecorer.getArgent(),producteurADecorer.getPseudo());
         this.producteurADecorer = producteurADecorer;
@@ -18,6 +23,9 @@ public class ProducteurDeViande extends Producteur implements DecorateurProducte
 
 
     @Override
+    /**
+     * Permet de produire des produits bovins.
+     */
     public void produire() {
         producteurADecorer.produire();
 
