@@ -133,6 +133,7 @@ public class Marche {
         acheteur.getStock().remove(produitFermier);
 
         waitingValidationProduct.add(sellProduct);
+
         menu.start();
     }
 
