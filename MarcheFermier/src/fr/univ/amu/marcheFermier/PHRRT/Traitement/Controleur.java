@@ -29,13 +29,14 @@ public class Controleur {
         return instance;
     }
 
+
     /**
      * designe un acheteur aleatoirement si plusieurs pretendants
      * @param transaction
      * @return Acheteurselectionné
      */
-    public Acheteur choisirAcheteur(Transaction transaction){
-        int max = transaction.getMesAcheteurs().size()-1;
+    /*public Acheteur choisirAcheteur(Transaction transaction){
+        int max = transaction.get().size()-1;
         int min = 0;
         Random r = new Random();
         int acheteurSelectionne;
@@ -51,7 +52,7 @@ public class Controleur {
             System.out.println("sku");
         }
         return null;
-    }
+    }*/
 
     /**
      * donne toutes les infos sur un produit
