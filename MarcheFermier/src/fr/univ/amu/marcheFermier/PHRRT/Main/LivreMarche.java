@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivreMarche {
-    private List<Transaction> mesTransactions;
+    private List<Transaction> mesTransactions ;
 
     /**
      * constructeur livreMarche

@@ -78,8 +78,6 @@ public class Marche {
         product();
         //recherche des trader
         tradersCheck();
-        //retour au menu
-        menu.start();
     }
 
     /**
@@ -115,18 +113,14 @@ public class Marche {
     }
 
     /**
-     * fonction permettant la mise en vente
-     *
+     * vend
      * @param acheteur
-     * @param indexProduit
+     * @param produitFermier
+     * @param price
      */
-    public void sell(Acheteur acheteur, int indexProduit) {
-
-        ProduitFermier produitFermier = acheteur.getStock().get(indexProduit);
+    public void sell(Acheteur acheteur, ProduitFermier produitFermier, double price) {
 
         ProduitFermier sellProduct = new ProduitFermier(produitFermier);
-
-        int price = menu.menuSellerProduct(produitFermier);
 
         sellProduct.setPrix(price);
         sellProduct.setAmount(produitFermier.getAmount());
@@ -134,7 +128,7 @@ public class Marche {
         acheteur.getStock().remove(produitFermier);
 
         waitingValidationProduct.add(sellProduct);
-        menu.start();
+
     }
 
     /**
@@ -184,8 +178,6 @@ public class Marche {
             }
         }
         else throw new NotEnoughMoneyException();
-
-        menu.start();
     }
 
     /**
@@ -242,7 +234,7 @@ public class Marche {
      * valider un produit en attente
      *
      */
-    private void validateWaitingProduct() {
+    public void validateWaitingProduct() {
         List<ProduitFermier> waitingListCopy = new ArrayList<>();
         waitingListCopy.addAll(waitingValidationProduct);
 
@@ -360,7 +352,6 @@ public class Marche {
     public String getRegion() {
         return region;
     }
-
 
 
 }

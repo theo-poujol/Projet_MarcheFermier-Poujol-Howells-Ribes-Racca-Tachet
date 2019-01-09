@@ -13,24 +13,49 @@ public class CentraleAchat extends Acheteur{
     private double promotion = 0;
 
 
+    /**
+     * Constructeur CentraleAchat.
+     *
+     * @param money
+     * @param pseudo
+     */
     public CentraleAchat(double money, String pseudo) {
         super(money, pseudo);
     }
 
 
-
+    /**
+     * Permet d'ajouter un membre à la Centrale d'achat.
+     *
+     * @param acheteur
+     */
     public void ajouterMembre(Acheteur acheteur) {
         this.membres.add(acheteur);
     }
 
+    /**
+     * Permet de supprimer un membre à la Centrale d'achat.
+     *
+     * @param acheteur
+     */
     public void retirerMembre(Acheteur acheteur) {
         this.membres.remove(acheteur);
     }
 
+    /**
+     *Permet d'ajouter une commande à la Centrale d'achat.
+     *
+     * @param pv
+     */
     public void ajouterCommande(Transaction pv) {
         this.mesCommandes.add(pv);
     }
 
+    /**
+     * Permet de supprimer une commande à la Centrale d'achat.
+     *
+     * @param pv
+     */
     public void retirerCommande(Transaction pv) {
         this.mesCommandes.remove(pv);
     }
