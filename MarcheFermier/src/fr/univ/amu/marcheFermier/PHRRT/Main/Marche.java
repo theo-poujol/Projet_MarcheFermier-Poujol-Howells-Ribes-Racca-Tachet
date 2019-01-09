@@ -114,19 +114,19 @@ public class Marche {
 
     /**
      * vend
-     * @param acheteur
      * @param produitFermier
      * @param price
      */
-    public void sell(Acheteur acheteur, ProduitFermier produitFermier, double price) {
+    public void sell(ProduitFermier produitFermier, double price, int amount) {
 
+        //creation de la copy
         ProduitFermier sellProduct = new ProduitFermier(produitFermier);
-
-        sellProduct.setPrix(price);
-        sellProduct.setAmount(produitFermier.getAmount());
-
-        acheteur.getStock().remove(produitFermier);
-
+        //si le montant d'item n'est pas supérieur aux ressources disponibles
+        if (!(produitFermier.getAmount() < amount)) {
+            produitFermier.setAmount(produitFermier.getAmount()  - amount);
+            sellProduct.setAmount(amount);
+            sellProduct.setPrix(price);
+        }
         waitingValidationProduct.add(sellProduct);
 
     }

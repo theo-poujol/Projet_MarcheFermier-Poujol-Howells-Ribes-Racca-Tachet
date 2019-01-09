@@ -47,7 +47,7 @@ class TraderTest {
         } catch (NotEnoughCapacityException e) {
             e.printStackTrace();
         }
-        marcheTest.sell(vendeur,produitTest,100);
+        marcheTest.sell(produitTest,100,10);
 
         marcheTest.getWaitingValidationProduct().get(0).valider();
 

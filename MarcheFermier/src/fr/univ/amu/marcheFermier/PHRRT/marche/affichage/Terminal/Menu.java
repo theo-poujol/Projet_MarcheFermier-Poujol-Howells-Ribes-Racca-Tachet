@@ -182,7 +182,7 @@ public class Menu {
                 System.out.println("Quel montant de produit voulez-vous vendre ?");
                 int amount = Integer.parseInt(getKeyboardEntry());
 
-                marche.sell(acheteur,produitFermier,price,amount);
+                marche.sell(produitFermier,price,amount);
                 start();
             }
             else {
