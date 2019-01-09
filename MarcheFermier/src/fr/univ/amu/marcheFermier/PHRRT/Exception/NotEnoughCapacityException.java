@@ -19,7 +19,7 @@ public class NotEnoughCapacityException extends Exception {
 
     /**
      * se leve si une capacite de stockage est trop petite et detruit le surplus
-     * @return
+     * @return a string
      */
     @Override
     public String getMessage() {

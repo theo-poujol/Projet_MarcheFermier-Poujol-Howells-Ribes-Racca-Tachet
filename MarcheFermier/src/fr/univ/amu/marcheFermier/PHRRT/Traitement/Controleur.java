@@ -20,7 +20,7 @@ public class Controleur {
 
     /**
      * cree une instance de controleur, permet de garder le constructeur en private
-     * @return
+     * @return instance
      */
     public static Controleur getInstance() {
         if (instance == null) {
@@ -32,7 +32,7 @@ public class Controleur {
     /**
      * designe un acheteur aleatoirement si plusieurs pretendants
      * @param transaction
-     * @return
+     * @return Acheteurselectionné
      */
     public Acheteur choisirAcheteur(Transaction transaction){
         int max = transaction.getMesAcheteurs().size()-1;

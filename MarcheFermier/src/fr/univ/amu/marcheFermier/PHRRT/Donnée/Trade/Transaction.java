@@ -75,16 +75,15 @@ public class Transaction {
      *Setter setMonProduit
      *
      * @param monProduit
+     * @return vente
      */
     public void setMonProduit(ProduitFermier monProduit) {
         this.monProduit = monProduit;
     }
 
     /**
-     *getter getPrix qui return le prix du produit.
-     *
+     * getter getPrix qui return le prix du produit.
      * @return prix
-     *          prix est le prix du produit.
      */
     public int getPrix() {
         return prix;

@@ -13,9 +13,13 @@ import java.util.List;
 
 
 public class MarcheFermier {
-    
 
 
+    /**
+     * lance tout le processus de simulation
+     *
+     * @param args
+     */
     public static void main (String[] args){
 
         Producteur producteur = new ProducteurDeViande(new Apiculteur(new Fromager(new Producteur(500.00,"Sam"))));

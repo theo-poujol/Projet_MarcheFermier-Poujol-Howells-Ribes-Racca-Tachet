@@ -6,7 +6,7 @@ public class NotEnoughMoneyException extends Exception {
     /**
      * cette exception est levee lorsque n'importe quel acteur du marche souhaite effectuer une transaction
      * de fonds
-     * @return
+     * @return a string
      */
     @Override
     public String getMessage() {

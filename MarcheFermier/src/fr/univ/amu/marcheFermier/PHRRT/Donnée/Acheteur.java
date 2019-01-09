@@ -36,7 +36,7 @@ public class Acheteur {
     /**
      * Getter qui retourne le pseudo de l'acheteur.
      *
-     * @return
+     * @return pseudo
      */
     public String getPseudo() {
         return pseudo;
@@ -46,7 +46,7 @@ public class Acheteur {
     /**
      * Getter qui retourne le stock.
      *
-     * @return
+     * @return stock
      */
     public  List<ProduitFermier> getStock() {
         return stock;
@@ -55,7 +55,7 @@ public class Acheteur {
     /**
      * Getter qui retourne l'money de l'acheteur.
      *
-     * @return
+     * @return argent
      */
     public double getMoney() {
         return money;
@@ -104,7 +104,7 @@ public class Acheteur {
      * Permet d'ajouter un produit, et de verifier si il existe dejà dans le stock ou non.
      *
      * @param produitFermier
-     * @return
+     * @return a boolean
      */
     private boolean addExistingProduit(ProduitFermier produitFermier) {
         //si le produit est deja en possession du producteur

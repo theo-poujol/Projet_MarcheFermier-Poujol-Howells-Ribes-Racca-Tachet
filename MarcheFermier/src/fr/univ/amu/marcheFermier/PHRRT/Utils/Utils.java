@@ -11,7 +11,7 @@ public class Utils {
 
     /**
      *
-     * @return
+     * @return entry.readLine()
      */
     public static String getKeyboardEntry() {
 
