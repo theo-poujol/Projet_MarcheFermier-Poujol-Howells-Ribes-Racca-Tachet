@@ -19,14 +19,26 @@ public class Menu {
 
     private Marche marche;
 
+    /**
+     * constructeur du menu
+     * @param marche
+     */
     public Menu(Marche marche) {
         this.marche = marche;
     }
 
+    /**
+     * fait appel a la methode mainMenu
+     *
+     */
     public void start() {
         mainMenu();
     }
 
+    /**
+     *affiche le menu principal et attends une entrée clavier valide ensuite fait appel au menu demandé par la saisie
+     *
+     */
     private void mainMenu() {
 
         mainMenuView();
@@ -36,6 +48,11 @@ public class Menu {
         selectMenu(choix);
     }
 
+    /**
+     * switch case du choix de menu
+     *
+     * @param choix
+     */
     private void selectMenu(String choix) {
         switch (choix) {
             case "1":
@@ -62,6 +79,11 @@ public class Menu {
         }
     }
 
+    /**
+     * récupère l'entrée clavier et la retourne
+     *
+     * @return entry.readLine()
+     */
     private static String getKeyboardEntry() {
 
         BufferedReader entry = new BufferedReader(new InputStreamReader(System.in));
@@ -75,6 +97,10 @@ public class Menu {
     }
 
 
+    /**
+     * affichage du menu principal
+     *
+     */
     private void mainMenuView() {
         System.out.println("########################");
         System.out.println("#####Menu principal#####");
@@ -88,6 +114,11 @@ public class Menu {
         System.out.println("6) ordres");
     }
 
+
+    /**
+     * controle les saisies clavier
+     *
+     */
     public void menuController() {
 
         menuControllerView();
@@ -107,6 +138,10 @@ public class Menu {
         menuController();
     }
 
+    /**
+     * traitement menu de vendeur
+     *
+     */
     public void menuSeller() {
         menuSellerView();
 
@@ -135,13 +170,20 @@ public class Menu {
         else menuSeller();
     }
 
-
+    /**
+     * traitement menu d'itération
+     *
+     */
     public void menuIteration() {
         menuIterationView();
         System.out.println("#######Iteration######");
         marche.iteration();
     }
 
+    /**
+     * traitement menu des acheteurs
+     *
+     */
     public void menuBuyers() {
         menuBuyersView();
 
@@ -180,7 +222,10 @@ public class Menu {
     }
 
 
-
+    /**
+     * affichage menu acheteurs
+     *
+     */
     private void menuBuyersView() {
         System.out.println("########################");
         System.out.println("#######Menu Achat#######");
@@ -193,9 +238,13 @@ public class Menu {
 
     }
 
+    /**
+     * affichage menu controller
+     *
+     */
     private void menuControllerView() {
         System.out.println("########################");
-        System.out.println("########Menu ASF########");
+        System.out.println("########Menu AMF########");
         System.out.println("########################");
 
         int index = 0;
@@ -208,6 +257,10 @@ public class Menu {
         System.out.println("x)menu principal");
     }
 
+    /**
+     * affichage menu vendeur
+     *
+     */
     private void menuSellerView() {
         System.out.println("########################");
         System.out.println("######Menu Vendeur######");
@@ -217,6 +270,12 @@ public class Menu {
         System.out.println("x)menu principal");
     }
 
+
+    /**
+     * affiche le menu personnel du vendeur
+     *
+     * @param acheteur
+     */
     private void menuSellerStock(Acheteur acheteur) {
         System.out.println("########################");
         System.out.println("######" + acheteur.getPseudo() + "######");
@@ -232,6 +291,11 @@ public class Menu {
         System.out.println("x)menu principal");
     }
 
+    /**
+     * attends une entree clavier pour le vendeur
+     * @param produitFermier
+     * @return Integer.parseInt(entry)
+     */
     public int menuSellerProduct(ProduitFermier produitFermier) {
         menuSellerProductView(produitFermier);
 
@@ -239,17 +303,30 @@ public class Menu {
 
         return Integer.parseInt(entry);
     }
+
+    /**
+     * affiche la demande de prix
+     *
+     * @param produitFermier
+     */
     private void menuSellerProductView(ProduitFermier produitFermier) {
         System.out.println("Indiquer votre prix pour " + produitFermier.getAmount() + "de " + produitFermier.getName());
     }
 
+    /**
+     * affiche quelque chose
+     *
+     */
     private void menuIterationView() {
         System.out.println("########################");
         System.out.println("#####Menu Production####");
         System.out.println("########################");
     }
 
-
+    /**
+     * affiche menu trader et toutes les intéractions possibles
+     *
+     */
     private void menuTrader() {
         menuTraderView();
 
@@ -290,6 +367,10 @@ public class Menu {
 
     }
 
+    /**
+     * affiche des infos sur le trader
+     *
+     */
     private void menuTraderView() {
         System.out.println("########################");
         System.out.println("#######Menu Trader######");
@@ -300,6 +381,11 @@ public class Menu {
 
     }
 
+    /**
+     * affiche des infos sur le / les clients du trader
+     *
+     * @param trader
+     */
     private void menuTraderClientView(Trader trader) {
         System.out.println("########################");
         System.out.println("#######Menu Trader######");
@@ -313,14 +399,30 @@ public class Menu {
         }
     }
 
+    /**
+     * retourne le nombre de participants
+     *
+     * @return marche.getParticipants().size()
+     */
     private int getParticipantsSize() {
         return marche.getParticipants().size();
     }
 
+
+    /**
+     * retourne le nombre de produits en attente
+     *
+     * @return marche.getWaitingValidationProduct().size()
+     */
     private int getWaitingProductSize() {
         return marche.getWaitingValidationProduct().size();
     }
 
+    /**
+     * affichage du menu d'érreur
+     *
+     * @param error
+     */
     public void errorMenu(String error) {
         System.out.println("########################");
         System.out.println("#######Menu Erreur######");
@@ -335,6 +437,10 @@ public class Menu {
         }
     }
 
+    /**
+     * affichage du menu des ordres d'achat
+     *
+     */
     private void menuOrdre() {
 
         for (Trader trader : marche.getTraders()) {
