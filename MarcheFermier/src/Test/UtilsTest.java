@@ -1,4 +1,4 @@
-package fr.univ.amu.marcheFermier.PHRRT.Utils;
+package Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
