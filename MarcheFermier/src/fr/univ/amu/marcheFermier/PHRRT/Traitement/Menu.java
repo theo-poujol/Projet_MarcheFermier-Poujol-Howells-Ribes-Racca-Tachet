@@ -94,7 +94,7 @@ public class Menu {
         }
         int choix = Integer.parseInt(entry);
 
-        if (choix < marche.getWaitingValidationProduct().size()) {
+        if (choix < getWaitingProductSize()) {
             ProduitFermier productChosen = marche.getWaitingValidationProduct().get(choix);
 
             marche.getAmf().valider(productChosen);
@@ -112,7 +112,7 @@ public class Menu {
         }
         int choix = Integer.parseInt(entry);
 
-        if (choix < marche.getParticipants().size()) {
+        if (choix < getParticipantsSize()) {
             Acheteur acheteur  = marche.getParticipants().get(choix);
 
             menuSellerStock(acheteur);
@@ -147,7 +147,7 @@ public class Menu {
         }
         int choix = Integer.parseInt(entry);
 
-        if (choix < marche.getParticipants().size()) {
+        if (choix < getParticipantsSize()) {
             Acheteur acheteur  = marche.getParticipants().get(choix);
 
             marche.displayMarketListing();
@@ -256,7 +256,7 @@ public class Menu {
         int choix = Integer.parseInt(entry);
 
 
-        if (choix < marche.getParticipants().size()) {
+        if (choix < getParticipantsSize()) {
             Acheteur acheteur  = marche.getParticipants().get(choix);
 
             System.out.println("Entrez le nom du produit que vous voulez acheter");
@@ -285,6 +285,14 @@ public class Menu {
         marche.displayParticipantsMoney();
         System.out.println("x)menu principal");
 
+    }
+
+    private int getParticipantsSize() {
+        return marche.getParticipants().size()-1;
+    }
+
+    private int getWaitingProductSize() {
+        return marche.getWaitingValidationProduct().size()-1;
     }
 
 
