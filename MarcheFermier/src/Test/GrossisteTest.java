@@ -1,4 +1,4 @@
-package fr.univ.amu.marcheFermier.PHRRT.Test;
+package Test;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GrossisteTest {
 
