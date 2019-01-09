@@ -207,4 +207,8 @@ public class Marche {
     public Trader getTrader() {
         return trader;
     }
+
+    public double getProductTaxe(double prix){
+        return prix * (taxe/100);
+    }
 }
