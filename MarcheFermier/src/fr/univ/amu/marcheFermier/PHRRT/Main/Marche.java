@@ -24,9 +24,12 @@ public class Marche {
     private int taxe;
 
 
-
-
-
+    /**
+     * contructeur marché
+     *
+     * @param region
+     * @param taxe
+     */
     public Marche(String region, int taxe) {
         this.region = region;
         this.taxe = taxe;
@@ -36,7 +39,10 @@ public class Marche {
         this.amf = Controleur.getInstance();
     }
 
-
+    /**
+     * lance le marché en affichant le menu avec la methode start
+     *
+     */
     public void start() {
         //starting
         System.out.println("Starting market in " + region + "...");
@@ -45,10 +51,19 @@ public class Marche {
         menu.start();
     }
 
+    /**
+     * retourne la liste des produits en attente de validation
+     *
+     * @return waitingValidationProduct
+     */
     public List<ProduitFermier> getWaitingValidationProduct() {
         return waitingValidationProduct;
     }
 
+    /**
+     * fait avancer d'une unité de temps la marché
+     *
+     */
     public void iteration() {
         //validation waitingproduct
         validateWaitingProduct();
@@ -60,6 +75,10 @@ public class Marche {
         menu.start();
     }
 
+    /**
+     * Fait fonctionner le trader en comparant les offres des adhérents aux offres du marché
+     *
+     */
     private void tradersCheck() {
         for (Trader trader : traders) {
             try {
@@ -70,14 +89,30 @@ public class Marche {
         }
     }
 
+    /**
+     * retourne les participants
+     *
+     * @return participants
+     */
     public List<Acheteur> getParticipants() {
         return participants;
     }
 
+    /**
+     * retourne l'amf du marché concerné
+     *
+     * @return amf
+     */
     public Controleur getAmf() {
         return amf;
     }
 
+    /**
+     * fonction permettant la mise en vente
+     *
+     * @param acheteur
+     * @param indexProduit
+     */
     public void sell(Acheteur acheteur, int indexProduit) {
 
         ProduitFermier produitFermier = acheteur.getStock().get(indexProduit);
@@ -95,6 +130,14 @@ public class Marche {
         menu.start();
     }
 
+    /**
+     * transfert de la propriété et des sous
+     *
+     * @param acheteur
+     * @param indexProduit
+     * @param amount
+     * @throws NotEnoughMoneyException
+     */
     public void buy(Acheteur acheteur, int indexProduit, int amount) throws NotEnoughMoneyException {
 
         ProduitFermier produitFermier = productSell.get(indexProduit);
@@ -137,6 +180,10 @@ public class Marche {
         menu.start();
     }
 
+    /**
+     * affiche une offre de vente
+     *
+     */
     public void displayMarketListing() {
         System.out.println("########################");
         System.out.println("#####Offre de vente#####");
@@ -152,6 +199,10 @@ public class Marche {
         System.out.println("x)menu principal");
     }
 
+    /**
+     * affichage du stock d'un participant
+     *
+     */
     public void displayParticipantsStock() {
         int index = 0;
 
@@ -165,6 +216,10 @@ public class Marche {
         }
     }
 
+    /**
+     * affichage de l'argent d'un participant en particulier
+     *
+     */
     public void displayParticipantsMoney() {
         int index = 0;
 
@@ -175,6 +230,10 @@ public class Marche {
         }
     }
 
+    /**
+     * valider un produit en attente
+     *
+     */
     private void validateWaitingProduct() {
         List<ProduitFermier> waitingListCopy = new ArrayList<>();
         waitingListCopy.addAll(waitingValidationProduct);
@@ -187,6 +246,10 @@ public class Marche {
         }
     }
 
+    /**
+     * produit pour chaque participants du marché la quantité d'une itération
+     *
+     */
     private void product() {
         for (Acheteur acheteur : participants) {
             if (acheteur instanceof Producteur) {
@@ -196,22 +259,46 @@ public class Marche {
         }
     }
 
+    /**
+     * renvoi les produits vendus
+     *
+     * @return productSell
+     */
     public List<ProduitFermier> getProductSell() {
         return productSell;
     }
 
+    /**
+     * ajoute les participants a un marché
+     *
+     * @param participants
+     */
     public void setParticipants(List<Acheteur> participants) {
         this.participants = participants;
     }
 
+    /**
+     * ajoute un trader a la liste des traders
+     *
+     * @param trader
+     */
     public void addTrader(Trader trader) {
         traders.add(trader);
     }
 
+    /**
+     * retourne la liste des traders
+     *
+     * @return traders
+     */
     public List<Trader> getTraders() {
         return traders;
     }
 
+    /**
+     * affiche les traders et leurs clients respectifs
+     *
+     */
     public void displayTraders() {
         int index = 0;
         for (Trader trader : traders) {
@@ -221,6 +308,12 @@ public class Marche {
         }
     }
 
+    /**
+     * applique une taxe pour le fonctionnement
+     *
+     * @param prix
+     * @return prix * (taxe/100)
+     */
     public double getProductTaxe(double prix){
         return prix * (taxe/100);
     }

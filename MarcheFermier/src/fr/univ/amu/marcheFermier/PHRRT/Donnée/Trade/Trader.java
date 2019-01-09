@@ -53,22 +53,42 @@ public class Trader {
         }
     }
 
+    /**
+     * setter client
+     * @param acheteur
+     */
     public void addClient(Acheteur acheteur) {
         clients.add(acheteur);
     }
 
+    /**
+     * getter nom
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * getter nombre clients du trader
+     * @return clients.size()
+     */
     public int getClientNumber() {
         return clients.size();
     }
 
+    /**
+     * getter liste clients
+     * @return clients
+     */
     public List<Acheteur> getClients() {
         return clients;
     }
 
+    /**
+     * getter ordres
+     * @return ordres
+     */
     public List<OrdreTrader> getOrdres() {
         return ordres;
     }

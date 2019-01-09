@@ -19,7 +19,7 @@ public class Transaction {
     /**
      * Getter qui retourne les ventes.
      *
-     * @return
+     * @return vente
      */
     public PropositionVente getVente() {
         return vente;
@@ -28,7 +28,7 @@ public class Transaction {
     /**
      * Getter qui retour la date.
      *
-     * @return
+     * @return date
      */
     public LocalDate getDate() {
         return date;

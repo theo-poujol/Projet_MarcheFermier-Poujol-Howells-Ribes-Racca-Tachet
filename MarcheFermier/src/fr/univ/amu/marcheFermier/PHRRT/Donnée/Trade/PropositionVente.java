@@ -37,6 +37,11 @@ public class PropositionVente {
         this.monProduit = monProduit;
         //this.prix = monProduit.setPrix();
     }
+
+    /**
+     * vends un produit en évitant les manques d'argent
+     * @return new Transaction(this)
+     */
     public Transaction vendre() {
 
         try {

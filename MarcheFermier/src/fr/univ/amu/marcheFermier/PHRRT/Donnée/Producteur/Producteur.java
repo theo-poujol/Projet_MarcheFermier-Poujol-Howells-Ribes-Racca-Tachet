@@ -75,7 +75,7 @@ public class Producteur extends Acheteur {
     /**
      * Getter qui retourne la capacité.
      *
-     * @return
+     * @return currentCapacite
      */
     private int getCurrentCapacite() {
         int currentCapacite = 0;
