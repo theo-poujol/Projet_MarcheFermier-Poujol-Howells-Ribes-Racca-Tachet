@@ -220,4 +220,8 @@ public class Marche {
             ++index;
         }
     }
+
+    public double getProductTaxe(double prix){
+        return prix * (taxe/100);
+    }
 }
