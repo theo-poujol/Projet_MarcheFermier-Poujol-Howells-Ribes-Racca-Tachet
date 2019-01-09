@@ -164,7 +164,8 @@ public class Marche {
                 //retirer l'argent
                 acheteur.retirerArgent(produitFermier.getPrix());
                 //ajouter l'argent à l'ancien propriétaire (retirer les taxes)
-                produitFermier.getProprietaire().addArgent(produitFermier.getPrix());
+                double moneyToGive = produitFermier.getPrix();
+                produitFermier.getProprietaire().addArgent(moneyToGive - getProductTaxe(moneyToGive));
                 //changer le propriétaire
                 produitFermier.setProprietaire(acheteur);
                 //mise à 0 du prix
