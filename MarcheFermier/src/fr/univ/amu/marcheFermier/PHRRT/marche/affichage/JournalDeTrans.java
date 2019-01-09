@@ -18,13 +18,26 @@ import static fr.univ.amu.marcheFermier.PHRRT.marche.affichage.Menu.setPrimarySt
 public class JournalDeTrans extends Application implements Initializable {
 
     private static Stage primStage;
-    private BorderPane root2 = new BorderPane();
+    private BorderPane root = new BorderPane();
     private VBox vbox = new VBox();
-    private Scene scene = new Scene(root2);
-    private HBox hbox = new HBox();
-    private Button test1 = new Button("salut");
-    private Menu menu = new Menu();
+    private Scene scene = new Scene(root);
+    private Button cata = new Button("catalogue");
+    private Button cot = new Button("cotation");
+    private Button journ = new Button("journal");
+    private Button partic = new Button("participants");
 
+    public static void setPrimaryStage(Stage stage) {
+        primStage = stage;
+        primStage.setResizable(false);
+    }
+
+    public static Stage getPrimaryStage() {
+        return primStage;
+    }
+
+    public BorderPane getRoot() {
+        return root;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -32,24 +45,68 @@ public class JournalDeTrans extends Application implements Initializable {
         primaryStage.setHeight(700); // juste un choix arbitraire pour avoir une image réaliste de la taille de l'application.
         primaryStage.setWidth(1000);
         setButtonsSize(primaryStage);
-        primaryStage.setTitle("projet fermier");
+        setButtons();
+        setOnAction();
+        primaryStage.setTitle("Journal de transactions");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
-    public static void setPrimStage(Stage primStage) {
-        JournalDeTrans.primStage = primStage;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-        menu.getRoot();
-        menu.getScene();
+    public void setButtonsSize(Stage primaryStage) {
+        cata.setPrefSize( primaryStage.getWidth()/7, primaryStage.getHeight()/4);
+        cot.setPrefSize(primaryStage.getWidth()/7, primaryStage.getHeight()/4);
+        journ.setPrefSize(primaryStage.getWidth()/7,primaryStage.getHeight()/4);
+        partic.setPrefSize(primaryStage.getWidth()/7, primaryStage.getHeight()/4);
     }
 
-    private void setButtonsSize(Stage primaryStage) {
+
+    public void setButtons() {
+        vbox.getChildren().addAll(cot, journ,cata,partic);
+        root.setStyle("-fx-background-color: white");
+        root.setLeft(vbox);
+    }
+
+    public void setOnAction() {
+        cata.setOnAction(event -> {
+            Catalogue catalogue = new Catalogue();
+            try {
+                catalogue.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        cot.setOnAction(event -> {
+            Cotation cotation = new Cotation();
+            try {
+                cotation.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        journ.setOnAction(event -> {
+            JournalDeTrans journalDeTrans = new JournalDeTrans();
+            try {
+                journalDeTrans.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        partic.setOnAction(event -> {
+            Participantsvue participantsvue = new Participantsvue();
+            try {
+                participantsvue.start(primStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override
