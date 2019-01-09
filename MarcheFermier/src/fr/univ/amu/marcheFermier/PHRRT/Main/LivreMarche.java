@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivreMarche {
-    private List<Transaction> mesTransactions ;
+    private List<Transaction> transactions ;
 
     /**
      * constructeur livreMarche
      */
     public LivreMarche() {
-        this.mesTransactions = new ArrayList<>();
+        this.transactions = new ArrayList<>();
     }
 
     /**
      * retourne toutes les transactions présentes dans le livre sous forme de liste
      * @return mesTransactions
      */
-    public List<Transaction> getMesTransactions() {
-        return mesTransactions;
+    public List<Transaction> getTransactions() {
+        return transactions;
     }
 
     /**
@@ -28,7 +28,7 @@ public class LivreMarche {
      * @param t
      */
     public void addTransaction(Transaction t ) {
-        this.mesTransactions.add(t);
+        this.transactions.add(t);
     }
 
 }

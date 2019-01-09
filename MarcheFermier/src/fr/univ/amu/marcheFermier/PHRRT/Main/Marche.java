@@ -144,7 +144,6 @@ public class Marche {
         ProduitFermier produitFermier = productSell.get(indexProduit);
 
 
-
         if (acheteur.getMoney() >= produitFermier.getPrix()) {
 
             try {
@@ -160,6 +159,8 @@ public class Marche {
                     produitFermier.setAmount(amount);
                     produitFermier.setPrix(amount*unitPrice);
                 }
+                //ajout dans le livre
+                livreMarche.addTransaction(new Transaction(produitFermier.getProprietaire(),acheteur,produitFermier));
                 //ajout dans le stock de l'acheteur
                 acheteur.addProduit(produitFermier);
                 //retirer l'argent
@@ -352,6 +353,4 @@ public class Marche {
     public String getRegion() {
         return region;
     }
-
-
 }
