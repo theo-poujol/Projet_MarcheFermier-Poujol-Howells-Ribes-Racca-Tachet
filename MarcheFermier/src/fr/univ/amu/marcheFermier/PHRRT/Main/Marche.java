@@ -2,6 +2,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitEncheres;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
@@ -39,7 +40,7 @@ public class Marche {
     public Marche(String region, double taxe) {
         this.region = region;
         this.taxe = taxe;
-
+        this.livreMarche = new LivreMarche();
         this.menu = new Menu(this);
 
         this.amf = Controleur.getInstance();
@@ -359,4 +360,7 @@ public class Marche {
     public String getRegion() {
         return region;
     }
+
+
+
 }

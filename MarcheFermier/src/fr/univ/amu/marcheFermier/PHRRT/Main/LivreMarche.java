@@ -2,6 +2,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LivreMarche {
@@ -11,7 +12,7 @@ public class LivreMarche {
      * constructeur livreMarche
      */
     public LivreMarche() {
-        this.mesTransactions = null;
+        this.mesTransactions = new ArrayList<>();
     }
 
     /**
