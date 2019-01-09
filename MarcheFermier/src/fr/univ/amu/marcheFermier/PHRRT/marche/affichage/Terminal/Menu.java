@@ -1,9 +1,10 @@
-package fr.univ.amu.marcheFermier.PHRRT.Traitement;
+package fr.univ.amu.marcheFermier.PHRRT.marche.affichage.Terminal;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Label;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Ordre;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.OrdreTrader;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 
@@ -52,6 +53,9 @@ public class Menu {
             case "5":
                 menuTrader();
                 break;
+            case "6":
+                menuOrdre();
+                break;
             default:
                 mainMenu();
                 break;
@@ -81,6 +85,7 @@ public class Menu {
         System.out.println("3) Produire (itération)");
         System.out.println("4) Acheter");
         System.out.println("5) trader");
+        System.out.println("6) ordres");
     }
 
     public void menuController() {
@@ -256,21 +261,29 @@ public class Menu {
         int choix = Integer.parseInt(entry);
 
 
-        if (choix < getParticipantsSize()) {
-            Acheteur acheteur  = marche.getParticipants().get(choix);
+        if (choix < marche.getTraders().size()) {
+            Trader trader = marche.getTraders().get(choix);
 
-            System.out.println("Entrez le nom du produit que vous voulez acheter");
+            menuTraderClientView(trader);
 
-            String productName = getKeyboardEntry();
+            choix = Integer.parseInt(getKeyboardEntry());
 
-            System.out.println("Entrez le prix maximum que vous cherchez");
-            double maxPrice = Double.parseDouble(getKeyboardEntry());
+            if (choix < getParticipantsSize()) {
+                Acheteur acheteur  = trader.getClients().get(choix);
 
-            System.out.println("Entrez le nombre de produit que vous vous souhaitez");
-            int amount = Integer.parseInt(getKeyboardEntry());
+                System.out.println("Entrez le nom du produit que vous voulez acheter");
 
-            marche.getTrader().addOrder(new OrdreTrader(productName,amount,acheteur,maxPrice));
-            mainMenu();
+                String productName = getKeyboardEntry();
+
+                System.out.println("Entrez le prix maximum que vous cherchez");
+                double maxPrice = Double.parseDouble(getKeyboardEntry());
+
+                System.out.println("Entrez le nombre de produit que vous vous souhaitez");
+                int amount = Integer.parseInt(getKeyboardEntry());
+
+                trader.addOrder(new OrdreTrader(productName,amount,acheteur,maxPrice));
+                mainMenu();
+            }
         }
         else menuTrader();
 
@@ -282,17 +295,63 @@ public class Menu {
         System.out.println("#######Menu Trader######");
         System.out.println("########################");
 
-        marche.displayParticipantsMoney();
+        marche.displayTraders();
         System.out.println("x)menu principal");
 
     }
 
+    private void menuTraderClientView(Trader trader) {
+        System.out.println("########################");
+        System.out.println("#######Menu Trader######");
+        System.out.println("########################");
+
+        int index = 0;
+        for (Acheteur acheteur : trader.getClients()) {
+            System.out.println(index+") " + acheteur.getPseudo());
+            System.out.println("#Argent : " + acheteur.getArgent());
+            ++index;
+        }
+    }
+
     private int getParticipantsSize() {
-        return marche.getParticipants().size()-1;
+        return marche.getParticipants().size();
     }
 
     private int getWaitingProductSize() {
-        return marche.getWaitingValidationProduct().size()-1;
+        return marche.getWaitingValidationProduct().size();
+    }
+
+    public void errorMenu(String error) {
+        System.out.println("########################");
+        System.out.println("#######Menu Erreur######");
+        System.out.println("########################");
+        System.out.println(error);
+        System.out.println("########################");
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void menuOrdre() {
+
+        for (Trader trader : marche.getTraders()) {
+            System.out.println("########################");
+            System.out.println("##########Ordres########");
+            System.out.println("########################");
+            System.out.println("###" + trader.getName() + "###");
+            System.out.println("ordres : ");
+            for (OrdreTrader ordre : trader.getOrdres()) {
+                System.out.println("-" + ordre.getProductName());
+                System.out.println("#Nombre : " + ordre.getAmount());
+                System.out.println("#Maximum Price unit : " + ordre.getMaximumUnitPrice());
+                System.out.println("#client : " + ordre.getOrderer().getPseudo());
+            }
+            System.out.println("########################");
+        }
+        mainMenu();
     }
 
 
