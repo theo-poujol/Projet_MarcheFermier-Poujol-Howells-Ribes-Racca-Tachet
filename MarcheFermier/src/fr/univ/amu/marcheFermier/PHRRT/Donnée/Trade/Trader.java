@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Trader {
+    private String name;
+    private List<Acheteur> clients = new ArrayList<>();
     private List<OrdreTrader> ordres = new ArrayList<>();
     private Marche marche;
 
@@ -18,7 +20,8 @@ public class Trader {
      *
      * @param marche
      */
-    public Trader(Marche marche) {
+    public Trader(Marche marche, String name) {
+        this.name = name;
         this.marche = marche;
     }
 
@@ -48,5 +51,25 @@ public class Trader {
                 }
             }
         }
+    }
+
+    public void addClient(Acheteur acheteur) {
+        clients.add(acheteur);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getClientNumber() {
+        return clients.size();
+    }
+
+    public List<Acheteur> getClients() {
+        return clients;
+    }
+
+    public List<OrdreTrader> getOrdres() {
+        return ordres;
     }
 }
