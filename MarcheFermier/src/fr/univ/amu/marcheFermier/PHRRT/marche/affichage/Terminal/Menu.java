@@ -4,7 +4,9 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.OrdreTrader;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
+import fr.univ.amu.marcheFermier.PHRRT.Main.LivreMarche;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 
 import java.io.BufferedReader;
@@ -73,6 +75,9 @@ public class Menu {
             case "6":
                 menuOrdre();
                 break;
+            case "7":
+                menuSellHistory();
+                break;
             default:
                 mainMenu();
                 break;
@@ -112,6 +117,7 @@ public class Menu {
         System.out.println("4) Acheter");
         System.out.println("5) trader");
         System.out.println("6) ordres");
+        System.out.println("7) Historique des ventes");
     }
 
 
@@ -468,6 +474,24 @@ public class Menu {
     }
 
 
+    private void menuSellHistory() {
+        System.out.println("########################");
+        System.out.println("#########History########");
+        System.out.println("########################");
+
+        LivreMarche livreMarche = marche.getLivreMarche();
+
+        for (Transaction transaction : livreMarche.getTransactions()) {
+            System.out.println("-" + transaction.getDate());
+            System.out.println("#Produit : " + transaction.getProduit());
+            System.out.println("#Quantité : " + transaction.getQuantite());
+            System.out.println("#Prix : " + transaction.getPrix());
+            System.out.println("#Acheteur : " + transaction.getAcheteur());
+            System.out.println("#Vendeur : "+ transaction.getVendeur());
+            System.out.println("########################");
+        }
+        mainMenu();
+    }
 
 
 }
