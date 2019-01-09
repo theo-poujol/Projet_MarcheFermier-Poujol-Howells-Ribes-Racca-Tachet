@@ -42,6 +42,9 @@ public class Grossiste extends Acheteur {
      * @param cap     : quantité du produit
      */
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!    Mettre en abstract dans Acheteur pour que tous les héritages puissent en profiter.    !!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     public void sellMyProduct(Marche market, ProduitFermier product, double price, int cap) {
 
@@ -87,8 +90,10 @@ public class Grossiste extends Acheteur {
      * @param proprietaire  : propriétaire du produit
      */
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!    Mettre en abstract dans Acheteur pour que tous les héritages puissent en profiter.    !!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    // Mettre la fonction en abstract dans Acheteur pour que tous les héritages puissent en profiter.
     public void buyProduct (Marche market,String s, int cap, Acheteur proprietaire){
 
         try {

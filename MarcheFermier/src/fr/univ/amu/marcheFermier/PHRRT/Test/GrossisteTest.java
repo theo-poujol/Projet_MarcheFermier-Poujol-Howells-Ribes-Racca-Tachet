@@ -39,7 +39,11 @@ class GrossisteTest {
 
     @Test
     void testAddToMyList() {
+        System.out.println('\n' + "Ajout de " + produit1.getAmount() + ' ' + produit1.getName() + " à " + vendeur.getPseudo() + '\n');
         vendeur.addToMyList(produit1);
+        System.out.println("Produit ajouté");
+        System.out.println('\n' + "----- Après ajout -----" + '\n');
+        vendeur.showMyInformation();
     }
 
     @Test
