@@ -1,0 +1,13 @@
+Test
+fr.univ.amu.marcheFermier.PHRRT.Donnée
+fr.univ.amu.marcheFermier.PHRRT.Donnée.CentraleAchat
+fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste
+fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur
+fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit
+fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade
+fr.univ.amu.marcheFermier.PHRRT.Exception
+fr.univ.amu.marcheFermier.PHRRT.Main
+fr.univ.amu.marcheFermier.PHRRT.Traitement
+fr.univ.amu.marcheFermier.PHRRT.Utils
+fr.univ.amu.marcheFermier.PHRRT.marche.affichage
+fr.univ.amu.marcheFermier.PHRRT.marche.affichage.Terminal
