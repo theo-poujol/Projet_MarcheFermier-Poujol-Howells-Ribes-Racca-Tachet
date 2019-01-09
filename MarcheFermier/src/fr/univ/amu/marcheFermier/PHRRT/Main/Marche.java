@@ -2,18 +2,13 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitApiculture;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitBio;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitLaitier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Traitement.Controleur;
-import fr.univ.amu.marcheFermier.PHRRT.Traitement.Menu;
+import fr.univ.amu.marcheFermier.PHRRT.marche.affichage.Terminal.Menu;
 
-import javax.naming.ldap.Control;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +20,7 @@ public class Marche {
     private List<Acheteur> participants = new ArrayList<>();
     private LivreMarche livreMarche; // à remplir après chaque transaction
     private Controleur amf; //unique par région
-    private Trader trader;
+    private List<Trader> traders = new ArrayList<>();
     private int taxe;
 
 
@@ -39,8 +34,6 @@ public class Marche {
         this.menu = new Menu(this);
 
         this.amf = Controleur.getInstance();
-
-        this.trader = new Trader(this);
     }
 
 
@@ -61,14 +54,20 @@ public class Marche {
         validateWaitingProduct();
         //production
         product();
-        //recherche du trader
-        try {
-            trader.checkMarket();
-        } catch (NotEnoughMoneyException e) {
-            e.printStackTrace();
-        }
+        //recherche des trader
+        tradersCheck();
         //retour au menu
         menu.start();
+    }
+
+    private void tradersCheck() {
+        for (Trader trader : traders) {
+            try {
+                trader.checkMarket();
+            } catch (NotEnoughMoneyException e) {
+                menu.errorMenu(e.getMessage());
+            }
+        }
     }
 
     public List<Acheteur> getParticipants() {
@@ -105,6 +104,7 @@ public class Marche {
         if (acheteur.getArgent() >= produitFermier.getPrix()) {
 
             try {
+                //si il y a plus de produit que necessaire
                 if (produitFermier.getAmount() > amount) {
                     ProduitFermier nonSelledProduct = new ProduitFermier(produitFermier);
                     int remainingAmount = produitFermier.getAmount() - amount;
@@ -204,7 +204,20 @@ public class Marche {
         this.participants = participants;
     }
 
-    public Trader getTrader() {
-        return trader;
+    public void addTrader(Trader trader) {
+        traders.add(trader);
+    }
+
+    public List<Trader> getTraders() {
+        return traders;
+    }
+
+    public void displayTraders() {
+        int index = 0;
+        for (Trader trader : traders) {
+            System.out.println(index + ") " + trader.getName());
+            System.out.println("#" + trader.getClientNumber() + " client(s)");
+            ++index;
+        }
     }
 }
