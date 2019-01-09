@@ -27,7 +27,7 @@ public class Marche {
     private LivreMarche livreMarche; // à remplir après chaque transaction
     private Controleur amf; //unique par région
     private List<Trader> traders = new ArrayList<>();
-    private int taxe;
+    private double taxe;
     private List<Transaction> lesPropositionsVentes = new ArrayList<Transaction>();
 
     /**
@@ -36,7 +36,7 @@ public class Marche {
      * @param region
      * @param taxe
      */
-    public Marche(String region, int taxe) {
+    public Marche(String region, double taxe) {
         this.region = region;
         this.taxe = taxe;
 
@@ -127,6 +127,7 @@ public class Marche {
         acheteur.getStock().remove(produitFermier);
 
         waitingValidationProduct.add(sellProduct);
+
     }
 
     /**
