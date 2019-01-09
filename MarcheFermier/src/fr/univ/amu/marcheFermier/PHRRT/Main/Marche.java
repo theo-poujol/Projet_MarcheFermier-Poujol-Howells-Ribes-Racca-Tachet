@@ -3,7 +3,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
@@ -19,11 +19,16 @@ public class Marche {
     private List<ProduitFermier> productSell = new ArrayList<>();
     private List<ProduitFermier> waitingValidationProduct = new ArrayList<>();
     private List<Acheteur> participants = new ArrayList<>();
+
+    public LivreMarche getLivreMarche() {
+        return livreMarche;
+    }
+
     private LivreMarche livreMarche; // à remplir après chaque transaction
     private Controleur amf; //unique par région
     private List<Trader> traders = new ArrayList<>();
     private int taxe;
-    private List<PropositionVente> lesPropositionsVentes = new ArrayList<PropositionVente>();
+    private List<Transaction> lesPropositionsVentes = new ArrayList<Transaction>();
 
 
 
@@ -233,7 +238,7 @@ public class Marche {
      * @return lesPropositionsVentes
      */
 
-    public List<PropositionVente> getLesPropositionsVentes() {
+    public List<Transaction> getLesPropositionsVentes() {
         return lesPropositionsVentes;
     }
 
@@ -243,7 +248,7 @@ public class Marche {
      * @param pv  : proposition de vente
      */
 
-    public void addSale(PropositionVente pv) {
+    public void addSale(Transaction pv) {
         this.lesPropositionsVentes.add(pv);
     }
 
@@ -254,7 +259,7 @@ public class Marche {
      * @param pv  : proposition de vente
      */
 
-    public void removeSale(PropositionVente pv) {
+    public void removeSale(Transaction pv) {
         this.lesPropositionsVentes.remove(pv);
     }
 

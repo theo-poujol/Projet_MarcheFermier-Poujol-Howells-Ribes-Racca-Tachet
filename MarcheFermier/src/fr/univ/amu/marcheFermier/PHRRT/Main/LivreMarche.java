@@ -2,7 +2,6 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LivreMarche {
@@ -19,10 +18,6 @@ public class LivreMarche {
     public void addTransaction(Transaction t ) {
         this.mesTransactions.add(t);
     }
-    public void afficher(){
-        for (Transaction t : mesTransactions){
-            System.out.println(t.getVente());
-            System.out.println(t.getDate());
-        }
-    }
+
+
 }

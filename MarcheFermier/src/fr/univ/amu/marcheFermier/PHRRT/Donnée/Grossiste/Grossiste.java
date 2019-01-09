@@ -4,7 +4,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitEncheres;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotFoundException;
@@ -57,14 +57,16 @@ public class Grossiste extends Acheteur {
                     ProduitEncheres pe = new ProduitEncheres(product,cap);
                     // prix à l'unité multiplié par la quantité
                     pe.setPrix(price * cap);
-                    PropositionVente pv = new PropositionVente(this,pe,pe.getAmount());
+                    Transaction transaction = new Transaction(this,pe,pe.getAmount());
 
                     product.setAmount(product.getAmount() - cap);
                     if (product.getAmount() == 0) this.removeFromList(product);
-
-                    market.addSale(pv);
+                    // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des transaction du march
+                    market.addSale(transaction);
                     // AJOUTER AUSSI ICI L'AJOUT A LHISTORIQUE DU MARCHE
-                    // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
+                    market.getLivreMarche().addTransaction(transaction);
+
+
                     System.out.println( this.getPseudo() + " a mit en vente "+ pe.getAmount() + ' ' + pe.getName() + " pour " + pe.getPrix() + " € " + "en " + market.getRegion());
                 }
             }
@@ -97,7 +99,7 @@ public class Grossiste extends Acheteur {
     public void buyProduct (Marche market,String s, int cap, Acheteur proprietaire){
 
         try {
-            for (PropositionVente pv : market.getLesPropositionsVentes()) {
+            for (Transaction pv : market.getLesPropositionsVentes()) {
 
                 if (pv.getMonProduit().getName() == s && pv.getMonProduit().getProprietaire().equals(proprietaire)) {
 

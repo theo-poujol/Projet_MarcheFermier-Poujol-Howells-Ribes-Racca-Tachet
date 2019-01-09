@@ -3,10 +3,8 @@ package fr.univ.amu.marcheFermier.PHRRT.Traitement;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Label;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
-import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 
-import java.util.List;
 import java.util.Random;
 
 public class Controleur {
@@ -33,23 +31,23 @@ public class Controleur {
 
     /**
      * designe un acheteur aleatoirement si plusieurs pretendants
-     * @param propositionVente
+     * @param transaction
      * @return
      */
-    public Acheteur choisirAcheteur(PropositionVente propositionVente){
-        int max = propositionVente.getMesAcheteurs().size()-1;
+    public Acheteur choisirAcheteur(Transaction transaction){
+        int max = transaction.getMesAcheteurs().size()-1;
         int min = 0;
         Random r = new Random();
         int acheteurSelectionne;
         acheteurSelectionne = r.nextInt(((max - min) + 1) + min); //choisis un nombre entre 0 et le nombre d'acheteurs dans le tableau
-        return propositionVente.getMesAcheteurs().get(acheteurSelectionne); // renvoie l'instance du tableau correspondant au random
-        //for (Acheteur acheteur: propositionVente.getMesAcheteurs()){
+        return transaction.getMesAcheteurs().get(acheteurSelectionne); // renvoie l'instance du tableau correspondant au random
+        //for (Acheteur acheteur: transaction.getMesAcheteurs()){
 
         //}
     }
 
-    private Acheteur choisirAcheteurPasDeMonopole(PropositionVente propositionVente){
-        for (Acheteur acheteur: propositionVente.getMesAcheteurs()){
+    private Acheteur choisirAcheteurPasDeMonopole(Transaction transaction){
+        for (Acheteur acheteur: transaction.getMesAcheteurs()){
             System.out.println("sku");
         }
         return null;
