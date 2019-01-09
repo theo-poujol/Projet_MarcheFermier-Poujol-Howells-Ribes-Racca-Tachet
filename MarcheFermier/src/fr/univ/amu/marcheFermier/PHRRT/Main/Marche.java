@@ -2,6 +2,7 @@ package fr.univ.amu.marcheFermier.PHRRT.Main;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitEncheres;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Transaction;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.Trader;
@@ -39,7 +40,7 @@ public class Marche {
     public Marche(String region, double taxe) {
         this.region = region;
         this.taxe = taxe;
-
+        this.livreMarche = new LivreMarche();
         this.menu = new Menu(this);
 
         this.amf = Controleur.getInstance();
@@ -77,8 +78,6 @@ public class Marche {
         product();
         //recherche des trader
         tradersCheck();
-        //retour au menu
-        menu.start();
     }
 
     /**
@@ -114,18 +113,14 @@ public class Marche {
     }
 
     /**
-     * fonction permettant la mise en vente
-     *
+     * vend
      * @param acheteur
-     * @param indexProduit
+     * @param produitFermier
+     * @param price
      */
-    public void sell(Acheteur acheteur, int indexProduit) {
-
-        ProduitFermier produitFermier = acheteur.getStock().get(indexProduit);
+    public void sell(Acheteur acheteur, ProduitFermier produitFermier, double price) {
 
         ProduitFermier sellProduct = new ProduitFermier(produitFermier);
-
-        int price = menu.menuSellerProduct(produitFermier);
 
         sellProduct.setPrix(price);
         sellProduct.setAmount(produitFermier.getAmount());
@@ -134,7 +129,6 @@ public class Marche {
 
         waitingValidationProduct.add(sellProduct);
 
-        menu.start();
     }
 
     /**
@@ -184,8 +178,6 @@ public class Marche {
             }
         }
         else throw new NotEnoughMoneyException();
-
-        menu.start();
     }
 
     /**
@@ -242,7 +234,7 @@ public class Marche {
      * valider un produit en attente
      *
      */
-    private void validateWaitingProduct() {
+    public void validateWaitingProduct() {
         List<ProduitFermier> waitingListCopy = new ArrayList<>();
         waitingListCopy.addAll(waitingValidationProduct);
 
@@ -360,4 +352,6 @@ public class Marche {
     public String getRegion() {
         return region;
     }
+
+
 }

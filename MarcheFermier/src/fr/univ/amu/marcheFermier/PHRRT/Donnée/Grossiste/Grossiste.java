@@ -46,7 +46,9 @@ public class Grossiste extends Acheteur {
     public void sellMyProduct(Marche market, ProduitFermier product, double price, int cap) {
 
         try {
+
             if (sellProducts.contains(product)) {
+
                 if (product.getAmount() < cap) throw new NotEnoughCapacityException(product,cap); // Exception sur la quantité
                 if (price==0) throw new NullPriceException();
                 else {
@@ -62,9 +64,14 @@ public class Grossiste extends Acheteur {
                     market.addSale(transaction);
                     // AJOUTER AUSSI ICI L'AJOUT A LHISTORIQUE DU MARCHE
                     market.getLivreMarche().addTransaction(transaction);
+                    market.getProductSell().add(pe);
+                    System.out.println("Produt ajouté au marché");
+
+
 
 
                     System.out.println( this.getPseudo() + " a mit en vente "+ pe.getAmount() + ' ' + pe.getName() + " pour " + pe.getPrix() + " € " + "en " + market.getRegion());
+
                 }
             }
             else throw new NotFoundException();
@@ -73,6 +80,7 @@ public class Grossiste extends Acheteur {
         catch (NotEnoughCapacityException e) {e.getMessage();}
         catch (NotFoundException e) {e.getMessage();}
         catch (NullPriceException e) {e.getMessage();}
+
     }
 
 

@@ -62,6 +62,7 @@ public class Menu {
                 break;
             case "3":
                 menuIteration();
+                start();
                 break;
             case "4":
                 menuBuyers();
@@ -164,7 +165,13 @@ public class Menu {
 
             int produit = Integer.parseInt(entry1);
 
-            marche.sell(acheteur,produit);
+            //marche.sell(acheteur,produit);
+            ProduitFermier produitFermier = acheteur.getStock().get(produit);
+
+            int price = menuSellerProduct(produitFermier);
+
+            marche.sell(acheteur,produitFermier,price);
+            start();
         }
         else menuSeller();
     }
@@ -212,6 +219,7 @@ public class Menu {
 
             try {
                 marche.buy(acheteur,produit,amount);
+                start();
             } catch (NotEnoughMoneyException e) {
                 e.printStackTrace();
             }

@@ -41,7 +41,9 @@ public class Trader {
      *          verifie que le client a l'argent nécessaire pour acheter le produit.
      */
     public void checkMarket() throws NotEnoughMoneyException {
-        for (ProduitFermier produitFermier : marche.getProductSell()) {
+        List<ProduitFermier> productSellCopy = new ArrayList<>();
+        productSellCopy.addAll(marche.getProductSell());
+        for (ProduitFermier produitFermier : productSellCopy) {
             for (OrdreTrader ordreTrader : ordres) {
                 if (produitFermier.getName().equalsIgnoreCase(ordreTrader.getProductName())) {
                     double unitPrice = produitFermier.getPrix()/produitFermier.getAmount();

@@ -1,6 +1,7 @@
 package Test;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Apiculteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Miel;
@@ -16,10 +17,25 @@ class AcheteurTest {
 
     @Test
     void retirerArgent() {
+        Acheteur acheteur = new Acheteur(200,"loris");
+        try {
+            acheteur.retirerArgent(100.00);
+        } catch (NotEnoughMoneyException e) {
+            e.printStackTrace();
+            fail();
+        }
+        if (acheteur.getMoney() != 100.00) {
+            fail();
+        }
     }
 
     @Test
     void ajouterArgent() {
+        Acheteur acheteur = new Acheteur(200,"loris");
+        acheteur.addArgent(200);
+        if (acheteur.getMoney() != 400) {
+            fail();
+        }
     }
 
     @Test
