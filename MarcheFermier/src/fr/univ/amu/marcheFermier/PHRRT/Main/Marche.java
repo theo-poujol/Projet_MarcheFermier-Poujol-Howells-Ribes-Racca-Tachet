@@ -1,11 +1,9 @@
 package fr.univ.amu.marcheFermier.PHRRT.Main;
 
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.*;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Traitement.Controleur;
 
-import javax.naming.ldap.Control;
 import java.util.ArrayList;
 import java.util.List;
 

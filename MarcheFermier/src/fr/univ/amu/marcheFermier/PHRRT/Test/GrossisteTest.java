@@ -1,15 +1,11 @@
 package fr.univ.amu.marcheFermier.PHRRT.Test;
 
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Reblochon;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,7 +1,6 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée;
 
 
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
 
 import java.util.ArrayList;

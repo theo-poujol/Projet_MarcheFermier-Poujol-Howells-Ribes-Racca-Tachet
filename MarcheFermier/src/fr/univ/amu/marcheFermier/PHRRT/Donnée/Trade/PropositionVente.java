@@ -1,9 +1,6 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur.Producteur;
-import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
