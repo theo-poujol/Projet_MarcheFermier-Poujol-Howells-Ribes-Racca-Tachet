@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fd2be0c-cf79-4e63-bf16-108d6137ca08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Utils/UtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/Projet_MarcheFermier-Poujol-Howells-Ribes-Racca-Tachet.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Acheteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Acheteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/Producteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/Producteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Trader.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Trader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Exception/NotEnoughCapacityException.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Exception/NotEnoughCapacityException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Exception/NotEnoughMoneyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Exception/NotEnoughMoneyException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Exception/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Exception/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/Test/LivreMarcheTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/Test/LivreMarcheTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/LivreMarche.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/LivreMarche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/Marche.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/Marche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/MarcheFermier.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/MarcheFermier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Traitement/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Traitement/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Utils/Random.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/gsdgf.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/marche/affichage/Terminal/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/marche/affichage/Terminal/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projet_MarcheFermier-Poujol-Howells-Ribes-Racca-Tachet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projet_MarcheFermier-Poujol-Howells-Ribes-Racca-Tachet.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,22 +22,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="40" />
+          <entry key="java" value="67" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="40" />
+          <entry key="JAVA" value="67" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="175" />
+          <entry key="java" value="719" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="175" />
+          <entry key="JAVA" value="719" />
         </counts>
       </usages-collector>
     </session>
@@ -62,40 +45,69 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Grossiste/Grossiste.java">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/LivreMarcheTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1724">
-              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="225">
+              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/LivreMarche.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#328#329#0" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#550#551#0" expanded="true" />
+                <element signature="e#664#665#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/CentraleAchat/CentraleAchat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/ProducteurLaitier.java">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/Producteur.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Utils/Utils.java">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/Marche.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="-901">
+              <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1023#1024#0" expanded="true" />
+                <element signature="e#1057#1058#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/MarcheTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/MarcheFermier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-15">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -103,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/marche/affichage/Terminal/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5823">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="-5895">
+              <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
               <folding>
                 <element signature="e#735#736#0" expanded="true" />
                 <element signature="e#771#772#0" expanded="true" />
@@ -120,65 +132,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/GrossisteTest.java">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/ControleurTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" column="53" lean-forward="true" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
+            <state relative-caret-position="240">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Transaction.java">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/UtilsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
-              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2290#2291#0" expanded="true" />
-                <element signature="e#2334#2335#0" expanded="true" />
-                <element signature="e#2401#2402#0" expanded="true" />
-                <element signature="e#2428#2429#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Traitement/Controleur.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="31" selection-start-line="31" selection-end-line="46" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/MarcheFermier.java">
+        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/ProduitFermierTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/LivreMarche.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#285#286#0" expanded="true" />
-                <element signature="e#328#329#0" expanded="true" />
-                <element signature="e#512#513#0" expanded="true" />
-                <element signature="e#550#551#0" expanded="true" />
-                <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#707#708#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -190,6 +165,7 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -205,13 +181,21 @@
         <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Test/GrossisteTest.java" />
         <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Acheteur.java" />
         <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/DecorateurProducteur.java" />
-        <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/Marche.java" />
         <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/PropositionVente.java" />
         <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Grossiste/Grossiste.java" />
         <option value="$PROJECT_DIR$/MarcheFermier/src/Test/GrossisteTest.java" />
-        <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/LivreMarche.java" />
         <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Transaction.java" />
         <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Traitement/Controleur.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/ProducteurTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/ProduitFermierTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/TraderTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/AcheteurTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/MarcheTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/ControleurTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/UtilsTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/Marche.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/Test/LivreMarcheTest.java" />
+        <option value="$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/LivreMarche.java" />
       </list>
     </option>
   </component>
@@ -380,7 +364,10 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547052706509" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547055199331" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -389,6 +376,12 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Test" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="fr.univ.amu.marcheFermier.PHRRT.Donnée.Producteur" />
     </key>
@@ -405,7 +398,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MarcheFermier">
+  <component name="RunManager" selected="JUnit.LivreMarcheTest">
     <configuration name="MarcheFermier" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.univ.amu.marcheFermier.PHRRT.Main.MarcheFermier" />
       <module name="Projet_MarcheFermier-Poujol-Howells-Ribes-Racca-Tachet" />
@@ -433,12 +426,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LivreMarcheTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projet_MarcheFermier-Poujol-Howells-Ribes-Racca-Tachet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.LivreMarcheTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LivreMarcheTest.addTransaction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projet_MarcheFermier-Poujol-Howells-Ribes-Racca-Tachet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.LivreMarcheTest" />
+      <option name="METHOD_NAME" value="addTransaction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.MarcheFermier" />
       <item itemvalue="JUnit.GrossisteTest" />
+      <item itemvalue="JUnit.LivreMarcheTest" />
+      <item itemvalue="JUnit.LivreMarcheTest.addTransaction" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LivreMarcheTest" />
+        <item itemvalue="JUnit.LivreMarcheTest.addTransaction" />
         <item itemvalue="Application.MarcheFermier" />
         <item itemvalue="JUnit.GrossisteTest" />
       </list>
@@ -455,7 +482,7 @@
       <option name="presentableId" value="Default" />
       <updated>1547048829197</updated>
       <workItem from="1547048830290" duration="292000" />
-      <workItem from="1547049124666" duration="3959000" />
+      <workItem from="1547049124666" duration="6074000" />
     </task>
     <servers />
   </component>
@@ -463,15 +490,39 @@
     <history-entry file="GrossisteTest - 2019.01.09 at 17h 39m 41s.xml">
       <configuration name="GrossisteTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LivreMarcheTest - 2019.01.09 at 18h 22m 06s.xml">
+      <configuration name="LivreMarcheTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LivreMarcheTest_addTransaction - 2019.01.09 at 18h 22m 42s.xml">
+      <configuration name="LivreMarcheTest.addTransaction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LivreMarcheTest - 2019.01.09 at 18h 23m 06s.xml">
+      <configuration name="LivreMarcheTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LivreMarcheTest - 2019.01.09 at 18h 29m 57s.xml">
+      <configuration name="LivreMarcheTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LivreMarcheTest_addTransaction - 2019.01.09 at 18h 30m 04s.xml">
+      <configuration name="LivreMarcheTest.addTransaction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LivreMarcheTest - 2019.01.09 at 18h 31m 20s.xml">
+      <configuration name="LivreMarcheTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LivreMarcheTest - 2019.01.09 at 18h 31m 41s.xml">
+      <configuration name="LivreMarcheTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LivreMarcheTest - 2019.01.09 at 18h 32m 38s.xml">
+      <configuration name="LivreMarcheTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4251000" />
+    <option name="totallyTimeSpent" value="6366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="26" width="1690" height="1005" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -481,13 +532,13 @@
       <window_info anchor="bottom" id="Messages" weight="0.3295325" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295325" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3295325" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3295325" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32839224" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32839224" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -584,27 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Trader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-331">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Ordre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/OrdreTrader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Exception/NotEnoughCapacityException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -619,46 +649,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/Apiculteur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Acheteur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-511">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/Marche.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
-            <element signature="e#1258#1276#0" expanded="true" />
-            <element signature="e#7768#7769#0" expanded="true" />
-            <element signature="e#7818#7819#0" expanded="true" />
-            <element signature="e#7984#7985#0" expanded="true" />
-            <element signature="e#8037#8038#0" expanded="true" />
-            <element signature="e#8138#8139#0" expanded="true" />
-            <element signature="e#8167#8168#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -669,13 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/MarcheFermier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Grossiste/Grossiste.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1724">
@@ -683,13 +670,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/CentraleAchat/CentraleAchat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -707,10 +687,109 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/PropositionVente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-165">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/CentraleAchat/CentraleAchat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/Apiculteur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/ProducteurTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Produit/ProduitFermier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Trader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/TraderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Ordre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/OrdreTrader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Acheteur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/AcheteurTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Traitement/Controleur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/ControleurTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/marche/affichage/Terminal/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5823">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="-5895">
+          <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
           <folding>
             <element signature="e#735#736#0" expanded="true" />
             <element signature="e#771#772#0" expanded="true" />
@@ -724,10 +803,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/UtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/ProduitFermierTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/MarcheTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1216">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2290#2291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/MarcheFermier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/Marche.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+            <element signature="e#1057#1058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Producteur/Producteur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/Test/LivreMarcheTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Main/LivreMarche.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="82">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#285#286#0" expanded="true" />
@@ -736,37 +881,6 @@
             <element signature="e#550#551#0" expanded="true" />
             <element signature="e#664#665#0" expanded="true" />
             <element signature="e#707#708#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/PropositionVente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Donnée/Trade/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
-          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2290#2291#0" expanded="true" />
-            <element signature="e#2334#2335#0" expanded="true" />
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2428#2429#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarcheFermier/src/fr/univ/amu/marcheFermier/PHRRT/Traitement/Controleur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="31" selection-start-line="31" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
