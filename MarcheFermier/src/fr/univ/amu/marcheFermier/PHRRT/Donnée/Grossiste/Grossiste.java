@@ -56,14 +56,14 @@ public class Grossiste extends Acheteur {
                     ProduitEncheres pe = new ProduitEncheres(product,cap);
                     // prix à l'unité multiplié par la quantité
                     pe.setPrix(price * cap);
-                    Transaction transaction = new Transaction(this,pe,pe.getAmount());
+                    //Transaction transaction = new Transaction(this,pe);
 
                     product.setAmount(product.getAmount() - cap);
                     if (product.getAmount() == 0) this.removeFromList(product);
                     // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des transaction du march
-                    market.addSale(transaction);
+                    //market.addSale(transaction);
                     // AJOUTER AUSSI ICI L'AJOUT A LHISTORIQUE DU MARCHE
-                    market.getLivreMarche().addTransaction(transaction);
+                    //market.getLivreMarche().addTransaction(transaction);
                     market.getProductSell().add(pe);
                     System.out.println("Produt ajouté au marché");
 
@@ -104,37 +104,37 @@ public class Grossiste extends Acheteur {
         try {
             for (Transaction pv : market.getLesPropositionsVentes()) {
 
-                if (pv.getMonProduit().getName() == s && pv.getMonProduit().getProprietaire().equals(proprietaire)) {
+                if (pv.getProduit().getName() == s && pv.getProduit().getProprietaire().equals(proprietaire)) {
 
-                    if (pv.getMonProduit().getAmount() == cap) {
-                        if (this.getMoney() < pv.getMonProduit().getPrix()) throw new NotEnoughMoneyException();
-                        double prix = pv.getMonProduit().getPrix();
-                        this.retirerArgent(pv.getMonProduit().getPrix());
-                        proprietaire.setMoney(proprietaire.getMoney() + pv.getMonProduit().getPrix());
-                        pv.getMonProduit().setProprietaire(this);
-                        this.addToMyList(pv.getMonProduit());
+                    if (pv.getProduit().getAmount() == cap) {
+                        if (this.getMoney() < pv.getProduit().getPrix()) throw new NotEnoughMoneyException();
+                        double prix = pv.getProduit().getPrix();
+                        this.retirerArgent(pv.getProduit().getPrix());
+                        proprietaire.setMoney(proprietaire.getMoney() + pv.getProduit().getPrix());
+                        pv.getProduit().setProprietaire(this);
+                        this.addToMyList(pv.getProduit());
                         market.removeSale(pv);
-                        System.out.println(this.getPseudo() + " a acheté " + pv.getMonProduit().getName() + " au vendeur " +
-                                pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€'
+                        System.out.println(this.getPseudo() + " a acheté " + pv.getProduit().getName() + " au vendeur " +
+                                pv.getProduit().getProprietaire().getPseudo() + " pour " + prix + '€'
                                 + " et supprimé du marché car quantité écoulée");
 
                     }
 
 
-                    if (pv.getMonProduit().getAmount() > cap) {
-                        if (((cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount()) > this.getMoney())
+                    if (pv.getProduit().getAmount() > cap) {
+                        if (((cap * pv.getProduit().getPrix()) / pv.getProduit().getAmount()) > this.getMoney())
                             throw new NotEnoughMoneyException();
                         // Produit en croix pour avoir le nouveau prix, car celui de base
                         // est proportionnel à la quantité
-                        double prix = (cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount();
+                        double prix = (cap * pv.getProduit().getPrix()) / pv.getProduit().getAmount();
                         this.retirerArgent(prix);
-                        pv.getMonProduit().setPrix(((pv.getMonProduit().getAmount() - cap) * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount());
-                        pv.getMonProduit().setAmount(pv.getMonProduit().getAmount() - cap);
-                        ProduitFermier nouveauProduit = new ProduitEncheres(pv.getMonProduit(), cap);
+                        pv.getProduit().setPrix(((pv.getProduit().getAmount() - cap) * pv.getProduit().getPrix()) / pv.getProduit().getAmount());
+                        pv.getProduit().setAmount(pv.getProduit().getAmount() - cap);
+                        ProduitFermier nouveauProduit = new ProduitEncheres(pv.getProduit(), cap);
                         nouveauProduit.setProprietaire(this);
                         this.addToMyList(nouveauProduit);
                         System.out.println(this.getPseudo() + " a acheté " + nouveauProduit.getName() + " au vendeur " +
-                                pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€' );
+                                pv.getProduit().getProprietaire().getPseudo() + " pour " + prix + '€' );
 
                     }
 
