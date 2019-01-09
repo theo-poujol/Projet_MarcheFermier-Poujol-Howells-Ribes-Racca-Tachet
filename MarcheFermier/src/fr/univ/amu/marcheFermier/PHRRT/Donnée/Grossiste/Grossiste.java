@@ -3,9 +3,10 @@ package fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitEncheres;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade.PropositionVente;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughCapacityException;
-import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NotFoundException;
 import fr.univ.amu.marcheFermier.PHRRT.Exception.NullPriceException;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
@@ -49,25 +50,25 @@ public class Grossiste extends Acheteur {
 
         try {
             if (sellProducts.contains(product)) {
-                if (product.getAmount() < cap) throw new NotEnoughCapacityException(); // Exception sur la quantité
-                    if (price==0) throw new NullPriceException();
-                    else {
+                if (product.getAmount() < cap) throw new NotEnoughCapacityException(product,cap); // Exception sur la quantité
+                if (price==0) throw new NullPriceException();
+                else {
 
-                        ProduitEncheres pe = new ProduitEncheres(product,cap);
-                        // prix à l'unité multiplié par la quantité
-                        pe.setPrix(price * cap);
-                        PropositionVente pv = new PropositionVente(this,pe,pe.getAmount());
+                    ProduitEncheres pe = new ProduitEncheres(product,cap);
+                    // prix à l'unité multiplié par la quantité
+                    pe.setPrix(price * cap);
+                    PropositionVente pv = new PropositionVente(this,pe,pe.getAmount());
 
-                        product.setAmount(product.getAmount() - cap);
-                        if (product.getAmount() == 0) this.removeFromList(product);
+                    product.setAmount(product.getAmount() - cap);
+                    if (product.getAmount() == 0) this.removeFromList(product);
 
-                        market.addSale(pv);
-                        // AJOUTER AUSSI ICI L'AJOUT A LHISTORIQUE DU MARCHE
-                        // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
-                        System.out.println( this.getPseudo() + " a mit en vente "+ pe.getAmount() + ' ' + pe.getName() + " pour " + pe.getPrix() + " € " + "en " + market.getRegion());
-                    }
+                    market.addSale(pv);
+                    // AJOUTER AUSSI ICI L'AJOUT A LHISTORIQUE DU MARCHE
+                    // Quand on créée une nouvelle PV on doit l'ajouter automatiquement dans la liste des pv du marche
+                    System.out.println( this.getPseudo() + " a mit en vente "+ pe.getAmount() + ' ' + pe.getName() + " pour " + pe.getPrix() + " € " + "en " + market.getRegion());
                 }
-                else throw new NotFoundException();
+            }
+            else throw new NotFoundException();
 
         }
         catch (NotEnoughCapacityException e) {e.getMessage();}
@@ -101,7 +102,7 @@ public class Grossiste extends Acheteur {
                 if (pv.getMonProduit().getName() == s && pv.getMonProduit().getProprietaire().equals(proprietaire)) {
 
                     if (pv.getMonProduit().getAmount() == cap) {
-                        if (this.getMoney() < pv.getMonProduit().getPrix()) throw new NotEnoughtMoneyException();
+                        if (this.getMoney() < pv.getMonProduit().getPrix()) throw new NotEnoughMoneyException();
                         double prix = pv.getMonProduit().getPrix();
                         this.retirerArgent(pv.getMonProduit().getPrix());
                         proprietaire.setMoney(proprietaire.getMoney() + pv.getMonProduit().getPrix());
@@ -109,15 +110,15 @@ public class Grossiste extends Acheteur {
                         this.addToMyList(pv.getMonProduit());
                         market.removeSale(pv);
                         System.out.println(this.getPseudo() + " a acheté " + pv.getMonProduit().getName() + " au vendeur " +
-                        pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€'
-                        + " et supprimé du marché car quantité écoulée");
+                                pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€'
+                                + " et supprimé du marché car quantité écoulée");
 
                     }
 
 
                     if (pv.getMonProduit().getAmount() > cap) {
                         if (((cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount()) > this.getMoney())
-                            throw new NotEnoughtMoneyException();
+                            throw new NotEnoughMoneyException();
                         // Produit en croix pour avoir le nouveau prix, car celui de base
                         // est proportionnel à la quantité
                         double prix = (cap * pv.getMonProduit().getPrix()) / pv.getMonProduit().getAmount();
@@ -128,7 +129,7 @@ public class Grossiste extends Acheteur {
                         nouveauProduit.setProprietaire(this);
                         this.addToMyList(nouveauProduit);
                         System.out.println(this.getPseudo() + " a acheté " + nouveauProduit.getName() + " au vendeur " +
-                        pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€' );
+                                pv.getMonProduit().getProprietaire().getPseudo() + " pour " + prix + '€' );
 
                     }
 
@@ -137,7 +138,7 @@ public class Grossiste extends Acheteur {
             }
         }
 
-        catch(NotEnoughtMoneyException e) {e.getMessage();}
+        catch(NotEnoughMoneyException e) {e.getMessage();}
     }
 
 
@@ -168,8 +169,8 @@ public class Grossiste extends Acheteur {
         System.out.println("---------------------");
         System.out.println(
                 "Nom    : " + this.getPseudo() + '\n'  +
-                "Argent : " + this.getMoney()  + " €"  + '\n'  +
-                "Stock  : ");
+                        "Argent : " + this.getMoney()  + " €"  + '\n'  +
+                        "Stock  : ");
 
         for(ProduitFermier p : sellProducts) {
             System.out.println(p.getName() + " " + p.getAmount());

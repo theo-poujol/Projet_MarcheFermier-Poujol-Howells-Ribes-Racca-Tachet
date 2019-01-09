@@ -1,6 +1,8 @@
 package fr.univ.amu.marcheFermier.PHRRT.Test;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Grossiste.Grossiste;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.Reblochon;
 import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +16,7 @@ class GrossisteTest {
     Grossiste acheteur = new Grossiste(1000,"Axel");
     Grossiste vendeur  = new Grossiste(2000,"Samos");
     ProduitFermier produit1 = new Reblochon(LocalDate.now(),200,vendeur);
-    Marche marche = new Marche("Savoie");
+    Marche marche = new Marche("Savoie",10);
 
     ProduitFermier produit2;
     ProduitFermier produit3;

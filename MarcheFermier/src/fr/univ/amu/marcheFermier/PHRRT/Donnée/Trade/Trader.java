@@ -1,58 +1,75 @@
 package fr.univ.amu.marcheFermier.PHRRT.Donnée.Trade;
 
 import fr.univ.amu.marcheFermier.PHRRT.Donnée.Acheteur;
-import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughtMoneyException;
+import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
+import fr.univ.amu.marcheFermier.PHRRT.Exception.NotEnoughMoneyException;
+import fr.univ.amu.marcheFermier.PHRRT.Main.Marche;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Trader {
-    //Un trader aura plusieurs traders avec un budget pour chacun
-    private HashMap<Acheteur,Double> ListeDeMesClients = new HashMap<>();
-    private String nom;
-    private Double argentTrader = 0.0;
+    private String name;
+    private List<Acheteur> clients = new ArrayList<>();
+    private List<OrdreTrader> ordres = new ArrayList<>();
+    private Marche marche;
 
-    public Trader(String nom) {
-        this.nom = nom;
+    /**
+     * Constructeur Trader.
+     *
+     * @param marche
+     */
+    public Trader(Marche marche, String name) {
+        this.name = name;
+        this.marche = marche;
     }
 
-    public Double getArgentTrader() {
-        return argentTrader;
+    /**
+     * Permet d'ajouter des commandes au trader.
+     *
+     * @param ordreTrader
+     */
+    public void addOrder(OrdreTrader ordreTrader) {
+        ordres.add(ordreTrader);
     }
 
-
-    public void nouveauClient(Acheteur acheteur, Double budget){
-        try {
-            acheteur.retirerArgent(budget);
-            ListeDeMesClients.put(acheteur,budget*0.9); //l'acheteur est ajouté aux clients du trader
-            argentTrader += (budget-(budget*0.9)); //le solde personnel du trader est crédité de la commission de 10 pourcents
-            System.out.println("Il vous reste " + acheteur.getMoney() +" € sur votre compte");
-            System.out.println(" Le trader "+ this.nom + " est heureux de vous coompter parmis ses clients désormais");
-            System.out.println("Une taxe de 10% à été prélevée pour les honoraires du trader sois " + argentTrader + "€" );
-        } catch (NotEnoughtMoneyException e) {
-            e.printStackTrace();
+    /**
+     * Achete le produit au prix demandé.
+     *
+     * @throws NotEnoughMoneyException
+     *          verifie que le client a l'argent nécessaire pour acheter le produit.
+     */
+    public void checkMarket() throws NotEnoughMoneyException {
+        for (ProduitFermier produitFermier : marche.getProductSell()) {
+            for (OrdreTrader ordreTrader : ordres) {
+                if (produitFermier.getName().equalsIgnoreCase(ordreTrader.getProductName())) {
+                    double unitPrice = produitFermier.getPrix()/produitFermier.getAmount();
+                    if (unitPrice <= ordreTrader.getMaximumUnitPrice()) {
+                        marche.buy(ordreTrader.getOrderer(),marche.getProductSell().indexOf(produitFermier),ordreTrader.getAmount());
+                    }
+                }
+            }
         }
     }
-/*
-renvoi une liste de client dans la console
-avec indication du budget dont il dispose
-*/
-    public void mesClients(){
-        ListeDeMesClients.forEach((acheteur, budget) ->{
-            System.out.println(acheteur.getPseudo() + " avec un budget de " + budget + "€");
-        } );
+
+    public void addClient(Acheteur acheteur) {
+        clients.add(acheteur);
     }
 
-    /*
-    soit prends un client en parametre et est a l'affut
-    pour un seul a la fois
-    sois est à l'affut pour le client a la position 1 de la liste
-    et après avoir vérifier le budget et acheté qqch mets ce client a la fin
-    de la liste et décale tous les autres a gauche
-    */
-    public void etreALaffut(){
-
+    public String getName() {
+        return name;
     }
 
+    public int getClientNumber() {
+        return clients.size();
+    }
 
+    public List<Acheteur> getClients() {
+        return clients;
+    }
+
+    public List<OrdreTrader> getOrdres() {
+        return ordres;
+    }
 }
