@@ -42,9 +42,11 @@ class GrossisteTest {
 
     @Test
     void testBuyProduct() {
+        vendeur.addToMyList(produit1);
+        vendeur.sellMyProduct(marche,produit1,10,9);
         acheteur.buyProduct(marche,produit1.getName(),5,produit1.getProprietaire());
-        System.out.printf(produit1.getName());
-        acheteur.showMyInformation();
+        if (!(acheteur.getSellProducts().contains(produit1))) fail("Produit non acheté");
+
         }
 
 
