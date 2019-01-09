@@ -61,7 +61,7 @@ class TraderTest {
         }
 
         if (acheteur.getStock().isEmpty() ){
-            fail();
+            fail("erreur de transfert");
         }
     }
 
@@ -72,7 +72,7 @@ class TraderTest {
         Acheteur acheteur = new Acheteur(1500,"acheteur");
         traderTest.addClient(acheteur);
         if (traderTest.getClients().isEmpty()){
-            fail();
+            fail("erreur d'ajout de client");
         }
     }
 }

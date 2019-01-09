@@ -32,7 +32,7 @@ class ControleurTest {
         controleur.valider(produitFermier);
 
         if (!produitFermier.isValide()) {
-            fail();
+            fail("le produit n'est pas valide");
         }
     }
 }

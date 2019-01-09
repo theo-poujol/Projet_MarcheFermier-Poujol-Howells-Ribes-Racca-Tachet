@@ -20,7 +20,7 @@ class ProduitFermierTest {
         produitFermier.addLabel(label);
 
         if (produitFermier.getLabels().size() <= 0) {
-            fail();
+            fail("erreur d'ajout de label");
         }
     }
 
@@ -31,7 +31,7 @@ class ProduitFermierTest {
         produitFermier.setBio(true);
 
         if (!produitFermier.isBio()) {
-            fail();
+            fail("erreur sur le bio");
         }
     }
 
@@ -42,7 +42,7 @@ class ProduitFermierTest {
         produitFermier.valider();
 
         if (!produitFermier.isValide()) {
-            fail();
+            fail("erreur de validité");
         }
     }
 
@@ -53,7 +53,7 @@ class ProduitFermierTest {
         produitFermier.valider();
 
         if (!produitFermier.isValide()) {
-            fail();
+            fail("erreur de validité");
         }
     }
 }

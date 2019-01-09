@@ -22,10 +22,10 @@ class AcheteurTest {
             acheteur.retirerArgent(100.00);
         } catch (NotEnoughMoneyException e) {
             e.printStackTrace();
-            fail();
+            fail("Pas assez d'argent");
         }
         if (acheteur.getMoney() != 100.00) {
-            fail();
+            fail("erreur de gestion d'argent");
         }
     }
 
@@ -34,7 +34,7 @@ class AcheteurTest {
         Acheteur acheteur = new Acheteur(200,"loris");
         acheteur.addArgent(200);
         if (acheteur.getMoney() != 400) {
-            fail();
+            fail("erreur de gestion d'argent");
         }
     }
 
@@ -51,7 +51,7 @@ class AcheteurTest {
         }
         catch (NotEnoughCapacityException e ) {
             e.printStackTrace();
-            fail();
+            fail("pas assez de place");
         }
 
 

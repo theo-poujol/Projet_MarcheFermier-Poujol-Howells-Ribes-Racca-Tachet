@@ -18,7 +18,7 @@ class ProducteurTest {
         Producteur producteur = new ProducteurDeViande(new ProducteurLaitier(new Producteur(200,"loris")));
         producteur.produire();
         if (producteur.getStock().size() <= 0) {
-            fail();
+            fail("erreur de la taille du stock");
         }
     }
 
@@ -29,10 +29,10 @@ class ProducteurTest {
             producteur.addProduit(new ProduitFermier(LocalDate.now(),"ok",10,producteur));
         } catch (NotEnoughCapacityException e) {
             e.printStackTrace();
-            fail();
+            fail("Erreur de capacité");
         }
         if (producteur.getStock().size() <= 0) {
-            fail();
+            fail("erreur de la taille du stock");
         }
     }
 }
