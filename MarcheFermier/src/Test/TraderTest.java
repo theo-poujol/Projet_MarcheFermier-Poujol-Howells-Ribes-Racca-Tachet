@@ -67,7 +67,12 @@ class TraderTest {
 
     @Test
     void addClient() {
-        if (0 == 0){
-    fail();}
+        Marche marcheTest = new Marche("france",10);
+        Trader traderTest = new Trader(marcheTest,"marcheTest");
+        Acheteur acheteur = new Acheteur(1500,"acheteur");
+        traderTest.addClient(acheteur);
+        if (traderTest.getClients().isEmpty()){
+            fail();
+        }
     }
 }
