@@ -17,10 +17,9 @@ public class Grossiste extends Acheteur {
 
 
 
-    public ArrayList<ProduitFermier> getSellProducts() {
-        return sellProducts;
-    }
 
+
+    // Stock de produit
     private ArrayList<ProduitFermier> sellProducts = new ArrayList<>();
 
 
@@ -30,12 +29,19 @@ public class Grossiste extends Acheteur {
     }
 
 
+    /**
+     * Solution pour palier au problème de quantité, lorsque l'on veut vendre seulement une partie d'un stock de quantité
+     * On crée donc un nouveau ProduitEncheres qui est un ProduitFermier. On a donc deux produits différents car ils different de leur quantité et de leur prix
+     * On a donc le ProduitFermier au quel on a enlevé la quantité mise en vente voulue
+     * Et le ProduitEnchere qui est aux enchères avec la quantité voulue.
+     * price est le prix à l'UNITE
+     *
+     * @param market  : marché selectionné
+     * @param product : produit vendu
+     * @param price   : prix à l'unité
+     * @param cap     : quantité du produit
+     */
 
-    // Solution pour palier au problème de grosse quantité, lorsque l'on veut vendre seulement une partie d'un gros stock de quantité
-    // On crée donc un nouveau ProduitEncheres qui est un ProduitFermier. On a donc deux produits différents car ils different de leur quantité
-    // On a donc le ProduitFermier au quel on a enlevé la quantité mise en vente voulue
-    // Et le ProduitEnchere qui est aux enchères avec la quantité voulue.
-    // price est le prix à l'UNITE
 
     public void sellMyProduct(Marche market, ProduitFermier product, double price, int cap) {
 
@@ -68,15 +74,27 @@ public class Grossiste extends Acheteur {
     }
 
 
+    /**
+     * Permet d'acheter une certaine quantité d'un produit (Par exemple le producteur Bernard vend 10 Reblochon,
+     * vous voulez seulement en acheter 5)
+     * Prix proportionnel à la quantité donc, recalcul automatique du prix en fonction de la quantité restante
+     * Calcul du prix d'achat aussi automatique
+     *
+     *
+     * @param market        : marché selectionné
+     * @param s             : nom du produit recherché
+     * @param cap           : quantité voulu
+     * @param proprietaire  : propriétaire du produit
+     */
 
 
+    // Mettre la fonction en abstract dans Acheteur pour que tous les héritages puissent en profiter.
     public void buyProduct (Marche market,String s, int cap, Acheteur proprietaire){
 
         try {
             for (PropositionVente pv : market.getLesPropositionsVentes()) {
 
                 if (pv.getMonProduit().getName() == s && pv.getMonProduit().getProprietaire().equals(proprietaire)) {
-                    System.out.println("OUIENFIN");
 
                     if (pv.getMonProduit().getAmount() == cap) {
                         if (this.getMoney() < pv.getMonProduit().getPrix()) throw new NotEnoughtMoneyException();
@@ -119,23 +137,29 @@ public class Grossiste extends Acheteur {
     }
 
 
-
-
-
-
-
-
-
-
+    /**
+     * Ajout d'un produit au stock
+     *
+     * @param p : produit a ajouté
+     */
 
     public void addToMyList(ProduitFermier p) {
         sellProducts.add(p);
     }
 
+    /**
+     * Suppression d'un produit du stock
+     *
+     * @param p : produit a supprimé
+     */
+
     public void removeFromList(ProduitFermier p){
         sellProducts.remove(p);
     }
 
+    /**
+     * Affichage des informations d'un grossiste : Nom, Argent et Stock
+     */
     public void showMyInformation() {
         System.out.println("---------------------");
         System.out.println(
@@ -149,6 +173,21 @@ public class Grossiste extends Acheteur {
         System.out.println("---------------------");
     }
 
+    /**
+     * Renvoie le stock de produit d'un grossiste
+     *
+     * @return Stock du grossiste
+     */
+
+    public ArrayList<ProduitFermier> getSellProducts() {
+        return sellProducts;
+    }
+
+    /**
+     * Initialiser le stock a une nouvelle liste de produit
+     *
+     * @param sellProducts : stock du grossiste
+     */
 
     public void setSellProducts(ArrayList<ProduitFermier> sellProducts) {
         this.sellProducts = sellProducts;

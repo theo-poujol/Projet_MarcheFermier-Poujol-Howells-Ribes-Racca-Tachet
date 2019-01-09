@@ -8,18 +8,30 @@ import fr.univ.amu.marcheFermier.PHRRT.Donnée.Produit.ProduitFermier;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PropositionVente { //Une Proposition de vente terminée devient une Transaction, qui sera elle-même insérée dans le Livre de Marché
+public class PropositionVente {
+    /**
+     * Une Proposition de vente terminée devient une Transaction, qui sera elle-même insérée dans le Livre de Marché
+     */
+
+
     private Acheteur monVendeur; //Qui vend
     private ProduitFermier monProduit; // Ce qu'il vend
-    private int prix;
-    private int quantite;
+    private int prix; // Prix du produit dans la proposition de vente
+    private int quantite;  //Quantité du produit dans la proposition de vente
     private ArrayList<Acheteur> mesAcheteurs; //Acheteurs potentiels
     private HashMap<String, Acheteur> mesAcheteursVendeurs; //Acheteurs et vendeurs sur le marché
     private boolean isValid; //True si l'AMF valide l'annonce, celle ci devient visible
-    public void afficher(){ // à implémenter
+    public void afficher(){
         System.out.println("Ceci est une proposition de vente");
     }
 
+
+    /**
+     *
+     * @param monVendeur  : Celui qui vend le produit
+     * @param monProduit  : Produit vendu
+     * @param quantite    : Quantité du produit
+     */
     public PropositionVente(Acheteur monVendeur, ProduitFermier monProduit, int quantite) {
         this.monVendeur = monVendeur;
         this.monProduit = monProduit;
@@ -29,45 +41,17 @@ public class PropositionVente { //Une Proposition de vente terminée devient une
         //this.prix = monProduit.setPrix();
     }
 
-    public Acheteur getMonVendeur() {
-        return monVendeur;
-    }
 
-    public void setMonVendeur(Producteur monVendeur) {
-        this.monVendeur = monVendeur;
-    }
+    /**
+     * Renvoie le produit de la proposition de vente
+     *
+     * @return monProduit
+     */
 
     public ProduitFermier getMonProduit() {
         return monProduit;
     }
 
-    public void setMonProduit(ProduitFermier monProduit) {
-        this.monProduit = monProduit;
-    }
-
-    public int getPrix() {
-        return prix;
-    }
-
-    public void setPrix(int prix) {
-        this.prix = prix;
-    }
-
-    public ArrayList<Acheteur> getMesAcheteurs() {
-        return mesAcheteurs;
-    }
-
-    public void setMesAcheteurs(ArrayList<Acheteur> mesAcheteurs) {
-        this.mesAcheteurs = mesAcheteurs;
-    }
-
-    public boolean isValid() {
-        return isValid;
-    }
-
-    public void setValid(boolean valid) {
-        isValid = valid;
-    }
 
 
 }
