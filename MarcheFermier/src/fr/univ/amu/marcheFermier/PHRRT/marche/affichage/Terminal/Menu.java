@@ -78,6 +78,8 @@ public class Menu {
             case "7":
                 menuSellHistory();
                 break;
+            case "x":
+                break;
             default:
                 mainMenu();
                 break;
@@ -118,6 +120,7 @@ public class Menu {
         System.out.println("5) trader");
         System.out.println("6) ordres");
         System.out.println("7) Historique des ventes");
+        System.out.println("x) Quitter");
     }
 
 
@@ -172,12 +175,19 @@ public class Menu {
             int produit = Integer.parseInt(entry1);
 
             //marche.sell(acheteur,produit);
-            ProduitFermier produitFermier = acheteur.getStock().get(produit);
+            if (produit < acheteur.getStock().size()) {
+                ProduitFermier produitFermier = acheteur.getStock().get(produit);
 
-            int price = menuSellerProduct(produitFermier);
+                int price = menuSellerProduct(produitFermier);
+                System.out.println("Quel montant de produit voulez-vous vendre ?");
+                int amount = Integer.parseInt(getKeyboardEntry());
 
-            marche.sell(acheteur,produitFermier,price);
-            start();
+                marche.sell(acheteur,produitFermier,price,amount);
+                start();
+            }
+            else {
+                errorMenu("Vous n'avez pas autant de produit");
+            }
         }
         else menuSeller();
     }
@@ -482,12 +492,12 @@ public class Menu {
         LivreMarche livreMarche = marche.getLivreMarche();
 
         for (Transaction transaction : livreMarche.getTransactions()) {
-            System.out.println("-" + transaction.getDate());
-            System.out.println("#Produit : " + transaction.getProduit());
+            System.out.println("//" + transaction.getDate());
+            System.out.println("#Produit : " + transaction.getProduit().getName());
             System.out.println("#Quantité : " + transaction.getQuantite());
             System.out.println("#Prix : " + transaction.getPrix());
-            System.out.println("#Acheteur : " + transaction.getAcheteur());
-            System.out.println("#Vendeur : "+ transaction.getVendeur());
+            System.out.println("#Acheteur : " + transaction.getAcheteur().getPseudo());
+            System.out.println("#Vendeur : "+ transaction.getVendeur().getPseudo());
             System.out.println("########################");
         }
         mainMenu();
