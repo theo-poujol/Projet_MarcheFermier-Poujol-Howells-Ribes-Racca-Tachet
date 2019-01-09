@@ -23,7 +23,7 @@ public class Fromager extends Producteur implements DecorateurProducteur {
 
     @Override
     /**
-     * Permet de produire des produits fromagers.
+     * Permet de produire des produits fromages.
      */
     public void produire() {
         producteurADecorer.produire();

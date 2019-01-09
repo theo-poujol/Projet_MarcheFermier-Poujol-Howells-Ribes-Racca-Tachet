@@ -13,10 +13,17 @@ public class Controleur {
 
     private static Controleur instance;
 
+    /**
+     * contructeur prive
+     */
     private Controleur() {
 
     }
 
+    /**
+     * cree une instance de controleur, permet de garder le constructeur en private
+     * @return
+     */
     public static Controleur getInstance() {
         if (instance == null) {
             instance = new Controleur();
@@ -24,6 +31,11 @@ public class Controleur {
         return instance;
     }
 
+    /**
+     * designe un acheteur aleatoirement si plusieurs pretendants
+     * @param propositionVente
+     * @return
+     */
     public Acheteur choisirAcheteur(PropositionVente propositionVente){
         int max = propositionVente.getMesAcheteurs().size()-1;
         int min = 0;
@@ -43,6 +55,11 @@ public class Controleur {
         return null;
     }
 
+    /**
+     * donne toutes les infos sur un produit
+     * @param produitFermier
+     * @param index
+     */
     public void inspecter(ProduitFermier produitFermier, int index) {
         System.out.println(index + ") " + produitFermier.getName());
         if (produitFermier.isBio()) {
@@ -59,6 +76,10 @@ public class Controleur {
         System.out.println("------------------------------");
     }
 
+    /**
+     * valide un produit en passant son parametre a true
+     * @param produitFermier
+     */
     public void valider(ProduitFermier produitFermier) {
         produitFermier.valider();
     }

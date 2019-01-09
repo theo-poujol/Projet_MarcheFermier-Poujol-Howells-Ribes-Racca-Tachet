@@ -9,7 +9,10 @@ import java.io.InputStreamReader;
  */
 public class Utils {
 
-
+    /**
+     *
+     * @return
+     */
     public static String getKeyboardEntry() {
 
         BufferedReader entry = new BufferedReader(new InputStreamReader(System.in));
